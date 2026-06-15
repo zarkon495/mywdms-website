@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features — myWDMS</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .feature-nav {
+            background: white;
+            border-bottom: 1px solid var(--gray-mid);
+            display: flex; justify-content: center; gap: 8px;
+            padding: 0 48px; position: sticky; top: 72px; z-index: 90;
+        }
+        .feature-nav a {
+            font-weight: 700; font-size: 0.9rem; color: var(--text-mid);
+            text-decoration: none; padding: 16px 18px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s; letter-spacing: 0.02em;
+        }
+        .feature-nav a:hover { color: var(--blue-cta); border-bottom-color: var(--blue-cta); }
+        .feature-nav a.active { color: var(--blue-cta); border-bottom-color: var(--blue-cta); }
+
+        .feature-section {
+            display: flex; align-items: center; gap: 80px; padding: 90px 48px;
+        }
+        .feature-section.alt { flex-direction: row-reverse; background: var(--gray); }
+        .feature-content { flex: 1; }
+        .feature-visual { flex: 1; }
+
+        .feature-content h2 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 2.5rem; font-weight: 900;
+            color: var(--text-dark); line-height: 1.1;
+            margin-bottom: 18px; letter-spacing: -0.02em;
+        }
+        .feature-content p {
+            color: var(--text-mid); font-size: 1.05rem;
+            line-height: 1.8; margin-bottom: 28px;
+        }
+
+        .feature-bullets { list-style: none; margin-bottom: 36px; }
+        .feature-bullets li {
+            display: flex; align-items: flex-start; gap: 12px;
+            color: var(--text-mid); font-size: 1rem; line-height: 1.6;
+            margin-bottom: 14px;
+        }
+        .feature-bullets li::before {
+            content: '✓';
+            color: var(--teal); font-weight: 900; font-size: 1rem;
+            flex-shrink: 0; margin-top: 1px;
+        }
+
+        /* MOCK STYLES */
+        .mock-sidebar-layout {
+            display: flex; height: 320px;
+            background: white; border-radius: 12px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            overflow: hidden; border: 1px solid var(--gray-mid);
+        }
+        .mock-sidebar {
+            width: 180px; background: var(--navy); padding: 20px 0; flex-shrink: 0;
+        }
+        .mock-sidebar-item {
+            padding: 10px 20px; font-size: 0.78rem; font-weight: 600;
+            color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 8px;
+            cursor: pointer;
+        }
+        .mock-sidebar-item.active { background: rgba(0,201,177,0.15); color: var(--teal); }
+        .mock-sidebar-item .icon { font-size: 0.85rem; }
+        .mock-main { flex: 1; padding: 20px; overflow: hidden; }
+        .mock-main-title {
+            font-size: 0.8rem; font-weight: 800; color: var(--text-dark);
+            margin-bottom: 14px; letter-spacing: 0.04em; text-transform: uppercase;
+        }
+
+        .permission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+        .permission-cell {
+            background: var(--gray); border-radius: 6px; padding: 8px;
+            text-align: center; font-size: 0.68rem; font-weight: 700; color: var(--text-mid);
+        }
+        .permission-cell.on { background: rgba(0,201,177,0.12); color: #007a6e; }
+        .permission-cell.off { background: rgba(239,68,68,0.08); color: #dc2626; }
+
+        .mock-route-list { display: flex; flex-direction: column; gap: 8px; }
+        .mock-route-item {
+            background: var(--gray); border-radius: 8px; padding: 10px 14px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .mock-route-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+        .mock-route-label { flex: 1; font-size: 0.78rem; font-weight: 600; color: var(--text-dark); }
+        .mock-route-stops { font-size: 0.7rem; color: var(--text-light); }
+        .mock-route-status {
+            font-size: 0.68rem; font-weight: 700; padding: 3px 8px; border-radius: 10px;
+        }
+
+        .mock-payment-row {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 0; border-bottom: 1px solid var(--gray);
+            font-size: 0.8rem;
+        }
+        .mock-payment-row:last-child { border-bottom: none; }
+        .mock-payment-name { font-weight: 700; color: var(--text-dark); }
+        .mock-payment-date { color: var(--text-light); font-size: 0.72rem; }
+        .mock-payment-amount { font-weight: 900; color: var(--text-dark); }
+        .mock-payment-status {
+            font-size: 0.68rem; font-weight: 700; padding: 3px 8px; border-radius: 10px;
+        }
+
+        .mock-log-row {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 8px 0; border-bottom: 1px solid var(--gray); font-size: 0.75rem;
+        }
+        .mock-log-row:last-child { border-bottom: none; }
+        .mock-log-time { color: var(--text-light); flex-shrink: 0; width: 50px; }
+        .mock-log-user { font-weight: 700; color: var(--text-dark); flex-shrink: 0; width: 80px; }
+        .mock-log-action { color: var(--text-mid); flex: 1; }
+        .mock-log-tag {
+            font-size: 0.65rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; flex-shrink: 0;
+        }
+
+        .integrations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        .integration-card {
+            background: white; border: 2px solid var(--gray-mid);
+            border-radius: 10px; padding: 20px 16px; text-align: center;
+            transition: all 0.2s; cursor: pointer;
+        }
+        .integration-card:hover { border-color: var(--teal); }
+        .integration-icon { font-size: 1.8rem; margin-bottom: 8px; }
+        .integration-name { font-size: 0.8rem; font-weight: 700; color: var(--text-dark); }
+        .integration-status { font-size: 0.68rem; color: var(--text-light); margin-top: 4px; }
+
+        .overview-banner {
+            background: var(--navy);
+            padding: 60px 48px;
+            display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+            background-color: rgba(255,255,255,0.08);
+        }
+        .overview-item {
+            background: var(--navy); padding: 32px 24px; text-align: center; cursor: pointer;
+            transition: background 0.2s;
+        }
+        .overview-item:hover { background: rgba(0,201,177,0.1); }
+        .overview-item .ov-icon { font-size: 2rem; margin-bottom: 12px; }
+        .overview-item h3 {
+            font-family: 'Barlow', sans-serif; font-size: 1rem; font-weight: 800;
+            color: white; margin-bottom: 6px;
+        }
+        .overview-item p { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="mywdms.html" class="logo">
+        <div class="logo-icon">♻️</div>
+        my<span>WDMS</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="features.html" class="active">Features <span class="chevron">▾</span></a></li>
+        <li><a href="who-we-serve.html">Who We Serve <span class="chevron">▾</span></a></li>
+        <li><a href="company.html">Company <span class="chevron">▾</span></a></li>
+        <li><a href="success-stories.html">Success Stories</a></li>
+    </ul>
+    <div class="nav-ctas">
+        <button class="btn-signin">SIGN IN</button>
+        <a href="#" class="btn-nav-cta">Get Started</a>
+    </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <span class="eyebrow">Platform Features</span>
+    <h1>Everything You Need to Run Your <span>Waste Operation</span></h1>
+    <p>One modern platform replacing the patchwork of legacy tools, spreadsheets, and paper processes your team still relies on today.</p>
+    <a href="#" class="btn-primary">Book a Demo</a>
+</section>
+
+<!-- FEATURE OVERVIEW BANNER -->
+<div class="overview-banner">
+    <div class="overview-item">
+        <div class="ov-icon">🔐</div>
+        <h3>Access Management</h3>
+        <p>Roles, permissions & multi-location control</p>
+    </div>
+    <div class="overview-item">
+        <div class="ov-icon">🗺️</div>
+        <h3>Route Management</h3>
+        <p>Assign, track & manage service routes</p>
+    </div>
+    <div class="overview-item">
+        <div class="ov-icon">💳</div>
+        <h3>Lockbox & Billing</h3>
+        <p>Payments, invoicing & reconciliation</p>
+    </div>
+    <div class="overview-item">
+        <div class="ov-icon">📊</div>
+        <h3>Logs & Reporting</h3>
+        <p>Audit history & real-time dashboards</p>
+    </div>
+    <div class="overview-item">
+        <div class="ov-icon">⚙️</div>
+        <h3>System Settings</h3>
+        <p>Configuration, integrations & customization</p>
+    </div>
+</div>
+
+<!-- FEATURE NAV -->
+<div class="feature-nav">
+    <a href="#access" class="active">Access Management</a>
+    <a href="#routes">Route Management</a>
+    <a href="#billing">Lockbox & Billing</a>
+    <a href="#reporting">Logs & Reporting</a>
+    <a href="#settings">System Settings</a>
+</div>
+
+<!-- ACCESS MANAGEMENT -->
+<section class="feature-section" id="access">
+    <div class="feature-content">
+        <span class="eyebrow">Access Management</span>
+        <h2>Control Who Sees What — Down to the Smallest Detail</h2>
+        <p>Most legacy waste management software gives everyone access to everything, or nothing at all. myWDMS lets you define exactly what each person on your team can see, edit, and act on.</p>
+        <ul class="feature-bullets">
+            <li>Role-based permissions for Admins, Dispatchers, Drivers, Billing, and custom roles</li>
+            <li>Multi-location support — manage access across multiple facilities or service areas</li>
+            <li>Invite users by email with automatic role assignment</li>
+            <li>Audit trail of every login, permission change, and user action</li>
+            <li>Single sign-on (SSO) ready for enterprise deployments</li>
+        </ul>
+        <a href="#" class="btn-primary">See It in Action</a>
+    </div>
+    <div class="feature-visual">
+        <img src="feature-access.jpg" alt="Waste company office manager reviewing access management dashboard" style="width:100%;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.15);">
+        <div class="mock-sidebar-layout" style="display:none">
+            <div class="mock-sidebar">
+                <div style="padding:14px 20px;font-size:0.7rem;font-weight:800;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">User Roles</div>
+                <div class="mock-sidebar-item active"><span class="icon">👑</span> Admin</div>
+                <div class="mock-sidebar-item"><span class="icon">📡</span> Dispatcher</div>
+                <div class="mock-sidebar-item"><span class="icon">🚛</span> Driver</div>
+                <div class="mock-sidebar-item"><span class="icon">💳</span> Billing</div>
+                <div class="mock-sidebar-item"><span class="icon">📋</span> Read Only</div>
+                <div style="padding:14px 20px;font-size:0.7rem;font-weight:800;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;margin:12px 0 8px">Locations</div>
+                <div class="mock-sidebar-item"><span class="icon">📍</span> All Sites</div>
+                <div class="mock-sidebar-item"><span class="icon">🏢</span> North Depot</div>
+                <div class="mock-sidebar-item"><span class="icon">🏢</span> South Depot</div>
+            </div>
+            <div class="mock-main">
+                <div class="mock-main-title">Admin Permissions</div>
+                <div style="font-size:0.72rem;color:var(--text-light);margin-bottom:12px">Configure access for this role across all modules</div>
+                <div class="permission-grid">
+                    <div class="permission-cell on">✓ Dashboard</div>
+                    <div class="permission-cell on">✓ Routes</div>
+                    <div class="permission-cell on">✓ Users</div>
+                    <div class="permission-cell on">✓ Billing</div>
+                    <div class="permission-cell on">✓ Reports</div>
+                    <div class="permission-cell on">✓ Settings</div>
+                    <div class="permission-cell on">✓ Lockbox</div>
+                    <div class="permission-cell on">✓ Logs</div>
+                    <div class="permission-cell on">✓ Export</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ROUTE MANAGEMENT -->
+<section class="feature-section alt" id="routes">
+    <div class="feature-content">
+        <span class="eyebrow">Route Management</span>
+        <h2>Manage Every Stop, Every Driver, Every Day</h2>
+        <p>Stop relying on paper manifests and phone calls. myWDMS gives dispatchers a live view of every route, and drivers the clarity they need to get the job done efficiently.</p>
+        <ul class="feature-bullets">
+            <li>Create and assign service routes to drivers in seconds</li>
+            <li>Track route progress in real time from any device</li>
+            <li>Manage residential, commercial, and roll-off stops in one place</li>
+            <li>Flag missed pickups, delays, and exceptions automatically</li>
+            <li>Route history and completion logs stored for compliance</li>
+            <li>Built to grow — AI-assisted route optimization coming soon</li>
+        </ul>
+        <a href="#" class="btn-primary">See It in Action</a>
+    </div>
+    <div class="feature-visual">
+        <img src="feature-routes.jpg" alt="Waste collection truck on a residential route" style="width:100%;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.15);">
+        <div class="mock-window" style="display:none">
+            <div class="mock-titlebar">
+                <div class="mock-dot" style="background:#ff5f57"></div>
+                <div class="mock-dot" style="background:#febc2e"></div>
+                <div class="mock-dot" style="background:#28c840"></div>
+                <span style="color:rgba(255,255,255,0.4);font-size:0.72rem;margin-left:10px">Route Management — Today</span>
+            </div>
+            <div class="mock-body">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+                    <div style="font-size:0.8rem;font-weight:800;color:var(--text-dark)">Monday Routes — 14 Active</div>
+                    <span style="font-size:0.72rem;font-weight:700;color:var(--teal)">+ Add Route</span>
+                </div>
+                <div class="mock-route-list">
+                    <div class="mock-route-item">
+                        <div class="mock-route-dot" style="background:#28c840"></div>
+                        <div class="mock-route-label">Route A — North District</div>
+                        <div class="mock-route-stops">42 stops</div>
+                        <div class="mock-route-status" style="background:rgba(40,200,64,0.12);color:#16a34a">Completed</div>
+                    </div>
+                    <div class="mock-route-item">
+                        <div class="mock-route-dot" style="background:var(--blue-cta)"></div>
+                        <div class="mock-route-label">Route B — Commercial Zone</div>
+                        <div class="mock-route-stops">18 stops</div>
+                        <div class="mock-route-status" style="background:rgba(26,108,240,0.12);color:var(--blue-cta)">In Progress</div>
+                    </div>
+                    <div class="mock-route-item">
+                        <div class="mock-route-dot" style="background:#febc2e"></div>
+                        <div class="mock-route-label">Route C — Roll-Off Pickups</div>
+                        <div class="mock-route-stops">7 stops</div>
+                        <div class="mock-route-status" style="background:rgba(251,191,36,0.12);color:#d97706">Delayed</div>
+                    </div>
+                    <div class="mock-route-item">
+                        <div class="mock-route-dot" style="background:var(--gray-mid)"></div>
+                        <div class="mock-route-label">Route D — South Residential</div>
+                        <div class="mock-route-stops">55 stops</div>
+                        <div class="mock-route-status" style="background:rgba(0,0,0,0.05);color:var(--text-light)">Pending</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LOCKBOX & BILLING -->
+<section class="feature-section" id="billing">
+    <div class="feature-content">
+        <span class="eyebrow">Lockbox & Billing</span>
+        <h2>Stop Chasing Payments. Start Closing Your Books Faster.</h2>
+        <p>Legacy billing systems are slow, error-prone, and disconnected from the rest of your operation. myWDMS brings payment collection, invoicing, and reconciliation into one place.</p>
+        <ul class="feature-bullets">
+            <li>Integrated lockbox for processing mailed payments automatically</li>
+            <li>Generate and send invoices directly from the platform</li>
+            <li>Automated payment reminders and follow-up workflows</li>
+            <li>Real-time cash collection dashboard for owners and billing staff</li>
+            <li>Payment history tied directly to customer accounts</li>
+            <li>Export-ready for your accounting software</li>
+        </ul>
+        <a href="#" class="btn-primary">See It in Action</a>
+    </div>
+    <div class="feature-visual">
+        <img src="feature-billing.jpg" alt="Billing clerk processing payments at desk" style="width:100%;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.15);">
+        <div class="mock-window" style="display:none">
+            <div class="mock-titlebar">
+                <div class="mock-dot" style="background:#ff5f57"></div>
+                <div class="mock-dot" style="background:#febc2e"></div>
+                <div class="mock-dot" style="background:#28c840"></div>
+                <span style="color:rgba(255,255,255,0.4);font-size:0.72rem;margin-left:10px">Lockbox — June 2026</span>
+            </div>
+            <div class="mock-body">
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px">
+                    <div style="background:var(--gray);border-radius:8px;padding:14px;text-align:center">
+                        <div style="font-size:0.68rem;font-weight:700;color:var(--text-light);text-transform:uppercase;margin-bottom:4px">Collected</div>
+                        <div style="font-size:1.4rem;font-weight:900;color:var(--text-dark)">$142k</div>
+                        <div style="font-size:0.7rem;color:var(--teal);font-weight:700">↑ 11%</div>
+                    </div>
+                    <div style="background:var(--gray);border-radius:8px;padding:14px;text-align:center">
+                        <div style="font-size:0.68rem;font-weight:700;color:var(--text-light);text-transform:uppercase;margin-bottom:4px">Pending</div>
+                        <div style="font-size:1.4rem;font-weight:900;color:var(--text-dark)">$24k</div>
+                        <div style="font-size:0.7rem;color:#d97706;font-weight:700">12 invoices</div>
+                    </div>
+                    <div style="background:var(--gray);border-radius:8px;padding:14px;text-align:center">
+                        <div style="font-size:0.68rem;font-weight:700;color:var(--text-light);text-transform:uppercase;margin-bottom:4px">Overdue</div>
+                        <div style="font-size:1.4rem;font-weight:900;color:#dc2626">$6k</div>
+                        <div style="font-size:0.7rem;color:#dc2626;font-weight:700">3 accounts</div>
+                    </div>
+                </div>
+                <div class="mock-payment-row">
+                    <div><div class="mock-payment-name">Acme Disposal Co</div><div class="mock-payment-date">Jun 14, 2026</div></div>
+                    <div class="mock-payment-amount">$4,200</div>
+                    <div class="mock-payment-status" style="background:rgba(40,200,64,0.12);color:#16a34a">Paid</div>
+                </div>
+                <div class="mock-payment-row">
+                    <div><div class="mock-payment-name">Riverside Municipality</div><div class="mock-payment-date">Jun 12, 2026</div></div>
+                    <div class="mock-payment-amount">$18,750</div>
+                    <div class="mock-payment-status" style="background:rgba(40,200,64,0.12);color:#16a34a">Paid</div>
+                </div>
+                <div class="mock-payment-row">
+                    <div><div class="mock-payment-name">Green Valley Haulers</div><div class="mock-payment-date">Due Jun 20</div></div>
+                    <div class="mock-payment-amount">$3,100</div>
+                    <div class="mock-payment-status" style="background:rgba(251,191,36,0.12);color:#d97706">Pending</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LOGS & REPORTING -->
+<section class="feature-section alt" id="reporting">
+    <div class="feature-content">
+        <span class="eyebrow">Logs & Reporting</span>
+        <h2>Real-Time Visibility Across Your Entire Business</h2>
+        <p>Know exactly what's happening at every level of your operation — right now. myWDMS gives you live dashboards, detailed audit logs, and exportable reports your accountants and compliance teams will love.</p>
+        <ul class="feature-bullets">
+            <li>Live operational dashboard with key metrics at a glance</li>
+            <li>Full audit log of every user action with timestamp and IP</li>
+            <li>Route completion reports, billing summaries, and collection history</li>
+            <li>Customizable report templates saved per user or role</li>
+            <li>Export to CSV, PDF, or connect to your BI tool</li>
+            <li>Data retention and compliance-ready log archives</li>
+        </ul>
+        <a href="#" class="btn-primary">See It in Action</a>
+    </div>
+    <div class="feature-visual">
+        <img src="feature-reporting.jpg" alt="Operations manager reviewing reports and analytics" style="width:100%;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.15);">
+        <div class="mock-window" style="display:none">
+            <div class="mock-titlebar">
+                <div class="mock-dot" style="background:#ff5f57"></div>
+                <div class="mock-dot" style="background:#febc2e"></div>
+                <div class="mock-dot" style="background:#28c840"></div>
+                <span style="color:rgba(255,255,255,0.4);font-size:0.72rem;margin-left:10px">Audit Log — Today</span>
+            </div>
+            <div class="mock-body">
+                <div class="mock-log-row">
+                    <div class="mock-log-time">2:14 PM</div>
+                    <div class="mock-log-user">T. Lenning</div>
+                    <div class="mock-log-action">Updated permissions for Driver role</div>
+                    <div class="mock-log-tag" style="background:rgba(26,108,240,0.1);color:var(--blue-cta)">Access</div>
+                </div>
+                <div class="mock-log-row">
+                    <div class="mock-log-time">1:58 PM</div>
+                    <div class="mock-log-user">S. Mitchell</div>
+                    <div class="mock-log-action">Marked Route B as In Progress</div>
+                    <div class="mock-log-tag" style="background:rgba(0,201,177,0.1);color:var(--teal-dark)">Routes</div>
+                </div>
+                <div class="mock-log-row">
+                    <div class="mock-log-time">1:44 PM</div>
+                    <div class="mock-log-user">J. Rodriguez</div>
+                    <div class="mock-log-action">Payment of $4,200 posted to Acme Disposal</div>
+                    <div class="mock-log-tag" style="background:rgba(40,200,64,0.1);color:#16a34a">Billing</div>
+                </div>
+                <div class="mock-log-row">
+                    <div class="mock-log-time">12:30 PM</div>
+                    <div class="mock-log-user">T. Lenning</div>
+                    <div class="mock-log-action">Invited user k.johnson@example.com</div>
+                    <div class="mock-log-tag" style="background:rgba(26,108,240,0.1);color:var(--blue-cta)">Access</div>
+                </div>
+                <div class="mock-log-row">
+                    <div class="mock-log-time">11:05 AM</div>
+                    <div class="mock-log-user">System</div>
+                    <div class="mock-log-action">Route A marked Completed — 42/42 stops</div>
+                    <div class="mock-log-tag" style="background:rgba(0,201,177,0.1);color:var(--teal-dark)">Routes</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SYSTEM SETTINGS -->
+<section class="feature-section" id="settings">
+    <div class="feature-content">
+        <span class="eyebrow">System Settings</span>
+        <h2>Configure myWDMS to Match the Way You Work</h2>
+        <p>Every waste operation is different. myWDMS gives you the flexibility to configure the platform to your workflows — without needing a developer or months of implementation time.</p>
+        <ul class="feature-bullets">
+            <li>Custom service types, billing codes, and rate structures</li>
+            <li>Notification and alert settings per role</li>
+            <li>Branding your client portal with your company's logo and colors</li>
+            <li>Integration management — connect your existing tools</li>
+            <li>Data import tools to migrate from legacy software</li>
+            <li>Multi-timezone support for regional operations</li>
+        </ul>
+        <a href="#" class="btn-primary">See It in Action</a>
+    </div>
+    <div class="feature-visual">
+        <div style="padding:24px 0">
+            <div style="font-size:0.78rem;font-weight:800;color:var(--text-dark);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">Available Integrations</div>
+            <div class="integrations-grid">
+                <div class="integration-card">
+                    <div class="integration-icon">📧</div>
+                    <div class="integration-name">myonlinebill</div>
+                    <div class="integration-status" style="color:var(--teal);font-weight:700">✓ Connected</div>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon">📊</div>
+                    <div class="integration-name">QuickBooks</div>
+                    <div class="integration-status" style="color:var(--teal);font-weight:700">✓ Connected</div>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon">📦</div>
+                    <div class="integration-name">Xero</div>
+                    <div class="integration-status">Available</div>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon">📱</div>
+                    <div class="integration-name">Twilio SMS</div>
+                    <div class="integration-status">Available</div>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon">📬</div>
+                    <div class="integration-name">Mailchimp</div>
+                    <div class="integration-status">Available</div>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon">🔗</div>
+                    <div class="integration-name">Zapier</div>
+                    <div class="integration-status">Available</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+    <div class="stat-item"><h2>70%</h2><p>Faster Onboarding vs. Legacy Software</p></div>
+    <div class="stat-item"><h2>50%</h2><p>Reduction in Administrative Time</p></div>
+    <div class="stat-item"><h2>100%</h2><p>Cloud-Based Platform</p></div>
+    <div class="stat-item"><h2>200+</h2><p>Waste Operations Managed</p></div>
+</div>
+
+<!-- CTA -->
+<section class="cta-band">
+    <h2>Ready to See It for Yourself?</h2>
+    <p>Book a personalized demo and we'll walk you through every feature, live.</p>
+    <a href="#" class="btn-primary">Book a Demo</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-top">
+        <div class="footer-brand">
+            <a href="mywdms.html" class="logo">
+                <div class="logo-icon">♻️</div>
+                my<span>WDMS</span>
+            </a>
+            <p>The modern waste disposal management platform built for haulers and municipalities ready to leave legacy software behind.</p>
+            <div class="footer-contact"><div>hello@mywdms.com</div><div>(800) 000-0000</div></div>
+        </div>
+        <div class="footer-col">
+            <h4>Features</h4>
+            <ul>
+                <li><a href="#">Access Management</a></li>
+                <li><a href="#">Route Management</a></li>
+                <li><a href="#">Lockbox & Billing</a></li>
+                <li><a href="#">Logs & Reporting</a></li>
+                <li><a href="#">System Settings</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Who We Serve</h4>
+            <ul>
+                <li><a href="who-we-serve.html">Commercial</a></li>
+                <li><a href="who-we-serve.html">Residential</a></li>
+                <li><a href="who-we-serve.html">Roll-Off</a></li>
+                <li><a href="who-we-serve.html">Municipalities</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="company.html">About Us</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 myWDMS — All rights reserved</span>
+        <span>A myonlinebill product</span>
+    </div>
+</footer>
+
+</body>
+</html>

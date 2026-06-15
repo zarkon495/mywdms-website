@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Stories — myWDMS</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .stories-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+        }
+
+        .story-card {
+            background: white; border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+            overflow: hidden; border: 1px solid var(--gray-mid);
+            display: flex; flex-direction: column;
+            transition: box-shadow 0.2s, transform 0.2s;
+            cursor: pointer;
+        }
+        .story-card:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+        }
+        .story-card-header {
+            padding: 28px 28px 0;
+        }
+        .story-tag {
+            display: inline-block;
+            font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 4px 12px; border-radius: 20px; margin-bottom: 16px;
+        }
+        .story-card h3 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1.2rem; font-weight: 900;
+            color: var(--text-dark); line-height: 1.2;
+            letter-spacing: -0.01em; margin-bottom: 12px;
+        }
+        .story-card blockquote {
+            font-size: 0.92rem; color: var(--text-mid);
+            line-height: 1.7; font-style: italic;
+            border-left: 3px solid var(--teal);
+            padding-left: 14px; margin: 16px 0;
+        }
+        .story-card-body { padding: 0 28px 28px; flex: 1; display: flex; flex-direction: column; }
+        .story-metrics {
+            display: flex; gap: 16px; margin: 16px 0 20px;
+        }
+        .story-metric {
+            flex: 1; background: var(--gray); border-radius: 8px;
+            padding: 12px; text-align: center;
+        }
+        .story-metric strong {
+            display: block; font-family: 'Barlow', sans-serif;
+            font-size: 1.5rem; font-weight: 900; color: var(--teal);
+        }
+        .story-metric span { font-size: 0.72rem; color: var(--text-light); font-weight: 600; }
+        .story-company {
+            margin-top: auto; padding-top: 16px;
+            border-top: 1px solid var(--gray-mid);
+            font-size: 0.85rem; font-weight: 700; color: var(--text-dark);
+        }
+        .story-company span { color: var(--text-light); font-weight: 500; }
+
+        /* FEATURED STORY */
+        .featured-story {
+            background: var(--gray); padding: 90px 48px;
+        }
+        .featured-story-inner {
+            display: flex; gap: 80px; align-items: center;
+            max-width: 1100px; margin: 0 auto;
+        }
+        .featured-story-content { flex: 1; }
+        .featured-label {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: var(--teal); color: white;
+            font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em;
+            text-transform: uppercase; padding: 5px 14px; border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        .featured-story-content h2 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 2.4rem; font-weight: 900;
+            color: var(--text-dark); line-height: 1.1;
+            letter-spacing: -0.02em; margin-bottom: 20px;
+        }
+        .featured-story-content p {
+            font-size: 1.05rem; color: var(--text-mid);
+            line-height: 1.8; margin-bottom: 20px;
+        }
+        .featured-quote {
+            background: white; border-radius: 12px;
+            padding: 28px 32px; border-left: 5px solid var(--teal);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06); margin: 28px 0;
+        }
+        .featured-quote blockquote {
+            font-size: 1.1rem; font-weight: 700; color: var(--text-dark);
+            line-height: 1.6; font-style: italic; margin-bottom: 14px;
+        }
+        .featured-quote .attr { font-size: 0.88rem; color: var(--text-mid); font-weight: 600; }
+        .featured-quote .attr strong { color: var(--text-dark); }
+
+        .featured-stats {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+            margin: 28px 0;
+        }
+        .featured-stat {
+            background: white; border-radius: 10px; padding: 20px;
+            text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .featured-stat strong {
+            display: block; font-family: 'Barlow', sans-serif;
+            font-size: 2rem; font-weight: 900; color: var(--teal); line-height: 1;
+        }
+        .featured-stat span { font-size: 0.8rem; color: var(--text-mid); margin-top: 4px; display: block; font-weight: 600; }
+
+        .featured-visual { flex: 1; max-width: 420px; }
+        .company-profile {
+            background: white; border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            overflow: hidden; border: 1px solid var(--gray-mid);
+        }
+        .company-profile-header {
+            background: var(--navy); padding: 28px;
+            display: flex; align-items: center; gap: 16px;
+        }
+        .company-logo-placeholder {
+            width: 56px; height: 56px; background: rgba(0,201,177,0.2);
+            border-radius: 10px; display: flex; align-items: center;
+            justify-content: center; font-size: 1.8rem; flex-shrink: 0;
+        }
+        .company-name { font-family: 'Barlow', sans-serif; font-size: 1.1rem; font-weight: 900; color: white; }
+        .company-location { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+        .company-profile-body { padding: 24px; }
+        .profile-row {
+            display: flex; justify-content: space-between;
+            padding: 10px 0; border-bottom: 1px solid var(--gray);
+            font-size: 0.88rem;
+        }
+        .profile-row:last-child { border-bottom: none; }
+        .profile-label { color: var(--text-light); font-weight: 600; }
+        .profile-value { color: var(--text-dark); font-weight: 700; }
+        .profile-value.highlight { color: var(--teal); }
+
+        /* TESTIMONIALS GRID */
+        .testimonials-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+        }
+        .testimonial-card {
+            background: white; border-radius: 12px; padding: 28px 32px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid var(--gray-mid);
+        }
+        .testimonial-card blockquote {
+            font-size: 1rem; color: var(--text-mid);
+            line-height: 1.75; font-style: italic; margin-bottom: 20px;
+        }
+        .testimonial-footer {
+            display: flex; align-items: center; gap: 14px;
+        }
+        .testimonial-avatar {
+            width: 42px; height: 42px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; flex-shrink: 0;
+        }
+        .testimonial-name { font-size: 0.9rem; font-weight: 800; color: var(--text-dark); }
+        .testimonial-role { font-size: 0.8rem; color: var(--text-light); margin-top: 2px; }
+        .stars { color: #f59e0b; font-size: 0.85rem; margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="mywdms.html" class="logo">
+        <div class="logo-icon">♻️</div>
+        my<span>WDMS</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="features.html">Features <span class="chevron">▾</span></a></li>
+        <li><a href="who-we-serve.html">Who We Serve <span class="chevron">▾</span></a></li>
+        <li><a href="company.html">Company <span class="chevron">▾</span></a></li>
+        <li><a href="success-stories.html" class="active">Success Stories</a></li>
+    </ul>
+    <div class="nav-ctas">
+        <button class="btn-signin">SIGN IN</button>
+        <a href="#" class="btn-nav-cta">Get Started</a>
+    </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <span class="eyebrow">Success Stories</span>
+    <h1>Real Operations. <span>Real Results.</span></h1>
+    <p>From family-run haulers to large municipal contracts — here's what happens when waste operations finally get the software they deserve.</p>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+    <div class="stat-item"><h2>200+</h2><p>Operations Using myWDMS</p></div>
+    <div class="stat-item"><h2>98%</h2><p>Customer Retention Rate</p></div>
+    <div class="stat-item"><h2>4.9★</h2><p>Average Customer Rating</p></div>
+    <div class="stat-item"><h2>1 day</h2><p>Average Onboarding Time</p></div>
+</div>
+
+<!-- FEATURED STORY -->
+<section class="featured-story">
+    <div style="text-align:center;margin-bottom:48px">
+        <span class="eyebrow">Featured Story</span>
+        <h2 style="font-family:'Barlow',sans-serif;font-size:2rem;font-weight:900;color:var(--text-dark);letter-spacing:-0.02em">EDCO Disposal Corp</h2>
+    </div>
+    <div class="featured-story-inner">
+        <div class="featured-story-content">
+            <div class="featured-label">⭐ Featured Customer</div>
+            <h2>How EDCO Cut Admin Time in Half and Finally Got Off Their Legacy System</h2>
+            <p>EDCO Disposal Corp had been managing their multi-depot operation with a combination of a 15-year-old software system and a stack of Excel files their billing team had built over the years. It worked — until it didn't.</p>
+            <p>When a key billing staff member left, the institutional knowledge that held the system together went with her. EDCO's leadership knew it was time to modernize. After evaluating three platforms, they chose myWDMS and were fully onboarded in under two days.</p>
+            <div class="featured-quote">
+                <blockquote>"I thought migrating off our old system would take months and be a total nightmare. We were live on myWDMS in 36 hours. My team was trained by the end of day two."</blockquote>
+                <div class="attr"><strong>James Ortega</strong> — Operations Director, EDCO Disposal Corp</div>
+            </div>
+            <div class="featured-stats">
+                <div class="featured-stat"><strong>36hrs</strong><span>Time to go live</span></div>
+                <div class="featured-stat"><strong>50%</strong><span>Admin time saved</span></div>
+                <div class="featured-stat"><strong>$0</strong><span>Implementation cost</span></div>
+            </div>
+            <a href="#" class="btn-primary">Read the Full Story</a>
+        </div>
+        <div class="featured-visual">
+            <div class="img-placeholder" style="aspect-ratio:3/4;margin-bottom:20px">
+                <div class="ph-icon">👤</div>
+                <div class="ph-label">edco-story.jpg</div>
+            </div>
+            <div class="company-profile">
+                <div class="company-profile-header">
+                    <div class="company-logo-placeholder">🚛</div>
+                    <div>
+                        <div class="company-name">EDCO Disposal Corp</div>
+                        <div class="company-location">San Diego, CA</div>
+                    </div>
+                </div>
+                <div class="company-profile-body">
+                    <div class="profile-row">
+                        <div class="profile-label">Industry</div>
+                        <div class="profile-value">Commercial & Residential</div>
+                    </div>
+                    <div class="profile-row">
+                        <div class="profile-label">Fleet Size</div>
+                        <div class="profile-value">60+ trucks</div>
+                    </div>
+                    <div class="profile-row">
+                        <div class="profile-label">Locations</div>
+                        <div class="profile-value">3 depots</div>
+                    </div>
+                    <div class="profile-row">
+                        <div class="profile-label">Previous System</div>
+                        <div class="profile-value">Legacy on-premise (2008)</div>
+                    </div>
+                    <div class="profile-row">
+                        <div class="profile-label">Onboarding Time</div>
+                        <div class="profile-value highlight">36 hours</div>
+                    </div>
+                    <div class="profile-row">
+                        <div class="profile-label">Admin Time Saved</div>
+                        <div class="profile-value highlight">50% per week</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MORE STORIES -->
+<section class="section">
+    <div class="section-header">
+        <span class="eyebrow">More Stories</span>
+        <h2>Operations of All Sizes, Seeing Results</h2>
+    </div>
+    <div class="stories-grid">
+        <div class="story-card">
+            <div class="story-card-header">
+                <div class="story-tag" style="background:rgba(0,201,177,0.12);color:var(--teal-dark)">🏘️ Residential</div>
+                <h3>Greenfield Residential Cut Customer Calls by 30%</h3>
+                <blockquote>"Residents stopped calling to ask about pickup times because they could check the portal themselves. Our office team got their afternoons back."</blockquote>
+            </div>
+            <div class="story-card-body">
+                <div class="story-metrics">
+                    <div class="story-metric"><strong>30%</strong><span>Fewer calls</span></div>
+                    <div class="story-metric"><strong>2 days</strong><span>To onboard</span></div>
+                </div>
+                <div class="story-company">Linda Park <span>— Director, Greenfield Residential Services</span></div>
+            </div>
+        </div>
+
+        <div class="story-card">
+            <div class="story-card-header">
+                <div class="story-tag" style="background:rgba(26,108,240,0.1);color:var(--blue-cta)">🏗️ Roll-Off</div>
+                <h3>Kowalski Roll-Off Recovered $18k in 90 Days</h3>
+                <blockquote>"We had no idea how many rental overages were slipping through. myWDMS caught them automatically and we haven't missed one since."</blockquote>
+            </div>
+            <div class="story-card-body">
+                <div class="story-metrics">
+                    <div class="story-metric"><strong>$18k</strong><span>Recovered</span></div>
+                    <div class="story-metric"><strong>90 days</strong><span>ROI payback</span></div>
+                </div>
+                <div class="story-company">Dave Kowalski <span>— GM, Kowalski Roll-Off & Dumpster Rental</span></div>
+            </div>
+        </div>
+
+        <div class="story-card">
+            <div class="story-card-header">
+                <div class="story-tag" style="background:rgba(107,70,193,0.1);color:#6b46c1">🏛️ Municipal</div>
+                <h3>City of Clearfield Pulls Audit Reports in 4 Minutes</h3>
+                <blockquote>"Our auditors asked for 3 years of service records. I pulled the report in 4 minutes. The old system would have taken a full week."</blockquote>
+            </div>
+            <div class="story-card-body">
+                <div class="story-metrics">
+                    <div class="story-metric"><strong>4 min</strong><span>Audit reports</span></div>
+                    <div class="story-metric"><strong>1 day</strong><span>Onboarding</span></div>
+                </div>
+                <div class="story-company">Patricia Nguyen <span>— Public Works Director, City of Clearfield</span></div>
+            </div>
+        </div>
+
+        <div class="story-card">
+            <div class="story-card-header">
+                <div class="story-tag" style="background:rgba(0,201,177,0.12);color:var(--teal-dark)">🏢 Commercial</div>
+                <h3>Webb Commercial Slashed Billing Errors by 40%</h3>
+                <blockquote>"We went from three people managing billing manually to one person handling it in half the time. The difference is night and day."</blockquote>
+            </div>
+            <div class="story-card-body">
+                <div class="story-metrics">
+                    <div class="story-metric"><strong>40%</strong><span>Fewer errors</span></div>
+                    <div class="story-metric"><strong>2x</strong><span>Faster dispatch</span></div>
+                </div>
+                <div class="story-company">Marcus Webb <span>— Owner, Webb Commercial Waste Solutions</span></div>
+            </div>
+        </div>
+
+        <div class="story-card">
+            <div class="story-card-header">
+                <div class="story-tag" style="background:rgba(26,108,240,0.1);color:var(--blue-cta)">🏘️ Residential</div>
+                <h3>Pacific Waste Services Onboarded in Under 24 Hours</h3>
+                <blockquote>"I was worried about the transition. By end of day one, my whole team was using myWDMS like they'd been on it for years."</blockquote>
+            </div>
+            <div class="story-card-body">
+                <div class="story-metrics">
+                    <div class="story-metric"><strong>24hrs</strong><span>Full onboarding</span></div>
+                    <div class="story-metric"><strong>99%</strong><span>Route completion</span></div>
+                </div>
+                <div class="story-company">Sarah Mitchell <span>— Operations Manager, Pacific Waste Services</span></div>
+            </div>
+        </div>
+
+        <div class="story-card">
+            <div class="story-card-header">
+                <div class="story-tag" style="background:rgba(107,70,193,0.1);color:#6b46c1">🏗️ Roll-Off</div>
+                <h3>Summit Dumpster Rental Scaled from 2 to 5 Depots</h3>
+                <blockquote>"We couldn't have expanded to three new locations without myWDMS. The multi-depot management is what made it possible."</blockquote>
+            </div>
+            <div class="story-card-body">
+                <div class="story-metrics">
+                    <div class="story-metric"><strong>3x</strong><span>Location growth</span></div>
+                    <div class="story-metric"><strong>0</strong><span>Extra admin staff</span></div>
+                </div>
+                <div class="story-company">Tom Briggs <span>— Owner, Summit Dumpster Rental</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section gray">
+    <div class="section-header">
+        <span class="eyebrow">What Customers Are Saying</span>
+        <h2>Don't Take Our Word for It</h2>
+    </div>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Switching to myWDMS was the best operational decision we made this year. Setup was painless, the interface is clean, and our drivers actually like using it — which says a lot."</blockquote>
+            <div class="testimonial-footer">
+                <div class="testimonial-avatar" style="background:linear-gradient(135deg,#1B2A4A,#2d4a7a)">👨</div>
+                <div>
+                    <div class="testimonial-name">Carlos Mendez</div>
+                    <div class="testimonial-role">Owner, Mendez Sanitation Services</div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <blockquote>"I've used four different waste management software platforms over my career. myWDMS is the first one that doesn't feel like it was designed in 2003. Huge difference."</blockquote>
+            <div class="testimonial-footer">
+                <div class="testimonial-avatar" style="background:linear-gradient(135deg,#00a896,#00C9B1)">👩</div>
+                <div>
+                    <div class="testimonial-name">Rachel Kim</div>
+                    <div class="testimonial-role">Dispatch Manager, Metro Waste Solutions</div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <blockquote>"The lockbox integration alone paid for the software in the first month. We were losing track of so many payments in our old system. That's completely gone now."</blockquote>
+            <div class="testimonial-footer">
+                <div class="testimonial-avatar" style="background:linear-gradient(135deg,#1a6cf0,#4d94ff)">👨</div>
+                <div>
+                    <div class="testimonial-name">Brian Foster</div>
+                    <div class="testimonial-role">CFO, Tri-County Disposal Group</div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <blockquote>"Our public works director was skeptical about any new software after the last implementation disaster. She was the first one to say we should have switched sooner."</blockquote>
+            <div class="testimonial-footer">
+                <div class="testimonial-avatar" style="background:linear-gradient(135deg,#6b46c1,#9f7aea)">👩</div>
+                <div>
+                    <div class="testimonial-name">Angela Torres</div>
+                    <div class="testimonial-role">City Administrator, Oakdale Township</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band dark">
+    <h2>Ready to Write Your Own Success Story?</h2>
+    <p>Book a demo and see why operations across the country are making the switch to myWDMS.</p>
+    <a href="#" class="btn-primary">Book a Demo</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-top">
+        <div class="footer-brand">
+            <a href="mywdms.html" class="logo"><div class="logo-icon">♻️</div>my<span>WDMS</span></a>
+            <p>The modern waste disposal management platform built for haulers and municipalities ready to leave legacy software behind.</p>
+            <div class="footer-contact"><div>hello@mywdms.com</div><div>(800) 000-0000</div></div>
+        </div>
+        <div class="footer-col"><h4>Features</h4><ul><li><a href="features.html">Access Management</a></li><li><a href="features.html">Route Management</a></li><li><a href="features.html">Lockbox & Billing</a></li><li><a href="features.html">Logs & Reporting</a></li></ul></div>
+        <div class="footer-col"><h4>Who We Serve</h4><ul><li><a href="who-we-serve.html">Commercial</a></li><li><a href="who-we-serve.html">Residential</a></li><li><a href="who-we-serve.html">Roll-Off</a></li><li><a href="who-we-serve.html">Municipalities</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="company.html">About Us</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 myWDMS — All rights reserved</span><span>A myonlinebill product</span></div>
+</footer>
+
+</body>
+</html>

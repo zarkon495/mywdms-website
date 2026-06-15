@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who We Serve — myWDMS</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .segment-tabs {
+            background: white;
+            border-bottom: 1px solid var(--gray-mid);
+            display: flex; justify-content: center; gap: 0;
+            position: sticky; top: 72px; z-index: 90;
+        }
+        .segment-tabs a {
+            font-weight: 700; font-size: 0.95rem; color: var(--text-mid);
+            text-decoration: none; padding: 18px 28px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s; letter-spacing: 0.01em;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .segment-tabs a:hover { color: var(--blue-cta); border-bottom-color: var(--blue-cta); }
+        .segment-tabs a.active { color: var(--blue-cta); border-bottom-color: var(--blue-cta); }
+
+        .segment-hero {
+            padding: 90px 48px;
+            display: flex; align-items: center; gap: 80px;
+        }
+        .segment-hero.alt { flex-direction: row-reverse; background: var(--gray); }
+        .segment-hero-content { flex: 1; }
+        .segment-hero-visual { flex: 1; }
+
+        .segment-hero-content .segment-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(0,201,177,0.12); color: var(--teal-dark);
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em;
+            text-transform: uppercase; padding: 6px 16px; border-radius: 20px;
+            margin-bottom: 24px;
+        }
+
+        .segment-hero-content h2 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 2.8rem; font-weight: 900;
+            color: var(--text-dark); line-height: 1.1;
+            letter-spacing: -0.02em; margin-bottom: 20px;
+        }
+
+        .segment-hero-content .lead {
+            font-size: 1.1rem; color: var(--text-mid);
+            line-height: 1.8; margin-bottom: 28px;
+        }
+
+        .pain-points {
+            background: var(--gray); border-radius: 10px; padding: 24px;
+            margin-bottom: 32px;
+        }
+        .pain-points h4 {
+            font-size: 0.78rem; font-weight: 800; color: var(--text-dark);
+            letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px;
+        }
+        .pain-point {
+            display: flex; align-items: flex-start; gap: 10px;
+            font-size: 0.95rem; color: var(--text-mid);
+            line-height: 1.5; margin-bottom: 10px;
+        }
+        .pain-point:last-child { margin-bottom: 0; }
+        .pain-point::before { content: '→'; color: var(--teal); font-weight: 900; flex-shrink: 0; }
+
+        .segment-visual-card {
+            background: white; border-radius: 12px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+            overflow: hidden; border: 1px solid var(--gray-mid);
+        }
+        .segment-visual-header {
+            background: var(--navy); padding: 14px 20px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .segment-visual-header span {
+            color: rgba(255,255,255,0.5); font-size: 0.78rem; font-weight: 600;
+        }
+        .segment-visual-body { padding: 24px; }
+
+        .divider-band {
+            background: var(--navy);
+            padding: 50px 48px;
+            text-align: center;
+        }
+        .divider-band h2 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 2rem; font-weight: 900; color: white;
+            letter-spacing: -0.02em; margin-bottom: 8px;
+        }
+        .divider-band p { color: rgba(255,255,255,0.5); font-size: 1rem; }
+
+        .mini-stat {
+            display: inline-flex; flex-direction: column; align-items: center;
+            padding: 0 32px; border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        .mini-stat:last-child { border-right: none; }
+        .mini-stat strong {
+            font-family: 'Barlow', sans-serif; font-size: 2rem; font-weight: 900;
+            color: var(--teal); line-height: 1;
+        }
+        .mini-stat span { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+        .comparison-table {
+            width: 100%; border-collapse: collapse; font-size: 0.92rem;
+        }
+        .comparison-table th {
+            padding: 12px 16px; text-align: left;
+            font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--text-light);
+            border-bottom: 2px solid var(--gray-mid);
+        }
+        .comparison-table td {
+            padding: 14px 16px; border-bottom: 1px solid var(--gray);
+            vertical-align: middle;
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table .feature-name { font-weight: 700; color: var(--text-dark); }
+        .comparison-table .check { color: var(--teal); font-weight: 900; font-size: 1.1rem; }
+        .comparison-table .cross { color: #dc2626; }
+        .col-highlight { background: rgba(0,201,177,0.05); }
+        .col-highlight th { color: var(--teal); }
+
+        .quote-card {
+            background: white; border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 32px; border-left: 4px solid var(--teal);
+        }
+        .quote-card blockquote {
+            font-size: 1.05rem; font-weight: 600; color: var(--text-dark);
+            line-height: 1.65; margin-bottom: 20px; font-style: italic;
+        }
+        .quote-card .quote-author { font-size: 0.88rem; color: var(--text-mid); font-weight: 600; }
+        .quote-card .quote-author strong { color: var(--text-dark); }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="mywdms.html" class="logo">
+        <div class="logo-icon">♻️</div>
+        my<span>WDMS</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="features.html">Features <span class="chevron">▾</span></a></li>
+        <li><a href="who-we-serve.html" class="active">Who We Serve <span class="chevron">▾</span></a></li>
+        <li><a href="company.html">Company <span class="chevron">▾</span></a></li>
+        <li><a href="success-stories.html">Success Stories</a></li>
+    </ul>
+    <div class="nav-ctas">
+        <button class="btn-signin">SIGN IN</button>
+        <a href="#" class="btn-nav-cta">Get Started</a>
+    </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <span class="eyebrow">Who We Serve</span>
+    <h1>Built for the <span>Entire Waste Industry</span></h1>
+    <p>Whether you're a regional hauler, a national disposal company, or a city public works department — myWDMS was built for the way your operation actually works.</p>
+    <a href="#" class="btn-primary">Book a Demo</a>
+</section>
+
+<!-- SEGMENT TABS -->
+<div class="segment-tabs">
+    <a href="#commercial" class="active">🏢 Commercial</a>
+    <a href="#residential">🏘️ Residential</a>
+    <a href="#rolloff">🏗️ Roll-Off</a>
+    <a href="#municipal">🏛️ Municipalities</a>
+</div>
+
+<!-- COMMERCIAL -->
+<section class="segment-hero" id="commercial">
+    <div class="segment-hero-content" style="flex:1.2">
+        <div class="segment-tag">🏢 Commercial Haulers</div>
+        <h2>Run a Tighter Commercial Operation Without the Overhead</h2>
+        <p class="lead">Commercial waste haulers are managing dozens of accounts, complex billing schedules, and drivers who need real-time information. Legacy software wasn't built for this pace.</p>
+        <div class="pain-points">
+            <h4>Common Challenges We Solve</h4>
+            <div class="pain-point">Billing errors from manually tracking commercial service agreements</div>
+            <div class="pain-point">Dispatchers spending hours on the phone instead of managing routes</div>
+            <div class="pain-point">No visibility into which drivers are on schedule vs. running behind</div>
+            <div class="pain-point">Payment reconciliation taking days at month-end</div>
+        </div>
+        <a href="#" class="btn-primary">See How It Works</a>
+    </div>
+    <div class="segment-hero-visual">
+        <div class="img-placeholder" style="margin-bottom:20px">
+            <div class="ph-icon">🏢</div>
+            <div class="ph-label">commercial.jpg</div>
+        </div>
+        <div class="quote-card">
+            <blockquote>"We went from three people managing billing manually to one person handling it in half the time. The difference is night and day."</blockquote>
+            <div class="quote-author"><strong>Marcus Webb</strong> — Owner, Webb Commercial Waste Solutions</div>
+        </div>
+        <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div style="background:var(--gray);border-radius:10px;padding:20px;text-align:center">
+                <div style="font-size:2rem;font-weight:900;color:var(--teal);font-family:'Barlow',sans-serif">40%</div>
+                <div style="font-size:0.85rem;color:var(--text-mid);margin-top:4px;font-weight:600">Fewer billing errors</div>
+            </div>
+            <div style="background:var(--gray);border-radius:10px;padding:20px;text-align:center">
+                <div style="font-size:2rem;font-weight:900;color:var(--teal);font-family:'Barlow',sans-serif">2x</div>
+                <div style="font-size:0.85rem;color:var(--text-mid);margin-top:4px;font-weight:600">Faster dispatch cycles</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RESIDENTIAL -->
+<section class="segment-hero alt" id="residential">
+    <div class="segment-hero-content">
+        <div class="segment-tag">🏘️ Residential Services</div>
+        <h2>Serve More Households Without Adding More Headcount</h2>
+        <p class="lead">Residential waste operations live and die by scheduling reliability and customer satisfaction. myWDMS gives your team the tools to stay on top of every pickup, every week.</p>
+        <div class="pain-points">
+            <h4>Common Challenges We Solve</h4>
+            <div class="pain-point">Customer service calls flooding in because residents don't know pickup status</div>
+            <div class="pain-point">No easy way to handle service exceptions, skipped stops, or holiday schedules</div>
+            <div class="pain-point">Paper route sheets that get lost or are impossible to update in the field</div>
+            <div class="pain-point">Chasing down payments from hundreds of individual accounts</div>
+        </div>
+        <a href="#" class="btn-primary">See How It Works</a>
+    </div>
+    <div class="segment-hero-visual">
+        <div class="img-placeholder" style="margin-bottom:20px">
+            <div class="ph-icon">🏘️</div>
+            <div class="ph-label">residential.jpg</div>
+        </div>
+        <div class="quote-card">
+            <blockquote>"Customer complaints dropped by 30% in our first month. Residents can check their pickup status and we're not fielding those calls anymore."</blockquote>
+            <div class="quote-author"><strong>Linda Park</strong> — Operations Director, Greenfield Residential Services</div>
+        </div>
+        <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div style="background:var(--gray);border-radius:10px;padding:20px;text-align:center">
+                <div style="font-size:2rem;font-weight:900;color:var(--teal);font-family:'Barlow',sans-serif">30%</div>
+                <div style="font-size:0.85rem;color:var(--text-mid);margin-top:4px;font-weight:600">Fewer inbound calls</div>
+            </div>
+            <div style="background:var(--gray);border-radius:10px;padding:20px;text-align:center">
+                <div style="font-size:2rem;font-weight:900;color:var(--teal);font-family:'Barlow',sans-serif">99%</div>
+                <div style="font-size:0.85rem;color:var(--text-mid);margin-top:4px;font-weight:600">Route completion rate</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ROLL-OFF -->
+<section class="segment-hero" id="rolloff">
+    <div class="segment-hero-content">
+        <div class="segment-tag">🏗️ Roll-Off Operations</div>
+        <h2>Track Every Container. Bill Every Drop. Miss Nothing.</h2>
+        <p class="lead">Roll-off operations require precise tracking of container placement, swap-outs, and pickups across dozens of job sites at once. One missed pickup or mis-billed rental can cost thousands.</p>
+        <div class="pain-points">
+            <h4>Common Challenges We Solve</h4>
+            <div class="pain-point">No central view of where every container is at any given time</div>
+            <div class="pain-point">Rental overage billing getting missed because it's tracked in spreadsheets</div>
+            <div class="pain-point">Drivers showing up to the wrong site or with the wrong container size</div>
+            <div class="pain-point">Disputes with customers over delivery dates and rental periods</div>
+        </div>
+        <a href="#" class="btn-primary">See How It Works</a>
+    </div>
+    <div class="segment-hero-visual">
+        <div class="img-placeholder" style="margin-bottom:20px">
+            <div class="ph-icon">🏗️</div>
+            <div class="ph-label">rolloff.jpg</div>
+        </div>
+        <div class="quote-card">
+            <blockquote>"We were leaving money on the table every month with missed overage charges. myWDMS caught $18,000 in unbilled rental fees in our first 90 days."</blockquote>
+            <div class="quote-author"><strong>Dave Kowalski</strong> — GM, Kowalski Roll-Off & Dumpster Rental</div>
+        </div>
+        <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div style="background:var(--gray);border-radius:10px;padding:20px;text-align:center">
+                <div style="font-size:2rem;font-weight:900;color:var(--teal);font-family:'Barlow',sans-serif">$18k</div>
+                <div style="font-size:0.85rem;color:var(--text-mid);margin-top:4px;font-weight:600">Recovered in 90 days</div>
+            </div>
+            <div style="background:var(--gray);border-radius:10px;padding:20px;text-align:center">
+                <div style="font-size:2rem;font-weight:900;color:var(--teal);font-family:'Barlow',sans-serif">100%</div>
+                <div style="font-size:0.85rem;color:var(--text-mid);margin-top:4px;font-weight:600">Container visibility</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MUNICIPALITIES -->
+<section class="segment-hero alt" id="municipal">
+    <div class="segment-hero-content">
+        <div class="segment-tag">🏛️ Municipalities & Governments</div>
+        <h2>Modern Software That Meets Public Sector Standards</h2>
+        <p class="lead">Public works departments need software that's auditable, compliant, and easy enough for staff at every level to use without weeks of training. myWDMS was built with exactly those requirements in mind.</p>
+        <div class="pain-points">
+            <h4>Common Challenges We Solve</h4>
+            <div class="pain-point">Legacy systems that require expensive IT support to maintain and update</div>
+            <div class="pain-point">No audit trail for compliance reporting and public records requests</div>
+            <div class="pain-point">Siloed systems that don't talk to each other — billing separate from routes</div>
+            <div class="pain-point">New staff turnover requiring months of onboarding on complex software</div>
+        </div>
+        <a href="#" class="btn-primary">See How It Works</a>
+    </div>
+    <div class="segment-hero-visual">
+        <div class="img-placeholder" style="margin-bottom:20px">
+            <div class="ph-icon">🏛️</div>
+            <div class="ph-label">municipal.jpg</div>
+        </div>
+        <div class="quote-card">
+            <blockquote>"Our auditors asked for 3 years of service records. I pulled the report in 4 minutes. The old system would have taken our team a full week to compile that."</blockquote>
+            <div class="quote-author"><strong>Patricia Nguyen</strong> — Public Works Director, City of Clearfield</div>
+        </div>
+        <div style="margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
+            <div style="background:var(--gray);border-radius:10px;padding:20px;text-align:center">
+                <div style="font-size:2rem;font-weight:900;color:var(--teal);font-family:'Barlow',sans-serif">4 min</div>
+                <div style="font-size:0.85rem;color:var(--text-mid);margin-top:4px;font-weight:600">To pull audit reports</div>
+            </div>
+            <div style="background:var(--gray);border-radius:10px;padding:20px;text-align:center">
+                <div style="font-size:2rem;font-weight:900;color:var(--teal);font-family:'Barlow',sans-serif">1 day</div>
+                <div style="font-size:0.85rem;color:var(--text-mid);margin-top:4px;font-weight:600">Average onboarding time</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="section gray">
+    <div class="section-header">
+        <span class="eyebrow">Why Switch</span>
+        <h2>myWDMS vs. Your Current Software</h2>
+        <p>See exactly what you get when you move off outdated legacy systems onto a modern platform.</p>
+    </div>
+    <div style="max-width:860px;margin:0 auto;background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.07)">
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th style="width:40%">Capability</th>
+                    <th style="text-align:center">Legacy Software</th>
+                    <th style="text-align:center" class="col-highlight">myWDMS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="feature-name">Cloud-based, no install required</td><td style="text-align:center" class="cross">✗</td><td style="text-align:center" class="col-highlight check">✓</td></tr>
+                <tr><td class="feature-name">Role-based access control</td><td style="text-align:center" class="cross">✗</td><td style="text-align:center" class="col-highlight check">✓</td></tr>
+                <tr><td class="feature-name">Real-time route tracking</td><td style="text-align:center" class="cross">✗</td><td style="text-align:center" class="col-highlight check">✓</td></tr>
+                <tr><td class="feature-name">Integrated lockbox & billing</td><td style="text-align:center" class="cross">✗</td><td style="text-align:center" class="col-highlight check">✓</td></tr>
+                <tr><td class="feature-name">Full audit log & compliance reports</td><td style="text-align:center" class="cross">✗</td><td style="text-align:center" class="col-highlight check">✓</td></tr>
+                <tr><td class="feature-name">Onboard in days, not months</td><td style="text-align:center" class="cross">✗</td><td style="text-align:center" class="col-highlight check">✓</td></tr>
+                <tr><td class="feature-name">Mobile-friendly for drivers</td><td style="text-align:center" class="cross">✗</td><td style="text-align:center" class="col-highlight check">✓</td></tr>
+                <tr><td class="feature-name">Modern support & regular updates</td><td style="text-align:center" class="cross">✗</td><td style="text-align:center" class="col-highlight check">✓</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+    <div class="stat-item"><h2>200+</h2><p>Waste Operations Nationwide</p></div>
+    <div class="stat-item"><h2>4</h2><p>Industry Segments Served</p></div>
+    <div class="stat-item"><h2>98%</h2><p>Customer Retention Rate</p></div>
+    <div class="stat-item"><h2>1 day</h2><p>Average Onboarding Time</p></div>
+</div>
+
+<!-- CTA -->
+<section class="cta-band">
+    <h2>Find Out What myWDMS Can Do For Your Operation</h2>
+    <p>Book a demo tailored to your specific segment — commercial, residential, roll-off, or municipal.</p>
+    <a href="#" class="btn-primary">Book a Demo</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-top">
+        <div class="footer-brand">
+            <a href="mywdms.html" class="logo"><div class="logo-icon">♻️</div>my<span>WDMS</span></a>
+            <p>The modern waste disposal management platform built for haulers and municipalities ready to leave legacy software behind.</p>
+            <div class="footer-contact"><div>hello@mywdms.com</div><div>(800) 000-0000</div></div>
+        </div>
+        <div class="footer-col"><h4>Features</h4><ul><li><a href="features.html">Access Management</a></li><li><a href="features.html">Route Management</a></li><li><a href="features.html">Lockbox & Billing</a></li><li><a href="features.html">Logs & Reporting</a></li></ul></div>
+        <div class="footer-col"><h4>Who We Serve</h4><ul><li><a href="who-we-serve.html">Commercial</a></li><li><a href="who-we-serve.html">Residential</a></li><li><a href="who-we-serve.html">Roll-Off</a></li><li><a href="who-we-serve.html">Municipalities</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="company.html">About Us</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 myWDMS — All rights reserved</span><span>A myonlinebill product</span></div>
+</footer>
+
+</body>
+</html>

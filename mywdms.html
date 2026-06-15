@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myWDMS - Modern Waste Disposal Management Software</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --navy: #1B2A4A;
+            --navy-dark: #111d33;
+            --teal: #00C9B1;
+            --teal-dark: #00a896;
+            --hero-bg: #1c1c1c;
+            --blue-cta: #1a6cf0;
+            --blue-cta-hover: #1558cc;
+            --gray: #F4F6F9;
+            --gray-mid: #e2e8f0;
+            --text-dark: #1a202c;
+            --text-mid: #4a5568;
+            --text-light: #718096;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: white;
+            border-bottom: 1px solid #eee;
+            padding: 0 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .logo {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .logo span { color: var(--teal); }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 6px 14px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-links a:hover { background: var(--gray); }
+
+        .nav-links a .chevron {
+            font-size: 0.6rem;
+            opacity: 0.5;
+        }
+
+        .nav-ctas { display: flex; gap: 12px; align-items: center; }
+
+        .btn-signin {
+            background: none; border: none; font-family: 'Barlow', sans-serif;
+            font-weight: 700; font-size: 1rem; color: var(--text-dark); cursor: pointer;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-nav-cta {
+            background: var(--blue-cta); color: white; border: none;
+            padding: 10px 22px; border-radius: 6px; font-family: 'Barlow', sans-serif;
+            font-weight: 700; font-size: 1rem; cursor: pointer;
+            transition: background 0.2s; letter-spacing: 0.02em;
+        }
+        .btn-nav-cta:hover { background: var(--blue-cta-hover); }
+
+        /* ── HERO ── */
+        .hero {
+            background-color: var(--hero-bg);
+            background-image: url("hero-bg.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 580px;
+            display: flex;
+            align-items: center;
+            padding: 80px 48px;
+            gap: 60px;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(28,28,28,0.92) 40%, rgba(28,28,28,0.5) 100%);
+        }
+        .hero-content, .hero-video { position: relative; z-index: 1; }
+
+        .hero-content { flex: 1; max-width: 600px; }
+
+        .hero h1 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 4.8rem;
+            font-weight: 900;
+            color: white;
+            line-height: 1.05;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span { color: var(--teal); }
+
+        .hero p {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.72);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 480px;
+        }
+
+        .btn-hero-cta {
+            background: var(--blue-cta); color: white; border: none;
+            padding: 16px 36px; font-family: 'Barlow', sans-serif;
+            font-weight: 700; font-size: 1rem; cursor: pointer;
+            transition: background 0.2s; letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .btn-hero-cta:hover { background: var(--blue-cta-hover); }
+
+        .hero-video {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .video-placeholder {
+            background: #2a2a2a;
+            border-radius: 8px;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .video-placeholder-inner {
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .play-btn {
+            width: 64px; height: 64px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.6rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .video-placeholder-inner p {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: rgba(255,255,255,0.4);
+            margin: 0;
+        }
+
+        /* ── THREE COL ── */
+        .three-col {
+            padding: 72px 48px;
+            background: var(--gray);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 36px 32px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            width: 52px; height: 52px;
+            background: rgba(0,201,177,0.1);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px; font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1.3rem; font-weight: 800;
+            color: var(--text-dark); margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-card p { color: var(--text-mid); line-height: 1.7; font-size: 1rem; }
+
+        /* ── STATS ── */
+        .stats {
+            background: var(--navy);
+            padding: 64px 48px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 3rem; font-weight: 900;
+            color: var(--teal); margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-item p {
+            color: rgba(255,255,255,0.65);
+            font-size: 1rem; font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* ── FEATURE ROWS ── */
+        .feature-row { display: flex; align-items: center; gap: 80px; padding: 90px 48px; }
+        .feature-row.alt { flex-direction: row-reverse; background: var(--gray); }
+        .feature-row-content { flex: 1; }
+        .feature-row-image { flex: 1; }
+
+        .section-eyebrow {
+            font-family: 'Barlow', sans-serif;
+            font-size: 0.8rem; font-weight: 700;
+            letter-spacing: 0.14em; text-transform: uppercase;
+            color: var(--teal); margin-bottom: 14px; display: block;
+        }
+
+        .feature-row-content h2 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 2.5rem; font-weight: 900;
+            color: var(--text-dark); line-height: 1.1;
+            margin-bottom: 18px; letter-spacing: -0.02em;
+        }
+
+        .feature-row-content p {
+            color: var(--text-mid); font-size: 1.05rem;
+            line-height: 1.8; margin-bottom: 32px;
+        }
+
+        .btn-learn {
+            background: none; border: 2px solid var(--text-dark);
+            color: var(--text-dark); padding: 12px 28px;
+            font-family: 'Barlow', sans-serif;
+            font-weight: 700; font-size: 0.95rem;
+            cursor: pointer; transition: all 0.2s;
+            text-transform: uppercase; letter-spacing: 0.06em;
+        }
+        .btn-learn:hover { background: var(--text-dark); color: white; }
+
+        .feature-mock {
+            background: white; border-radius: 12px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+            overflow: hidden; border: 1px solid var(--gray-mid);
+        }
+
+        .feature-mock-header {
+            background: var(--navy); padding: 12px 16px;
+            display: flex; gap: 6px; align-items: center;
+        }
+
+        .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .feature-mock-body { padding: 24px; }
+
+        .mock-row {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px 0; border-bottom: 1px solid var(--gray);
+        }
+        .mock-row:last-child { border-bottom: none; }
+        .mock-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--teal); opacity: 0.7; flex-shrink: 0; }
+        .mock-line { height: 9px; border-radius: 4px; background: var(--gray-mid); }
+        .mock-badge {
+            padding: 4px 12px; border-radius: 20px;
+            font-size: 0.72rem; font-weight: 700;
+            margin-left: auto; flex-shrink: 0;
+            font-family: 'Barlow', sans-serif; letter-spacing: 0.04em;
+        }
+        .mock-badge.active { background: rgba(0,201,177,0.15); color: #007a6e; }
+        .mock-badge.pending { background: rgba(251,191,36,0.15); color: #d97706; }
+
+        /* ── WHO WE SERVE ── */
+        .serve-section { padding: 90px 48px; text-align: center; background: var(--gray); }
+
+        .serve-section > .section-eyebrow { display: block; margin-bottom: 12px; }
+
+        .serve-section h2 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 2.6rem; font-weight: 900;
+            color: var(--text-dark); margin: 0 auto 52px;
+            max-width: 560px; line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .serve-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+        .serve-card {
+            background: white; border: 2px solid transparent;
+            border-radius: 10px; padding: 36px 24px;
+            transition: all 0.2s; cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .serve-card:hover { border-color: var(--teal); box-shadow: 0 6px 24px rgba(0,201,177,0.12); }
+        .serve-icon { font-size: 2.6rem; margin-bottom: 16px; }
+        .serve-card h3 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1.15rem; font-weight: 800;
+            color: var(--text-dark); margin-bottom: 10px;
+            letter-spacing: -0.01em;
+        }
+        .serve-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.65; }
+
+        /* ── TESTIMONIAL ── */
+        .testimonial { background: var(--hero-bg); padding: 100px 48px; text-align: center; }
+
+        .testimonial blockquote {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1.8rem; font-weight: 700;
+            color: white; max-width: 760px;
+            margin: 0 auto 32px; line-height: 1.45;
+            letter-spacing: -0.01em;
+        }
+
+        .quote-mark { color: var(--teal); font-size: 4rem; line-height: 0; vertical-align: -0.5em; margin-right: 4px; }
+        .testimonial-author { color: rgba(255,255,255,0.5); font-size: 1rem; font-weight: 500; }
+        .testimonial-author strong { color: var(--teal); }
+
+        /* ── FINAL CTA ── */
+        .final-cta { padding: 100px 48px; text-align: center; background: white; }
+
+        .final-cta h2 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 2.8rem; font-weight: 900;
+            color: var(--text-dark); margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .final-cta p { color: var(--text-mid); font-size: 1.1rem; margin-bottom: 40px; }
+
+        .btn-cta-large {
+            background: var(--blue-cta); color: white; border: none;
+            padding: 18px 44px; font-family: 'Barlow', sans-serif;
+            font-weight: 700; font-size: 1rem; cursor: pointer;
+            transition: background 0.2s; letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .btn-cta-large:hover { background: var(--blue-cta-hover); }
+
+        /* ── FOOTER ── */
+        footer { background: #111111; padding: 64px 48px 28px; }
+
+        .footer-top {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px; padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .footer-brand .logo { color: white; margin-bottom: 16px; display: flex; }
+        .footer-brand .logo span { color: var(--teal); }
+        .footer-brand p { font-size: 0.95rem; line-height: 1.75; color: rgba(255,255,255,0.5); margin-bottom: 20px; }
+        .footer-contact { font-size: 0.95rem; color: rgba(255,255,255,0.45); line-height: 2.1; }
+
+        .footer-col h4 {
+            color: white; font-size: 0.85rem; font-weight: 800;
+            letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 18px;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.45); text-decoration: none;
+            font-size: 0.95rem; font-weight: 500; transition: color 0.2s;
+        }
+        .footer-col ul li a:hover { color: var(--teal); }
+
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-top: 24px; font-size: 0.85rem;
+            color: rgba(255,255,255,0.3);
+        }
+    </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+    <a href="mywdms.html" class="logo">
+        <div class="logo-icon">♻️</div>
+        my<span>WDMS</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="features.html">Features <span class="chevron">▾</span></a></li>
+        <li><a href="who-we-serve.html">Who We Serve <span class="chevron">▾</span></a></li>
+        <li><a href="company.html">Company <span class="chevron">▾</span></a></li>
+        <li><a href="success-stories.html">Success Stories</a></li>
+    </ul>
+    <div class="nav-ctas">
+        <button class="btn-signin">SIGN IN</button>
+        <button class="btn-nav-cta">Get Started</button>
+    </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Software Built for<br>the Way You Work<br><span>Today</span></h1>
+        <p>myWDMS is a cloud-based waste disposal management platform that replaces outdated legacy software — giving haulers and municipalities one modern system to manage everything.</p>
+        <button class="btn-hero-cta">GET STARTED</button>
+    </div>
+    <div class="hero-video">
+        <div class="video-placeholder">
+            <div class="video-placeholder-inner">
+                <div class="play-btn">▶</div>
+                <p>SEE IT IN ACTION</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── THREE COL ── -->
+<section class="three-col">
+    <div class="feature-card">
+        <div class="feature-icon">🚛</div>
+        <h3>Replace Legacy Software</h3>
+        <p>Move off clunky outdated systems onto a modern platform your entire team will actually want to use. Onboard in days, not months.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Easier for Everyone</h3>
+        <p>Designed for owners, dispatchers, office managers, and drivers. No training manuals required — intuitive from day one.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">🌱</div>
+        <h3>Greener Operations</h3>
+        <p>Reduce fuel waste, cut paper processes, and build a more sustainable operation with real-time visibility across your business.</p>
+    </div>
+</section>
+
+<!-- ── STATS ── -->
+<section class="stats">
+    <div class="stat-item">
+        <h2>70%</h2>
+        <p>Faster Onboarding vs. Legacy Software</p>
+    </div>
+    <div class="stat-item">
+        <h2>50%</h2>
+        <p>Reduction in Administrative Time</p>
+    </div>
+    <div class="stat-item">
+        <h2>100%</h2>
+        <p>Cloud-Based, No Local Install Required</p>
+    </div>
+    <div class="stat-item">
+        <h2>200+</h2>
+        <p>Waste Operations Managed Nationwide</p>
+    </div>
+</section>
+
+<!-- ── FEATURE ROW 1: Access Management ── -->
+<section class="feature-row">
+    <div class="feature-row-content">
+        <span class="section-eyebrow">Access Management</span>
+        <h2>Complete Control Over Who Sees What</h2>
+        <p>No more shared logins or accidental data exposure. myWDMS gives administrators granular control over user roles, permissions, and access levels — all from one clean dashboard.</p>
+        <button class="btn-learn">LEARN MORE</button>
+    </div>
+    <div class="feature-row-image">
+        <div class="feature-mock">
+            <div class="feature-mock-header">
+                <div class="mock-dot" style="background:#ff5f57"></div>
+                <div class="mock-dot" style="background:#febc2e"></div>
+                <div class="mock-dot" style="background:#28c840"></div>
+            </div>
+            <div class="feature-mock-body">
+                <div class="mock-row">
+                    <div class="mock-avatar"></div>
+                    <div style="flex:1"><div class="mock-line" style="width:58%;margin-bottom:7px"></div><div class="mock-line" style="width:36%;opacity:0.4"></div></div>
+                    <span class="mock-badge active">Admin</span>
+                </div>
+                <div class="mock-row">
+                    <div class="mock-avatar" style="opacity:0.45"></div>
+                    <div style="flex:1"><div class="mock-line" style="width:50%;margin-bottom:7px"></div><div class="mock-line" style="width:33%;opacity:0.4"></div></div>
+                    <span class="mock-badge active">Dispatcher</span>
+                </div>
+                <div class="mock-row">
+                    <div class="mock-avatar" style="opacity:0.3"></div>
+                    <div style="flex:1"><div class="mock-line" style="width:54%;margin-bottom:7px"></div><div class="mock-line" style="width:28%;opacity:0.4"></div></div>
+                    <span class="mock-badge pending">Driver</span>
+                </div>
+                <div class="mock-row">
+                    <div class="mock-avatar" style="opacity:0.5"></div>
+                    <div style="flex:1"><div class="mock-line" style="width:46%;margin-bottom:7px"></div><div class="mock-line" style="width:38%;opacity:0.4"></div></div>
+                    <span class="mock-badge active">Billing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FEATURE ROW 2: Route Management ── -->
+<section class="feature-row alt">
+    <div class="feature-row-content">
+        <span class="section-eyebrow">Route Management</span>
+        <h2>Smarter Routes. Less Wasted Time.</h2>
+        <p>Manage service routes with ease. Assign stops, track progress, and identify inefficiencies — all in real time. Built to scale as your operation grows.</p>
+        <button class="btn-learn">LEARN MORE</button>
+    </div>
+    <div class="feature-row-image">
+        <div class="feature-mock">
+            <div class="feature-mock-header">
+                <div class="mock-dot" style="background:#ff5f57"></div>
+                <div class="mock-dot" style="background:#febc2e"></div>
+                <div class="mock-dot" style="background:#28c840"></div>
+            </div>
+            <div class="feature-mock-body">
+                <div style="background:var(--gray);border-radius:8px;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(27,42,74,0.04) 0%,rgba(0,201,177,0.07) 100%)"></div>
+                    <div style="text-align:center;position:relative;z-index:1;">
+                        <div style="font-size:2.2rem;margin-bottom:10px">🗺️</div>
+                        <div style="font-size:0.85rem;color:var(--text-mid);font-weight:800;font-family:'Barlow',sans-serif;letter-spacing:0.02em">Route Overview — 14 Active</div>
+                        <div style="display:flex;gap:8px;margin-top:14px;justify-content:center">
+                            <span style="background:rgba(0,201,177,0.2);color:#007a6e;font-size:0.72rem;font-weight:700;padding:4px 14px;border-radius:20px;font-family:'Barlow',sans-serif">12 On Track</span>
+                            <span style="background:rgba(251,191,36,0.2);color:#d97706;font-size:0.72rem;font-weight:700;padding:4px 14px;border-radius:20px;font-family:'Barlow',sans-serif">2 Delayed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FEATURE ROW 3: Lockbox & Billing ── -->
+<section class="feature-row">
+    <div class="feature-row-content">
+        <span class="section-eyebrow">Lockbox &amp; Billing</span>
+        <h2>Get Paid Faster. With Less Effort.</h2>
+        <p>Streamline payment collection with an integrated lockbox system. Reduce the time your team spends chasing invoices and reconciling payments by hand.</p>
+        <button class="btn-learn">LEARN MORE</button>
+    </div>
+    <div class="feature-row-image">
+        <div class="feature-mock">
+            <div class="feature-mock-header">
+                <div class="mock-dot" style="background:#ff5f57"></div>
+                <div class="mock-dot" style="background:#febc2e"></div>
+                <div class="mock-dot" style="background:#28c840"></div>
+            </div>
+            <div class="feature-mock-body">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
+                    <div style="font-size:0.85rem;font-weight:800;color:var(--text-dark);font-family:'Barlow',sans-serif;letter-spacing:0.02em">Recent Payments</div>
+                    <div style="font-size:0.78rem;color:var(--teal);font-weight:700;font-family:'Barlow',sans-serif">View All</div>
+                </div>
+                <div class="mock-row">
+                    <div style="flex:1"><div class="mock-line" style="width:55%;margin-bottom:6px"></div><div class="mock-line" style="width:35%;opacity:0.4"></div></div>
+                    <div style="font-size:0.95rem;font-weight:800;color:var(--text-dark);font-family:'Barlow',sans-serif">$1,240</div>
+                </div>
+                <div class="mock-row">
+                    <div style="flex:1"><div class="mock-line" style="width:62%;margin-bottom:6px"></div><div class="mock-line" style="width:40%;opacity:0.4"></div></div>
+                    <div style="font-size:0.95rem;font-weight:800;color:var(--text-dark);font-family:'Barlow',sans-serif">$890</div>
+                </div>
+                <div class="mock-row">
+                    <div style="flex:1"><div class="mock-line" style="width:48%;margin-bottom:6px"></div><div class="mock-line" style="width:30%;opacity:0.4"></div></div>
+                    <div style="font-size:0.95rem;font-weight:800;color:var(--text-dark);font-family:'Barlow',sans-serif">$3,100</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FEATURE ROW 4: Logs & Reporting ── -->
+<section class="feature-row alt">
+    <div class="feature-row-content">
+        <span class="section-eyebrow">Logs &amp; Reporting</span>
+        <h2>Real-Time Visibility Into Your Entire Operation</h2>
+        <p>Stop guessing. myWDMS gives you live reporting across every part of your business — from audit logs to operational history — so you can make faster, smarter decisions.</p>
+        <button class="btn-learn">LEARN MORE</button>
+    </div>
+    <div class="feature-row-image">
+        <div class="feature-mock">
+            <div class="feature-mock-header">
+                <div class="mock-dot" style="background:#ff5f57"></div>
+                <div class="mock-dot" style="background:#febc2e"></div>
+                <div class="mock-dot" style="background:#28c840"></div>
+            </div>
+            <div class="feature-mock-body">
+                <div style="display:flex;align-items:flex-end;gap:8px;height:120px;margin-bottom:14px">
+                    <div style="flex:1;background:rgba(0,201,177,0.15);border-radius:4px 4px 0 0;height:55%"></div>
+                    <div style="flex:1;background:rgba(0,201,177,0.15);border-radius:4px 4px 0 0;height:72%"></div>
+                    <div style="flex:1;background:rgba(0,201,177,0.15);border-radius:4px 4px 0 0;height:48%"></div>
+                    <div style="flex:1;background:rgba(0,201,177,0.15);border-radius:4px 4px 0 0;height:88%"></div>
+                    <div style="flex:1;background:rgba(0,201,177,0.15);border-radius:4px 4px 0 0;height:68%"></div>
+                    <div style="flex:1;background:rgba(0,201,177,0.85);border-radius:4px 4px 0 0;height:82%"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;padding:0 2px">
+                    <div style="font-size:0.75rem;color:var(--text-light);font-family:'Barlow',sans-serif">Jan</div>
+                    <div style="font-size:0.75rem;color:var(--text-light);font-family:'Barlow',sans-serif">Feb</div>
+                    <div style="font-size:0.75rem;color:var(--text-light);font-family:'Barlow',sans-serif">Mar</div>
+                    <div style="font-size:0.75rem;color:var(--text-light);font-family:'Barlow',sans-serif">Apr</div>
+                    <div style="font-size:0.75rem;color:var(--text-light);font-family:'Barlow',sans-serif">May</div>
+                    <div style="font-size:0.75rem;color:var(--teal);font-weight:800;font-family:'Barlow',sans-serif">Jun</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── WHO WE SERVE ── -->
+<section class="serve-section">
+    <span class="section-eyebrow">Who We Serve</span>
+    <h2>Built for Every Corner of the Waste Industry</h2>
+    <div class="serve-grid">
+        <div class="serve-card">
+            <div class="serve-icon">🏢</div>
+            <h3>Commercial Haulers</h3>
+            <p>Manage commercial accounts, routes, and billing from a single modern platform.</p>
+        </div>
+        <div class="serve-card">
+            <div class="serve-icon">🏘️</div>
+            <h3>Residential Services</h3>
+            <p>Streamline curbside pickup, customer accounts, and service scheduling with ease.</p>
+        </div>
+        <div class="serve-card">
+            <div class="serve-icon">🏗️</div>
+            <h3>Roll-Off Operations</h3>
+            <p>Track container placements, pickups, and billing with full operational visibility.</p>
+        </div>
+        <div class="serve-card">
+            <div class="serve-icon">🏛️</div>
+            <h3>Municipalities</h3>
+            <p>Give public works departments a modern system built for compliance and scale.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── TESTIMONIAL ── -->
+<section class="testimonial">
+    <blockquote>
+        <span class="quote-mark">"</span>We finally have a system our whole team actually enjoys using. The switch from our old software was smoother than we ever expected.
+    </blockquote>
+    <div class="testimonial-author">
+        <strong>Sarah Mitchell</strong> — Operations Manager, Pacific Waste Services
+    </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final-cta">
+    <h2>Ready to Learn More?</h2>
+    <p>Book a software demo with our team and see why waste operations across the country are making the switch.</p>
+    <button class="btn-cta-large">GET STARTED</button>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-top">
+        <div class="footer-brand">
+            <div class="logo" style="margin-bottom:16px">
+                <div class="logo-icon" style="margin-right:10px">♻️</div>
+                my<span>WDMS</span>
+            </div>
+            <p>The modern waste disposal management platform built for haulers and municipalities ready to leave legacy software behind.</p>
+            <div class="footer-contact">
+                <div>hello@mywdms.com</div>
+                <div>(800) 000-0000</div>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Features</h4>
+            <ul>
+                <li><a href="#">Access Management</a></li>
+                <li><a href="#">Route Management</a></li>
+                <li><a href="#">Lockbox &amp; Billing</a></li>
+                <li><a href="#">Logs &amp; Reporting</a></li>
+                <li><a href="#">System Settings</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Who We Serve</h4>
+            <ul>
+                <li><a href="#">Commercial</a></li>
+                <li><a href="#">Residential</a></li>
+                <li><a href="#">Roll-Off</a></li>
+                <li><a href="#">Municipalities</a></li>
+                <li><a href="#">Success Stories</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Press</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 myWDMS — All rights reserved</span>
+        <span>A myonlinebill product</span>
+    </div>
+</footer>
+
+</body>
+</html>

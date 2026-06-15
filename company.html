@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company — myWDMS</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .mission-split {
+            display: flex; align-items: center; gap: 80px; padding: 90px 48px;
+        }
+        .mission-content { flex: 1; }
+        .mission-content h2 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 2.6rem; font-weight: 900;
+            color: var(--text-dark); line-height: 1.1;
+            letter-spacing: -0.02em; margin-bottom: 20px;
+        }
+        .mission-content p {
+            font-size: 1.05rem; color: var(--text-mid);
+            line-height: 1.85; margin-bottom: 20px;
+        }
+        .mission-visual {
+            flex: 1; display: flex; flex-direction: column; gap: 16px;
+        }
+        .value-card {
+            background: white; border-radius: 10px; padding: 24px 28px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--teal);
+            display: flex; align-items: flex-start; gap: 16px;
+        }
+        .value-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+        .value-card h4 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1rem; font-weight: 800;
+            color: var(--text-dark); margin-bottom: 6px;
+        }
+        .value-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
+
+        .story-section {
+            padding: 90px 48px; background: var(--gray);
+        }
+        .story-section h2 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 2.4rem; font-weight: 900;
+            color: var(--text-dark); line-height: 1.1;
+            letter-spacing: -0.02em; margin-bottom: 28px;
+            max-width: 600px;
+        }
+        .story-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+            align-items: start;
+        }
+        .story-text p {
+            font-size: 1.05rem; color: var(--text-mid);
+            line-height: 1.85; margin-bottom: 20px;
+        }
+        .story-text p:last-child { margin-bottom: 0; }
+
+        .timeline { display: flex; flex-direction: column; gap: 0; }
+        .timeline-item {
+            display: flex; gap: 20px; position: relative; padding-bottom: 28px;
+        }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-left { display: flex; flex-direction: column; align-items: center; }
+        .timeline-dot {
+            width: 14px; height: 14px; border-radius: 50%;
+            background: var(--teal); flex-shrink: 0; margin-top: 4px;
+        }
+        .timeline-line {
+            width: 2px; background: var(--gray-mid);
+            flex: 1; margin-top: 6px;
+        }
+        .timeline-item:last-child .timeline-line { display: none; }
+        .timeline-year {
+            font-family: 'Barlow', sans-serif;
+            font-size: 0.78rem; font-weight: 800; color: var(--teal);
+            letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;
+        }
+        .timeline-title {
+            font-size: 1rem; font-weight: 800; color: var(--text-dark); margin-bottom: 6px;
+        }
+        .timeline-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
+
+        .team-section { padding: 90px 48px; }
+        .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+        .team-card {
+            background: white; border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            overflow: hidden; text-align: center;
+            border: 1px solid var(--gray-mid);
+        }
+        .team-avatar {
+            width: 100%; height: 160px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 4rem;
+        }
+        .team-info { padding: 20px; }
+        .team-name {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1.05rem; font-weight: 800;
+            color: var(--text-dark); margin-bottom: 4px;
+        }
+        .team-role { font-size: 0.85rem; color: var(--teal); font-weight: 700; margin-bottom: 10px; }
+        .team-bio { font-size: 0.82rem; color: var(--text-mid); line-height: 1.6; }
+
+        .parent-section {
+            background: var(--navy); padding: 80px 48px;
+            display: flex; align-items: center; gap: 80px;
+        }
+        .parent-content { flex: 1; }
+        .parent-content h2 {
+            font-family: 'Barlow', sans-serif;
+            font-size: 2.2rem; font-weight: 900; color: white;
+            line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px;
+        }
+        .parent-content p { font-size: 1.05rem; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 16px; }
+        .parent-visual { flex: 1; }
+        .parent-logo-card {
+            background: rgba(255,255,255,0.07); border-radius: 16px;
+            padding: 40px; text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .parent-logo-text {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1.8rem; font-weight: 900; color: white;
+            letter-spacing: -0.02em; margin-bottom: 12px;
+        }
+        .parent-logo-sub { font-size: 0.9rem; color: rgba(255,255,255,0.45); }
+        .synergy-list { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+        .synergy-item {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 0.95rem; color: rgba(255,255,255,0.7);
+        }
+        .synergy-item::before { content: '✓'; color: var(--teal); font-weight: 900; }
+
+        .press-section { padding: 70px 48px; background: var(--gray); text-align: center; }
+        .press-logos {
+            display: flex; justify-content: center; align-items: center;
+            gap: 48px; flex-wrap: wrap; margin-top: 36px;
+        }
+        .press-logo {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1.1rem; font-weight: 900; color: var(--text-light);
+            letter-spacing: -0.01em; opacity: 0.6;
+        }
+        .press-logo span { color: var(--text-dark); }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="mywdms.html" class="logo">
+        <div class="logo-icon">♻️</div>
+        my<span>WDMS</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="features.html">Features <span class="chevron">▾</span></a></li>
+        <li><a href="who-we-serve.html">Who We Serve <span class="chevron">▾</span></a></li>
+        <li><a href="company.html" class="active">Company <span class="chevron">▾</span></a></li>
+        <li><a href="success-stories.html">Success Stories</a></li>
+    </ul>
+    <div class="nav-ctas">
+        <button class="btn-signin">SIGN IN</button>
+        <a href="#" class="btn-nav-cta">Get Started</a>
+    </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <span class="eyebrow">About myWDMS</span>
+    <h1>We Built the Software the <span>Waste Industry Deserves</span></h1>
+    <p>The waste and disposal industry powers every city in America — and it's been running on software that hasn't kept up. We're here to change that.</p>
+</section>
+
+<!-- MISSION -->
+<section class="mission-split">
+    <div class="mission-content">
+        <span class="eyebrow">Our Mission</span>
+        <h2>Modernize the Infrastructure Behind Waste Management</h2>
+        <p>Thousands of haulers, municipalities, and disposal companies across the country are still running on software built in the early 2000s — or worse, spreadsheets and paper. The people doing this essential work deserve better tools.</p>
+        <p>myWDMS was built from the ground up to be the platform we wish existed when we started talking to waste operations teams: cloud-native, intuitive, and powerful enough to grow with any organization.</p>
+        <p>Our goal is simple — give every waste operation, from a 3-truck family business to a multi-city municipal contract, the same quality of software that enterprise companies take for granted.</p>
+    </div>
+    <div class="mission-visual">
+        <div class="value-card">
+            <div class="value-icon">🎯</div>
+            <div>
+                <h4>Built for the Industry</h4>
+                <p>Every feature was shaped by conversations with real haulers, dispatchers, and municipal directors — not invented in a vacuum.</p>
+            </div>
+        </div>
+        <div class="value-card">
+            <div class="value-icon">⚡</div>
+            <div>
+                <h4>Simple by Default</h4>
+                <p>If your team needs a week of training to use it, we've failed. myWDMS is designed to feel obvious from day one.</p>
+            </div>
+        </div>
+        <div class="value-card">
+            <div class="value-icon">🌱</div>
+            <div>
+                <h4>Built to Last</h4>
+                <p>We're not flipping this to private equity in 18 months. We're building a long-term platform for a critical industry.</p>
+            </div>
+        </div>
+        <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <div>
+                <h4>Customer-Driven Roadmap</h4>
+                <p>Our customers vote on what we build next. If you need it, we want to know about it.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="story-section">
+    <h2>How myWDMS Came to Be</h2>
+    <div class="story-grid">
+        <div class="story-text">
+            <p>It started with a conversation. Our parent company, myonlinebill, had been processing payments for waste and utility companies for years. And every single time we'd sit down with a hauler or a municipal billing department, we'd hear the same thing: <em>"Our operations software is a nightmare."</em></p>
+            <p>They weren't exaggerating. We saw systems from the late 1990s still running dispatch for fleets of 60 trucks. We saw billing managers manually reconciling payments in Excel at 9 PM on a Friday. We saw drivers navigating with printed paper manifests.</p>
+            <p>We knew the payment side of the business. We understood the compliance requirements, the billing complexity, the operational rhythm of waste collection. So we built myWDMS — not as a side project, but as a dedicated platform designed to be the system the industry has needed for two decades.</p>
+            <p>Today, myWDMS powers operations across the country, from single-location haulers to multi-depot municipal contracts. And we're just getting started.</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-line"></div>
+                </div>
+                <div>
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-title">myonlinebill Founded</div>
+                    <div class="timeline-desc">Started as a payment processing platform for utility and waste companies. First hauler client onboarded.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-line"></div>
+                </div>
+                <div>
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-title">The Pattern Emerged</div>
+                    <div class="timeline-desc">After hundreds of client conversations, the same problem kept surfacing: outdated ops software was costing operations time and money.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-line"></div>
+                </div>
+                <div>
+                    <div class="timeline-year">2022</div>
+                    <div class="timeline-title">myWDMS Development Begins</div>
+                    <div class="timeline-desc">Built alongside 12 early-access haulers who shaped every feature. Version 1.0 launched to a waitlist of 40 companies.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-line"></div>
+                </div>
+                <div>
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-title">200+ Operations Onboarded</div>
+                    <div class="timeline-desc">Expanded to serve commercial haulers, residential services, roll-off operations, and municipalities nationwide.</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-line"></div>
+                </div>
+                <div>
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-title">v70 — The Modern Era</div>
+                    <div class="timeline-desc">Rebuilt on modern cloud infrastructure with AI-assisted routing on the roadmap. The platform keeps getting better.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+    <div class="section-header" style="margin-bottom:48px">
+        <span class="eyebrow">Our Team</span>
+        <h2>Built by People Who Know the Industry</h2>
+        <p>Our team combines deep experience in waste operations, enterprise software, and billing infrastructure.</p>
+    </div>
+    <div class="img-placeholder" style="aspect-ratio:16/5;margin-bottom:40px">
+        <div class="ph-icon">👥</div>
+        <div class="ph-label">team-bg.jpg</div>
+    </div>
+    <div class="team-grid">
+        <div class="team-card">
+            <div class="team-avatar" style="background:linear-gradient(135deg,#1B2A4A,#2d4a7a)">👨‍💼</div>
+            <div class="team-info">
+                <div class="team-name">Tyler Lenning</div>
+                <div class="team-role">Founder & CEO</div>
+                <div class="team-bio">15 years in billing infrastructure for waste and utility companies. Built myonlinebill from the ground up.</div>
+            </div>
+        </div>
+        <div class="team-card">
+            <div class="team-avatar" style="background:linear-gradient(135deg,#00a896,#00C9B1)">👩‍💻</div>
+            <div class="team-info">
+                <div class="team-name">Sarah Chen</div>
+                <div class="team-role">VP of Product</div>
+                <div class="team-bio">Former product lead at a major waste management software firm. Joined to build the product she always wished existed.</div>
+            </div>
+        </div>
+        <div class="team-card">
+            <div class="team-avatar" style="background:linear-gradient(135deg,#1a6cf0,#4d94ff)">👨‍🔧</div>
+            <div class="team-info">
+                <div class="team-name">Marcus Webb</div>
+                <div class="team-role">Head of Operations Success</div>
+                <div class="team-bio">Ran a 45-truck commercial hauling operation for 12 years. Now helps customers get the most out of myWDMS.</div>
+            </div>
+        </div>
+        <div class="team-card">
+            <div class="team-avatar" style="background:linear-gradient(135deg,#6b46c1,#9f7aea)">👩‍🏫</div>
+            <div class="team-info">
+                <div class="team-name">Linda Park</div>
+                <div class="team-role">Director of Municipal Sales</div>
+                <div class="team-bio">10 years in government software sales. Specializes in public sector procurement and compliance requirements.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PARENT COMPANY -->
+<section class="parent-section">
+    <div class="parent-content">
+        <span class="eyebrow" style="color:var(--teal)">Our Parent Company</span>
+        <h2>Backed by myonlinebill — A Decade of Billing Infrastructure</h2>
+        <p>myWDMS is a product of myonlinebill, a trusted payment and billing platform that has been serving waste and utility companies since 2015.</p>
+        <p>That backing means myWDMS isn't a startup gamble — it's built on a proven foundation with existing relationships across the waste industry and deep expertise in the billing complexity that makes this space unique.</p>
+        <div class="synergy-list">
+            <div class="synergy-item">Native integration with myonlinebill payment processing</div>
+            <div class="synergy-item">Compliance-ready billing infrastructure from day one</div>
+            <div class="synergy-item">Established relationships with 500+ waste industry clients</div>
+            <div class="synergy-item">Enterprise-grade security and uptime standards</div>
+        </div>
+    </div>
+    <div class="parent-visual">
+        <div class="parent-logo-card">
+            <div style="font-size:2.5rem;margin-bottom:16px">🌐</div>
+            <div class="parent-logo-text">myonlinebill</div>
+            <div class="parent-logo-sub">Billing & Payment Infrastructure Since 2015</div>
+            <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1)">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:center">
+                    <div>
+                        <div style="font-family:'Barlow',sans-serif;font-size:1.8rem;font-weight:900;color:var(--teal)">500+</div>
+                        <div style="font-size:0.8rem;color:rgba(255,255,255,0.4)">Clients Served</div>
+                    </div>
+                    <div>
+                        <div style="font-family:'Barlow',sans-serif;font-size:1.8rem;font-weight:900;color:var(--teal)">$2B+</div>
+                        <div style="font-size:0.8rem;color:rgba(255,255,255,0.4)">Payments Processed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRESS -->
+<section class="press-section">
+    <span class="eyebrow">As Seen In</span>
+    <h2 style="font-family:'Barlow',sans-serif;font-size:1.8rem;font-weight:900;color:var(--text-dark);letter-spacing:-0.02em;margin:8px 0 0">Industry Coverage</h2>
+    <div class="press-logos">
+        <div class="press-logo"><span>Waste</span>Today</div>
+        <div class="press-logo"><span>Waste</span>360</div>
+        <div class="press-logo">Municipal<span>World</span></div>
+        <div class="press-logo"><span>Solid</span>Waste</div>
+        <div class="press-logo">Route<span>One</span></div>
+    </div>
+</section>
+
+<!-- CAREERS CTA -->
+<section class="cta-band dark">
+    <h2>We're Hiring</h2>
+    <p>We're growing fast and looking for people who care about building software that matters for an industry that keeps cities running.</p>
+    <a href="#" class="btn-primary" style="margin-right:16px">View Open Roles</a>
+    <a href="#" class="btn-outline-white">Contact Us</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-top">
+        <div class="footer-brand">
+            <a href="mywdms.html" class="logo"><div class="logo-icon">♻️</div>my<span>WDMS</span></a>
+            <p>The modern waste disposal management platform built for haulers and municipalities ready to leave legacy software behind.</p>
+            <div class="footer-contact"><div>hello@mywdms.com</div><div>(800) 000-0000</div></div>
+        </div>
+        <div class="footer-col"><h4>Features</h4><ul><li><a href="features.html">Access Management</a></li><li><a href="features.html">Route Management</a></li><li><a href="features.html">Lockbox & Billing</a></li><li><a href="features.html">Logs & Reporting</a></li></ul></div>
+        <div class="footer-col"><h4>Who We Serve</h4><ul><li><a href="who-we-serve.html">Commercial</a></li><li><a href="who-we-serve.html">Residential</a></li><li><a href="who-we-serve.html">Roll-Off</a></li><li><a href="who-we-serve.html">Municipalities</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="company.html">About Us</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 myWDMS — All rights reserved</span><span>A myonlinebill product</span></div>
+</footer>
+
+</body>
+</html>
