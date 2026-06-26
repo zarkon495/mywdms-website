@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company — myWDMS</title>
+    <title>About Us — myWDMS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
     <style>
@@ -53,10 +53,26 @@
             content: ''; position: absolute; inset: 0;
             background: rgba(10,16,30,0.55);
         }
-        .page-hero h1 {
+        .page-hero-brand {
             position: relative; z-index: 1;
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; color: #fff;
-            letter-spacing: -0.02em; text-align: center;
+            display: flex; flex-direction: column; align-items: center; gap: 16px;
+        }
+        .page-hero-logo {
+            display: flex; align-items: center; gap: 12px;
+            font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 900; color: #fff;
+            letter-spacing: -0.03em;
+        }
+        .page-hero-logo-icon {
+            width: 52px; height: 52px; background: rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 12px; display: flex; align-items: center;
+            justify-content: center; font-size: 1.5rem;
+        }
+        .page-hero-logo em { color: var(--teal); font-style: normal; }
+        .page-hero-tagline {
+            position: relative; z-index: 1;
+            font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em;
+            text-transform: uppercase; color: rgba(255,255,255,0.55);
         }
 
         /* ── ABOUT SECTION ── */
@@ -136,7 +152,8 @@
     <ul class="nav-links">
         <li><a href="features.html">Features</a></li>
         <li><a href="who-we-serve.html">Who We Serve</a></li>
-        <li><a href="company.html" class="active">Company</a></li>
+        <li><a href="company.html" class="active">About Us</a></li>
+
     </ul>
     <div class="nav-right">
         <button class="btn-text">Sign In</button>
@@ -147,7 +164,13 @@
 <!-- HERO -->
 <section class="page-hero">
     <div class="page-hero-bg"></div>
-    <h1>Company</h1>
+    <div class="page-hero-brand">
+        <div class="page-hero-logo">
+            <div class="page-hero-logo-icon">♻️</div>
+            my<em>WDMS</em>
+        </div>
+        <div class="page-hero-tagline">About Us</div>
+    </div>
 </section>
 
 <!-- ABOUT -->
@@ -158,7 +181,7 @@
             <div class="about-card-icon">
                 <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
             </div>
-            <h3>Company</h3>
+            <h3>Our Office</h3>
             <p>230 Commerce, Suite 185<br>Irvine, CA 92602<br><br>Modern waste disposal management software built for haulers and municipalities across the United States.</p>
         </div>
         <div class="about-card">
@@ -214,7 +237,7 @@
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Company</h4>
+                <h4>About Us</h4>
                 <ul>
                     <li><a href="company.html">About Us</a></li>
                     <li><a href="#">Privacy Policy</a></li>
