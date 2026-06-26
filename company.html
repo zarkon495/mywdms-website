@@ -41,7 +41,7 @@
 
         /* ── HERO ── */
         .page-hero {
-            position: relative; min-height: 260px;
+            position: relative; min-height: 420px;
             display: flex; align-items: center; justify-content: center;
             overflow: hidden;
         }
@@ -91,6 +91,14 @@
         .about-card:hover h3 { color: #fff; }
         .about-card p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; transition: color 0.22s; }
         .about-card:hover p { color: rgba(255,255,255,0.82); }
+
+        /* ── GET STARTED ── */
+        .get-started { background: var(--teal); padding: 52px 48px; }
+        .get-started-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+        .get-started h2 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 900; color: #fff; letter-spacing: -0.02em; margin-bottom: 6px; }
+        .get-started p { font-size: 1rem; color: rgba(255,255,255,0.72); }
+        .btn-get-started { background: #fff; color: var(--teal); border: none; padding: 14px 36px; border-radius: 8px; font-weight: 800; font-size: 1rem; cursor: pointer; font-family: inherit; white-space: nowrap; transition: background 0.2s, color 0.2s; flex-shrink: 0; }
+        .btn-get-started:hover { background: var(--navy-dark); color: #fff; }
 
         /* ── FOOTER ── */
         footer { background: var(--navy); padding: 44px 48px 24px; }
@@ -148,7 +156,7 @@
     <div class="cards-grid">
         <div class="about-card">
             <div class="about-card-icon">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
             </div>
             <h3>Company</h3>
             <p>Headquartered in Irvine, California, myWDMS provides modern waste disposal management software built for haulers and municipalities across the United States.</p>
@@ -169,6 +177,17 @@
         </div>
     </div>
 </div>
+
+<!-- GET STARTED BANNER -->
+<section class="get-started">
+    <div class="get-started-inner">
+        <div>
+            <h2>Ready to modernize your operation?</h2>
+            <p>See how myWDMS fits your workflow. No commitment required.</p>
+        </div>
+        <button class="btn-get-started">Schedule a Call</button>
+    </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
