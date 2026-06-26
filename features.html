@@ -66,7 +66,7 @@
             color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 8px;
             cursor: pointer;
         }
-        .mock-sidebar-item.active { background: rgba(0,201,177,0.15); color: var(--teal); }
+        .mock-sidebar-item.active { background: rgba(46,125,82,0.15); color: var(--teal); }
         .mock-sidebar-item .icon { font-size: 0.85rem; }
         .mock-main { flex: 1; padding: 20px; overflow: hidden; }
         .mock-main-title {
@@ -79,7 +79,7 @@
             background: var(--gray); border-radius: 6px; padding: 8px;
             text-align: center; font-size: 0.68rem; font-weight: 700; color: var(--text-mid);
         }
-        .permission-cell.on { background: rgba(0,201,177,0.12); color: #007a6e; }
+        .permission-cell.on { background: rgba(46,125,82,0.12); color: var(--teal); }
         .permission-cell.off { background: rgba(239,68,68,0.08); color: #dc2626; }
 
         .mock-route-list { display: flex; flex-direction: column; gap: 8px; }
@@ -140,7 +140,7 @@
             background: var(--navy); padding: 32px 24px; text-align: center; cursor: pointer;
             transition: background 0.2s;
         }
-        .overview-item:hover { background: rgba(0,201,177,0.1); }
+        .overview-item:hover { background: rgba(46,125,82,0.15); }
         .overview-item .ov-icon { font-size: 2rem; margin-bottom: 12px; }
         .overview-item h3 {
             font-family: 'Barlow', sans-serif; font-size: 1rem; font-weight: 800;
@@ -153,19 +153,19 @@
 
 <!-- NAV -->
 <nav>
-    <a href="mywdms.html" class="logo">
+    <a href="index.html" class="logo">
         <div class="logo-icon">♻️</div>
-        my<span>WDMS</span>
+        my<em style="color:var(--teal);font-style:normal">WDMS</em>
     </a>
     <ul class="nav-links">
-        <li><a href="features.html" class="active">Features <span class="chevron">▾</span></a></li>
-        <li><a href="who-we-serve.html">Who We Serve <span class="chevron">▾</span></a></li>
-        <li><a href="company.html">Company <span class="chevron">▾</span></a></li>
+        <li><a href="features.html" class="active">Features</a></li>
+        <li><a href="who-we-serve.html">Who We Serve</a></li>
+        <li><a href="company.html">Company</a></li>
         <li><a href="success-stories.html">Success Stories</a></li>
     </ul>
-    <div class="nav-ctas">
-        <button class="btn-signin">SIGN IN</button>
-        <a href="#" class="btn-nav-cta">Get Started</a>
+    <div class="nav-right">
+        <button class="btn-text">Sign In</button>
+        <button class="btn-demo">Book a Demo</button>
     </div>
 </nav>
 
@@ -302,10 +302,10 @@
                         <div class="mock-route-status" style="background:rgba(40,200,64,0.12);color:#16a34a">Completed</div>
                     </div>
                     <div class="mock-route-item">
-                        <div class="mock-route-dot" style="background:var(--blue-cta)"></div>
+                        <div class="mock-route-dot" style="background:var(--teal)"></div>
                         <div class="mock-route-label">Route B — Commercial Zone</div>
                         <div class="mock-route-stops">18 stops</div>
-                        <div class="mock-route-status" style="background:rgba(26,108,240,0.12);color:var(--blue-cta)">In Progress</div>
+                        <div class="mock-route-status" style="background:rgba(46,125,82,0.12);color:var(--teal)">In Progress</div>
                     </div>
                     <div class="mock-route-item">
                         <div class="mock-route-dot" style="background:#febc2e"></div>
@@ -418,13 +418,13 @@
                     <div class="mock-log-time">2:14 PM</div>
                     <div class="mock-log-user">T. Lenning</div>
                     <div class="mock-log-action">Updated permissions for Driver role</div>
-                    <div class="mock-log-tag" style="background:rgba(26,108,240,0.1);color:var(--blue-cta)">Access</div>
+                    <div class="mock-log-tag" style="background:rgba(46,125,82,0.12);color:var(--teal)">Access</div>
                 </div>
                 <div class="mock-log-row">
                     <div class="mock-log-time">1:58 PM</div>
                     <div class="mock-log-user">S. Mitchell</div>
                     <div class="mock-log-action">Marked Route B as In Progress</div>
-                    <div class="mock-log-tag" style="background:rgba(0,201,177,0.1);color:var(--teal-dark)">Routes</div>
+                    <div class="mock-log-tag" style="background:rgba(46,125,82,0.12);color:var(--teal)">Routes</div>
                 </div>
                 <div class="mock-log-row">
                     <div class="mock-log-time">1:44 PM</div>
@@ -436,13 +436,13 @@
                     <div class="mock-log-time">12:30 PM</div>
                     <div class="mock-log-user">T. Lenning</div>
                     <div class="mock-log-action">Invited user k.johnson@example.com</div>
-                    <div class="mock-log-tag" style="background:rgba(26,108,240,0.1);color:var(--blue-cta)">Access</div>
+                    <div class="mock-log-tag" style="background:rgba(46,125,82,0.12);color:var(--teal)">Access</div>
                 </div>
                 <div class="mock-log-row">
                     <div class="mock-log-time">11:05 AM</div>
                     <div class="mock-log-user">System</div>
                     <div class="mock-log-action">Route A marked Completed — 42/42 stops</div>
-                    <div class="mock-log-tag" style="background:rgba(0,201,177,0.1);color:var(--teal-dark)">Routes</div>
+                    <div class="mock-log-tag" style="background:rgba(46,125,82,0.12);color:var(--teal)">Routes</div>
                 </div>
             </div>
         </div>
@@ -523,12 +523,17 @@
 <footer>
     <div class="footer-top">
         <div class="footer-brand">
-            <a href="mywdms.html" class="logo">
+            <a href="index.html" class="logo">
                 <div class="logo-icon">♻️</div>
-                my<span>WDMS</span>
+                my<em style="color:var(--teal);font-style:normal">WDMS</em>
             </a>
-            <p>The modern waste disposal management platform built for haulers and municipalities ready to leave legacy software behind.</p>
-            <div class="footer-contact"><div>hello@mywdms.com</div><div>(800) 000-0000</div></div>
+            <p>Cloud-based waste management software built by people who know the industry.</p>
+            <div class="footer-contact">
+                <div>230 Commerce, Suite 185</div>
+                <div>Irvine, CA 92602</div>
+                <div>hello@mywdms.com</div>
+                <div>(800) 000-0000</div>
+            </div>
         </div>
         <div class="footer-col">
             <h4>Features</h4>
@@ -553,15 +558,12 @@
             <h4>Company</h4>
             <ul>
                 <li><a href="company.html">About Us</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Careers</a></li>
                 <li><a href="#">Privacy Policy</a></li>
             </ul>
         </div>
     </div>
     <div class="footer-bottom">
-        <span>© 2026 myWDMS — All rights reserved</span>
-        <span>A myonlinebill product</span>
+        <span>© 2026 myWDMS</span>
     </div>
 </footer>
 

@@ -126,7 +126,7 @@
             display: flex; align-items: center; gap: 16px;
         }
         .company-logo-placeholder {
-            width: 56px; height: 56px; background: rgba(0,201,177,0.2);
+            width: 56px; height: 56px; background: rgba(46,125,82,0.2);
             border-radius: 10px; display: flex; align-items: center;
             justify-content: center; font-size: 1.8rem; flex-shrink: 0;
         }
@@ -173,19 +173,19 @@
 
 <!-- NAV -->
 <nav>
-    <a href="mywdms.html" class="logo">
+    <a href="index.html" class="logo">
         <div class="logo-icon">♻️</div>
-        my<span>WDMS</span>
+        my<em style="color:var(--teal);font-style:normal">WDMS</em>
     </a>
     <ul class="nav-links">
-        <li><a href="features.html">Features <span class="chevron">▾</span></a></li>
-        <li><a href="who-we-serve.html">Who We Serve <span class="chevron">▾</span></a></li>
-        <li><a href="company.html">Company <span class="chevron">▾</span></a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="who-we-serve.html">Who We Serve</a></li>
+        <li><a href="company.html">Company</a></li>
         <li><a href="success-stories.html" class="active">Success Stories</a></li>
     </ul>
-    <div class="nav-ctas">
-        <button class="btn-signin">SIGN IN</button>
-        <a href="#" class="btn-nav-cta">Get Started</a>
+    <div class="nav-right">
+        <button class="btn-text">Sign In</button>
+        <button class="btn-demo">Book a Demo</button>
     </div>
 </nav>
 
@@ -280,7 +280,7 @@
     <div class="stories-grid">
         <div class="story-card">
             <div class="story-card-header">
-                <div class="story-tag" style="background:rgba(0,201,177,0.12);color:var(--teal-dark)">🏘️ Residential</div>
+                <div class="story-tag" style="background:rgba(46,125,82,0.12);color:var(--teal)">🏘️ Residential</div>
                 <h3>Greenfield Residential Cut Customer Calls by 30%</h3>
                 <blockquote>"Residents stopped calling to ask about pickup times because they could check the portal themselves. Our office team got their afternoons back."</blockquote>
             </div>
@@ -295,7 +295,7 @@
 
         <div class="story-card">
             <div class="story-card-header">
-                <div class="story-tag" style="background:rgba(26,108,240,0.1);color:var(--blue-cta)">🏗️ Roll-Off</div>
+                <div class="story-tag" style="background:rgba(46,125,82,0.12);color:var(--teal)">🏗️ Roll-Off</div>
                 <h3>Kowalski Roll-Off Recovered $18k in 90 Days</h3>
                 <blockquote>"We had no idea how many rental overages were slipping through. myWDMS caught them automatically and we haven't missed one since."</blockquote>
             </div>
@@ -325,7 +325,7 @@
 
         <div class="story-card">
             <div class="story-card-header">
-                <div class="story-tag" style="background:rgba(0,201,177,0.12);color:var(--teal-dark)">🏢 Commercial</div>
+                <div class="story-tag" style="background:rgba(46,125,82,0.12);color:var(--teal)">🏢 Commercial</div>
                 <h3>Webb Commercial Slashed Billing Errors by 40%</h3>
                 <blockquote>"We went from three people managing billing manually to one person handling it in half the time. The difference is night and day."</blockquote>
             </div>
@@ -340,7 +340,7 @@
 
         <div class="story-card">
             <div class="story-card-header">
-                <div class="story-tag" style="background:rgba(26,108,240,0.1);color:var(--blue-cta)">🏘️ Residential</div>
+                <div class="story-tag" style="background:rgba(46,125,82,0.12);color:var(--teal)">🏘️ Residential</div>
                 <h3>Pacific Waste Services Onboarded in Under 24 Hours</h3>
                 <blockquote>"I was worried about the transition. By end of day one, my whole team was using myWDMS like they'd been on it for years."</blockquote>
             </div>
@@ -392,7 +392,7 @@
             <div class="stars">★★★★★</div>
             <blockquote>"I've used four different waste management software platforms over my career. myWDMS is the first one that doesn't feel like it was designed in 2003. Huge difference."</blockquote>
             <div class="testimonial-footer">
-                <div class="testimonial-avatar" style="background:linear-gradient(135deg,#00a896,#00C9B1)">👩</div>
+                <div class="testimonial-avatar" style="background:linear-gradient(135deg,#1A5436,#2E7D52)">👩</div>
                 <div>
                     <div class="testimonial-name">Rachel Kim</div>
                     <div class="testimonial-role">Dispatch Manager, Metro Waste Solutions</div>
@@ -435,15 +435,20 @@
 <footer>
     <div class="footer-top">
         <div class="footer-brand">
-            <a href="mywdms.html" class="logo"><div class="logo-icon">♻️</div>my<span>WDMS</span></a>
-            <p>The modern waste disposal management platform built for haulers and municipalities ready to leave legacy software behind.</p>
-            <div class="footer-contact"><div>hello@mywdms.com</div><div>(800) 000-0000</div></div>
+            <a href="index.html" class="logo"><div class="logo-icon">♻️</div>my<em style="color:var(--teal);font-style:normal">WDMS</em></a>
+            <p>Cloud-based waste management software built by people who know the industry.</p>
+            <div class="footer-contact">
+                <div>230 Commerce, Suite 185</div>
+                <div>Irvine, CA 92602</div>
+                <div>hello@mywdms.com</div>
+                <div>(800) 000-0000</div>
+            </div>
         </div>
         <div class="footer-col"><h4>Features</h4><ul><li><a href="features.html">Access Management</a></li><li><a href="features.html">Route Management</a></li><li><a href="features.html">Lockbox & Billing</a></li><li><a href="features.html">Logs & Reporting</a></li></ul></div>
         <div class="footer-col"><h4>Who We Serve</h4><ul><li><a href="who-we-serve.html">Commercial</a></li><li><a href="who-we-serve.html">Residential</a></li><li><a href="who-we-serve.html">Roll-Off</a></li><li><a href="who-we-serve.html">Municipalities</a></li></ul></div>
-        <div class="footer-col"><h4>Company</h4><ul><li><a href="company.html">About Us</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="company.html">About Us</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
     </div>
-    <div class="footer-bottom"><span>© 2026 myWDMS — All rights reserved</span><span>A myonlinebill product</span></div>
+    <div class="footer-bottom"><span>© 2026 myWDMS</span></div>
 </footer>
 
 </body>
