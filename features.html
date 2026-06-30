@@ -179,14 +179,9 @@
 <!-- FEATURE OVERVIEW BANNER -->
 <div class="overview-banner">
     <div class="overview-item">
-        <div class="ov-icon">🔐</div>
-        <h3>Access Management</h3>
-        <p>Roles, permissions & multi-location control</p>
-    </div>
-    <div class="overview-item">
-        <div class="ov-icon">🗺️</div>
-        <h3>Route Management</h3>
-        <p>Assign, track & manage service routes</p>
+        <div class="ov-icon">🏢</div>
+        <h3>Account Management</h3>
+        <p>Customer records, search & service setup</p>
     </div>
     <div class="overview-item">
         <div class="ov-icon">💳</div>
@@ -199,27 +194,96 @@
         <p>Audit history & real-time dashboards</p>
     </div>
     <div class="overview-item">
-        <div class="ov-icon">⚙️</div>
-        <h3>System Settings</h3>
-        <p>Configuration, integrations & customization</p>
+        <div class="ov-icon">🔐</div>
+        <h3>Access Management</h3>
+        <p>Roles, permissions & multi-location control</p>
+    </div>
+    <div class="overview-item">
+        <div class="ov-icon">🗺️</div>
+        <h3>Route Management</h3>
+        <p>Assign, track & manage service routes</p>
     </div>
 </div>
 
 <!-- FEATURE NAV -->
 <div class="feature-nav">
-    <a href="#access" class="active">Access Management</a>
-    <a href="#routes">Route Management</a>
+    <a href="#accounts" class="active">Account Management</a>
     <a href="#billing">Lockbox & Billing</a>
     <a href="#reporting">Logs & Reporting</a>
-    <a href="#settings">System Settings</a>
+    <a href="#access">Access Management</a>
+    <a href="#routes">Route Management</a>
 </div>
 
+<!-- ACCOUNT MANAGEMENT -->
+<section class="feature-section" id="accounts">
+    <div class="feature-content">
+        <span class="eyebrow">Account Management</span>
+        <h2>Every Customer. Every Detail. All in One Place.</h2>
+        <p>Managing customer accounts across spreadsheets and legacy systems leads to errors, missed service, and wasted time. myWDMS gives you a single source of truth for every account in your operation.</p>
+        <ul class="feature-bullets">
+            <li>Customer search with full account history, service agreements, and contact records</li>
+            <li>USPS address validation built into the new customer setup flow</li>
+            <li>Account groups and divisions for multi-department or multi-contract management</li>
+            <li>Custom service types, billing codes, and rate structures per account</li>
+            <li>Data import tools to migrate from legacy software</li>
+            <li>Branding your client portal with your company's logo and colors</li>
+        </ul>
+        <a href="demo.html" class="btn-primary">Book a Demo</a>
+    </div>
+    <div class="feature-visual">
+        <img src="feature-access.jpg" alt="Office manager reviewing customer accounts on dashboard" style="width:100%;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.15);">
+    </div>
+</section>
+
+<!-- LOCKBOX & BILLING -->
+<section class="feature-section alt" id="billing">
+    <div class="feature-content">
+        <span class="eyebrow">Lockbox & Billing</span>
+        <h2>Stop Chasing Payments. Start Closing Your Books Faster.</h2>
+        <p>Legacy billing systems are slow, error-prone, and disconnected from the rest of your operation. myWDMS brings payment collection, invoicing, and reconciliation into one place.</p>
+        <ul class="feature-bullets">
+            <li>Integrated lockbox for processing mailed payments automatically</li>
+            <li>Generate and send invoices directly from the platform</li>
+            <li>Manage billing requests and process rate changes across your entire account base</li>
+            <li>Customizable statement messages per account or billing cycle</li>
+            <li>Real-time cash collection dashboard for owners and billing staff</li>
+            <li>Payment history tied directly to customer accounts</li>
+            <li>Export-ready for your accounting software</li>
+        </ul>
+        <a href="demo.html" class="btn-primary">Book a Demo</a>
+    </div>
+    <div class="feature-visual">
+        <img src="feature-billing.jpg" alt="Billing clerk processing payments at desk" style="width:100%;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.15);">
+    </div>
+</section>
+
+<!-- LOGS & REPORTING -->
+<section class="feature-section" id="reporting">
+    <div class="feature-content">
+        <span class="eyebrow">Logs & Reporting</span>
+        <h2>Real-Time Visibility Across Your Entire Business</h2>
+        <p>Know exactly what's happening at every level of your operation. myWDMS gives you live dashboards, detailed audit logs, and exportable reports your accountants and compliance teams will love.</p>
+        <ul class="feature-bullets">
+            <li>Live operational dashboard with key metrics at a glance</li>
+            <li>Full audit log of every user action with timestamp and IP</li>
+            <li>Route completion reports, billing summaries, and collection history</li>
+            <li>Customizable report templates saved per user or role</li>
+            <li>Export to CSV, PDF, or connect to your BI tool</li>
+            <li>Data retention and compliance-ready log archives</li>
+        </ul>
+        <a href="demo.html" class="btn-primary">Book a Demo</a>
+    </div>
+    <div class="feature-visual">
+        <img src="feature-reporting.jpg" alt="Operations manager reviewing reports and analytics" style="width:100%;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.15);">
+    </div>
+</section>
+
 <!-- ACCESS MANAGEMENT -->
-<section class="feature-section" id="access">
+<section class="feature-section alt" id="access">
     <div class="feature-content">
         <span class="eyebrow">Access Management</span>
         <h2>Control Who Sees What — Down to the Smallest Detail</h2>
-        <p>Most legacy waste management software gives everyone access to everything, or nothing at all. myWDMS lets you define exactly what each person on your team can see, edit, and act on.</p>
+        <p>myWDMS lets you define exactly what each person on your team can see, edit, and act on — with security built in at every level.</p>
         <ul class="feature-bullets">
             <li>Role-based permissions for Admins, Dispatchers, Drivers, Billing, and custom roles</li>
             <li>Two-factor authentication (2FA) via email or text for all users</li>
@@ -227,44 +291,15 @@
             <li>Invite users by email with automatic role assignment</li>
             <li>Audit trail of every login, permission change, and user action</li>
         </ul>
-        <a href="#" class="btn-primary">See It in Action</a>
+        <a href="demo.html" class="btn-primary">Book a Demo</a>
     </div>
     <div class="feature-visual">
         <img src="feature-access.jpg" alt="Waste company office manager reviewing access management dashboard" style="width:100%;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.15);">
-        <div class="mock-sidebar-layout" style="display:none">
-            <div class="mock-sidebar">
-                <div style="padding:14px 20px;font-size:0.7rem;font-weight:800;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">User Roles</div>
-                <div class="mock-sidebar-item active"><span class="icon">👑</span> Admin</div>
-                <div class="mock-sidebar-item"><span class="icon">📡</span> Dispatcher</div>
-                <div class="mock-sidebar-item"><span class="icon">🚛</span> Driver</div>
-                <div class="mock-sidebar-item"><span class="icon">💳</span> Billing</div>
-                <div class="mock-sidebar-item"><span class="icon">📋</span> Read Only</div>
-                <div style="padding:14px 20px;font-size:0.7rem;font-weight:800;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;margin:12px 0 8px">Locations</div>
-                <div class="mock-sidebar-item"><span class="icon">📍</span> All Sites</div>
-                <div class="mock-sidebar-item"><span class="icon">🏢</span> North Depot</div>
-                <div class="mock-sidebar-item"><span class="icon">🏢</span> South Depot</div>
-            </div>
-            <div class="mock-main">
-                <div class="mock-main-title">Admin Permissions</div>
-                <div style="font-size:0.72rem;color:var(--text-light);margin-bottom:12px">Configure access for this role across all modules</div>
-                <div class="permission-grid">
-                    <div class="permission-cell on">✓ Dashboard</div>
-                    <div class="permission-cell on">✓ Routes</div>
-                    <div class="permission-cell on">✓ Users</div>
-                    <div class="permission-cell on">✓ Billing</div>
-                    <div class="permission-cell on">✓ Reports</div>
-                    <div class="permission-cell on">✓ Settings</div>
-                    <div class="permission-cell on">✓ Lockbox</div>
-                    <div class="permission-cell on">✓ Logs</div>
-                    <div class="permission-cell on">✓ Export</div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
 <!-- ROUTE MANAGEMENT -->
-<section class="feature-section alt" id="routes">
+<section class="feature-section" id="routes">
     <div class="feature-content">
         <span class="eyebrow">Route Management</span>
         <h2>Manage Every Stop, Every Driver, Every Day</h2>
@@ -277,211 +312,10 @@
             <li>Flag missed pickups, delays, and exceptions automatically</li>
             <li>Route history and completion logs stored for compliance</li>
         </ul>
-        <a href="#" class="btn-primary">See It in Action</a>
+        <a href="demo.html" class="btn-primary">Book a Demo</a>
     </div>
     <div class="feature-visual">
         <img src="feature-routes.jpg" alt="Waste collection truck on a residential route" style="width:100%;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.15);">
-        <div class="mock-window" style="display:none">
-            <div class="mock-titlebar">
-                <div class="mock-dot" style="background:#ff5f57"></div>
-                <div class="mock-dot" style="background:#febc2e"></div>
-                <div class="mock-dot" style="background:#28c840"></div>
-                <span style="color:rgba(255,255,255,0.4);font-size:0.72rem;margin-left:10px">Route Management — Today</span>
-            </div>
-            <div class="mock-body">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-                    <div style="font-size:0.8rem;font-weight:800;color:var(--text-dark)">Monday Routes — 14 Active</div>
-                    <span style="font-size:0.72rem;font-weight:700;color:var(--teal)">+ Add Route</span>
-                </div>
-                <div class="mock-route-list">
-                    <div class="mock-route-item">
-                        <div class="mock-route-dot" style="background:#28c840"></div>
-                        <div class="mock-route-label">Route A — North District</div>
-                        <div class="mock-route-stops">42 stops</div>
-                        <div class="mock-route-status" style="background:rgba(40,200,64,0.12);color:#16a34a">Completed</div>
-                    </div>
-                    <div class="mock-route-item">
-                        <div class="mock-route-dot" style="background:var(--teal)"></div>
-                        <div class="mock-route-label">Route B — Commercial Zone</div>
-                        <div class="mock-route-stops">18 stops</div>
-                        <div class="mock-route-status" style="background:rgba(46,125,82,0.12);color:var(--teal)">In Progress</div>
-                    </div>
-                    <div class="mock-route-item">
-                        <div class="mock-route-dot" style="background:#febc2e"></div>
-                        <div class="mock-route-label">Route C — Roll-Off Pickups</div>
-                        <div class="mock-route-stops">7 stops</div>
-                        <div class="mock-route-status" style="background:rgba(251,191,36,0.12);color:#d97706">Delayed</div>
-                    </div>
-                    <div class="mock-route-item">
-                        <div class="mock-route-dot" style="background:var(--gray-mid)"></div>
-                        <div class="mock-route-label">Route D — South Residential</div>
-                        <div class="mock-route-stops">55 stops</div>
-                        <div class="mock-route-status" style="background:rgba(0,0,0,0.05);color:var(--text-light)">Pending</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- LOCKBOX & BILLING -->
-<section class="feature-section" id="billing">
-    <div class="feature-content">
-        <span class="eyebrow">Lockbox & Billing</span>
-        <h2>Stop Chasing Payments. Start Closing Your Books Faster.</h2>
-        <p>Legacy billing systems are slow, error-prone, and disconnected from the rest of your operation. myWDMS brings payment collection, invoicing, and reconciliation into one place.</p>
-        <ul class="feature-bullets">
-            <li>Integrated lockbox for processing mailed payments automatically</li>
-            <li>Generate and send invoices directly from the platform</li>
-            <li>Manage billing requests and process rate changes across your entire account base</li>
-            <li>Account groups and divisions for multi-department or multi-contract billing</li>
-            <li>Customizable statement messages per account or billing cycle</li>
-            <li>Real-time cash collection dashboard for owners and billing staff</li>
-            <li>Payment history tied directly to customer accounts</li>
-            <li>Export-ready for your accounting software</li>
-        </ul>
-        <a href="#" class="btn-primary">See It in Action</a>
-    </div>
-    <div class="feature-visual">
-        <img src="feature-billing.jpg" alt="Billing clerk processing payments at desk" style="width:100%;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.15);">
-        <div class="mock-window" style="display:none">
-            <div class="mock-titlebar">
-                <div class="mock-dot" style="background:#ff5f57"></div>
-                <div class="mock-dot" style="background:#febc2e"></div>
-                <div class="mock-dot" style="background:#28c840"></div>
-                <span style="color:rgba(255,255,255,0.4);font-size:0.72rem;margin-left:10px">Lockbox — June 2026</span>
-            </div>
-            <div class="mock-body">
-                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px">
-                    <div style="background:var(--gray);border-radius:8px;padding:14px;text-align:center">
-                        <div style="font-size:0.68rem;font-weight:700;color:var(--text-light);text-transform:uppercase;margin-bottom:4px">Collected</div>
-                        <div style="font-size:1.4rem;font-weight:900;color:var(--text-dark)">$142k</div>
-                        <div style="font-size:0.7rem;color:var(--teal);font-weight:700">↑ 11%</div>
-                    </div>
-                    <div style="background:var(--gray);border-radius:8px;padding:14px;text-align:center">
-                        <div style="font-size:0.68rem;font-weight:700;color:var(--text-light);text-transform:uppercase;margin-bottom:4px">Pending</div>
-                        <div style="font-size:1.4rem;font-weight:900;color:var(--text-dark)">$24k</div>
-                        <div style="font-size:0.7rem;color:#d97706;font-weight:700">12 invoices</div>
-                    </div>
-                    <div style="background:var(--gray);border-radius:8px;padding:14px;text-align:center">
-                        <div style="font-size:0.68rem;font-weight:700;color:var(--text-light);text-transform:uppercase;margin-bottom:4px">Overdue</div>
-                        <div style="font-size:1.4rem;font-weight:900;color:#dc2626">$6k</div>
-                        <div style="font-size:0.7rem;color:#dc2626;font-weight:700">3 accounts</div>
-                    </div>
-                </div>
-                <div class="mock-payment-row">
-                    <div><div class="mock-payment-name">Acme Disposal Co</div><div class="mock-payment-date">Jun 14, 2026</div></div>
-                    <div class="mock-payment-amount">$4,200</div>
-                    <div class="mock-payment-status" style="background:rgba(40,200,64,0.12);color:#16a34a">Paid</div>
-                </div>
-                <div class="mock-payment-row">
-                    <div><div class="mock-payment-name">Riverside Municipality</div><div class="mock-payment-date">Jun 12, 2026</div></div>
-                    <div class="mock-payment-amount">$18,750</div>
-                    <div class="mock-payment-status" style="background:rgba(40,200,64,0.12);color:#16a34a">Paid</div>
-                </div>
-                <div class="mock-payment-row">
-                    <div><div class="mock-payment-name">Green Valley Haulers</div><div class="mock-payment-date">Due Jun 20</div></div>
-                    <div class="mock-payment-amount">$3,100</div>
-                    <div class="mock-payment-status" style="background:rgba(251,191,36,0.12);color:#d97706">Pending</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- LOGS & REPORTING -->
-<section class="feature-section alt" id="reporting">
-    <div class="feature-content">
-        <span class="eyebrow">Logs & Reporting</span>
-        <h2>Real-Time Visibility Across Your Entire Business</h2>
-        <p>Know exactly what's happening at every level of your operation — right now. myWDMS gives you live dashboards, detailed audit logs, and exportable reports your accountants and compliance teams will love.</p>
-        <ul class="feature-bullets">
-            <li>Live operational dashboard with key metrics at a glance</li>
-            <li>Full audit log of every user action with timestamp and IP</li>
-            <li>Route completion reports, billing summaries, and collection history</li>
-            <li>Customizable report templates saved per user or role</li>
-            <li>Export to CSV, PDF, or connect to your BI tool</li>
-            <li>Data retention and compliance-ready log archives</li>
-        </ul>
-        <a href="#" class="btn-primary">See It in Action</a>
-    </div>
-    <div class="feature-visual">
-        <img src="feature-reporting.jpg" alt="Operations manager reviewing reports and analytics" style="width:100%;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.15);">
-        <div class="mock-window" style="display:none">
-            <div class="mock-titlebar">
-                <div class="mock-dot" style="background:#ff5f57"></div>
-                <div class="mock-dot" style="background:#febc2e"></div>
-                <div class="mock-dot" style="background:#28c840"></div>
-                <span style="color:rgba(255,255,255,0.4);font-size:0.72rem;margin-left:10px">Audit Log — Today</span>
-            </div>
-            <div class="mock-body">
-                <div class="mock-log-row">
-                    <div class="mock-log-time">2:14 PM</div>
-                    <div class="mock-log-user">T. Lenning</div>
-                    <div class="mock-log-action">Updated permissions for Driver role</div>
-                    <div class="mock-log-tag" style="background:rgba(46,125,82,0.12);color:var(--teal)">Access</div>
-                </div>
-                <div class="mock-log-row">
-                    <div class="mock-log-time">1:58 PM</div>
-                    <div class="mock-log-user">S. Mitchell</div>
-                    <div class="mock-log-action">Marked Route B as In Progress</div>
-                    <div class="mock-log-tag" style="background:rgba(46,125,82,0.12);color:var(--teal)">Routes</div>
-                </div>
-                <div class="mock-log-row">
-                    <div class="mock-log-time">1:44 PM</div>
-                    <div class="mock-log-user">J. Rodriguez</div>
-                    <div class="mock-log-action">Payment of $4,200 posted to Acme Disposal</div>
-                    <div class="mock-log-tag" style="background:rgba(40,200,64,0.1);color:#16a34a">Billing</div>
-                </div>
-                <div class="mock-log-row">
-                    <div class="mock-log-time">12:30 PM</div>
-                    <div class="mock-log-user">T. Lenning</div>
-                    <div class="mock-log-action">Invited user k.johnson@example.com</div>
-                    <div class="mock-log-tag" style="background:rgba(46,125,82,0.12);color:var(--teal)">Access</div>
-                </div>
-                <div class="mock-log-row">
-                    <div class="mock-log-time">11:05 AM</div>
-                    <div class="mock-log-user">System</div>
-                    <div class="mock-log-action">Route A marked Completed — 42/42 stops</div>
-                    <div class="mock-log-tag" style="background:rgba(46,125,82,0.12);color:var(--teal)">Routes</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SYSTEM SETTINGS -->
-<section class="feature-section" id="settings">
-    <div class="feature-content">
-        <span class="eyebrow">System Settings</span>
-        <h2>Configure myWDMS to Match the Way You Work</h2>
-        <p>Every waste operation is different. myWDMS gives you the flexibility to configure the platform to your workflows — without needing a developer or months of implementation time.</p>
-        <ul class="feature-bullets">
-            <li>USPS address validation built into the new customer setup flow</li>
-            <li>Customer search with full account history, service agreements, and contact records</li>
-            <li>Custom service types, billing codes, and rate structures</li>
-            <li>Notification and alert settings per role</li>
-            <li>Branding your client portal with your company's logo and colors</li>
-            <li>Data import tools to migrate from legacy software</li>
-        </ul>
-        <a href="#" class="btn-primary">See It in Action</a>
-    </div>
-    <div class="feature-visual">
-        <div style="padding:24px 0">
-            <div style="font-size:0.78rem;font-weight:800;color:var(--text-dark);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">Available Integrations</div>
-            <div class="integrations-grid">
-                <div class="integration-card">
-                    <div class="integration-icon">📧</div>
-                    <div class="integration-name">myonlinebill</div>
-                    <div class="integration-status" style="color:var(--teal);font-weight:700">✓ Connected</div>
-                </div>
-                <div class="integration-card">
-                    <div class="integration-icon">📊</div>
-                    <div class="integration-name">QuickBooks</div>
-                    <div class="integration-status" style="color:var(--teal);font-weight:700">✓ Connected</div>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
