@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company — myWDMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #3A3F47;
+            --navy-dark: #252A30;
+            --teal: #2E7D52;
+            --teal-light: rgba(46,125,82,0.12);
+            --gray: #F4F6F9;
+            --gray-mid: #e2e8f0;
+            --text: #0f172a;
+            --text-mid: #475569;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Barlow', system-ui, sans-serif; color: var(--text); background: #fff; }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(255,255,255,0.97);
+            border-bottom: 1px solid var(--gray-mid);
+            padding: 0 48px; height: 68px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-family: 'Barlow', sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--text); letter-spacing: -0.02em; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { width: 32px; height: 32px; background: var(--navy); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+        .logo em { color: var(--teal); font-style: normal; }
+        .nav-links { display: flex; gap: 2px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-mid); font-weight: 600; font-size: 0.93rem; padding: 6px 14px; border-radius: 6px; transition: background 0.15s, color 0.15s; }
+        .nav-links a:hover, .nav-links a.active { background: var(--gray); color: var(--text); }
+        .nav-right { display: flex; gap: 10px; align-items: center; }
+        .btn-text { background: none; border: none; font-weight: 600; font-size: 0.93rem; cursor: pointer; padding: 8px 12px; border-radius: 6px; color: var(--text-mid); font-family: inherit; }
+        .btn-demo { background: var(--teal); color: #fff; border: none; padding: 9px 22px; border-radius: 7px; font-weight: 800; font-size: 0.93rem; cursor: pointer; font-family: inherit; white-space: nowrap; }
+
+        /* ── HERO ── */
+        .page-hero {
+            background: var(--navy-dark);
+            padding: 72px 48px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .hero-inner {
+            max-width: 860px; width: 100%;
+        }
+        .hero-eyebrow {
+            display: inline-block; font-size: 0.72rem; font-weight: 800;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--teal); background: rgba(46,125,82,0.15);
+            border: 1px solid rgba(46,125,82,0.25);
+            padding: 5px 12px; border-radius: 20px; margin-bottom: 20px;
+        }
+        .page-hero h1 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; color: #fff;
+            letter-spacing: -0.02em; line-height: 1.15;
+        }
+
+        /* ── CONTENT ── */
+        .content-section { max-width: 860px; margin: 0 auto; padding: 72px 48px; }
+
+        .content-section p {
+            font-size: 1.05rem; color: var(--text-mid); line-height: 1.85;
+            margin-bottom: 28px;
+        }
+        .content-section p:last-child { margin-bottom: 0; }
+
+        /* ── FOOTER ── */
+        footer { background: var(--navy); padding: 44px 48px 24px; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.07); gap: 48px; }
+        .footer-brand .logo { color: #fff; margin-bottom: 10px; }
+        .footer-brand .logo em { color: var(--teal); }
+        .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.35); line-height: 1.7; max-width: 230px; margin-bottom: 14px; }
+        .footer-contact { font-size: 0.83rem; color: rgba(255,255,255,0.28); line-height: 2.1; }
+        .footer-cols { display: flex; gap: 48px; }
+        .footer-col h4 { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 12px; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 8px; }
+        .footer-col a { font-size: 0.85rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--teal); }
+        .footer-bottom { padding-top: 18px; font-size: 0.75rem; color: rgba(255,255,255,0.2); display: flex; justify-content: space-between; }
+
+        @media (max-width: 900px) {
+            nav { padding: 0 24px; }
+            .nav-links, .nav-right { display: none; }
+            .page-hero { padding: 56px 24px; }
+            .content-section { padding: 48px 24px; }
+            footer { padding: 36px 24px 20px; }
+            .footer-inner { flex-direction: column; gap: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="index.html" class="logo">
+        <div class="logo-icon">♻️</div>
+        my<em>WDMS</em>
+    </a>
+    <ul class="nav-links">
+        <li><a href="features.html">Features</a></li>
+        <li><a href="who-we-serve.html">Who We Serve</a></li>
+        <li><a href="company.html" class="active">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+        <button class="btn-text">Sign In</button>
+        <button class="btn-demo">Book a Demo</button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="hero-inner">
+        <span class="hero-eyebrow">About Us</span>
+        <h1>Company</h1>
+    </div>
+</section>
+
+<!-- CONTENT -->
+<div class="content-section">
+    <p>myWDMS is headquartered in Irvine, California and was built to provide comprehensive waste management software solutions to private and public organizations throughout the United States.</p>
+
+    <p>We efficiently and securely process billing and payment transactions nationwide on behalf of our valued customers. Our team has decades of combined experience within billing, accounting, information technology, and payment processing.</p>
+
+    <p>The myWDMS platform is powerful and robust, while offering the flexibility needed to make it your own. With a team focused on seamless integration and superior customer service, myWDMS makes waste management simple — integrating route management, billing, and accounts receivable with banking, finance, and accounting.</p>
+
+    <p>We build partnerships with our customers — from municipalities to commercial haulers to roll-off operators and everything in between — to deliver a better experience for their teams and the customers they serve.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="logo" style="color:#fff">
+                <div class="logo-icon">♻️</div>
+                my<em>WDMS</em>
+            </div>
+            <p>Waste management software built by people who know the industry.</p>
+            <div class="footer-contact">
+                <div>230 Commerce, Suite 185</div>
+                <div>Irvine, CA 92602</div>
+                <div>hello@mywdms.com</div>
+                <div>(800) 000-0000</div>
+            </div>
+        </div>
+        <div class="footer-cols">
+            <div class="footer-col">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="who-we-serve.html">Who We Serve</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="company.html">About Us</a></li>
+                    <li><a href="about-company.html">Company</a></li>
+                    <li><a href="compliance.html">Security &amp; Compliance</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 myWDMS</span>
+        <span>A myonlinebill product</span>
+    </div>
+</footer>
+
+</body>
+</html>
