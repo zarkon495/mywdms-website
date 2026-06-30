@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company — myWDMS</title>
+    <title>Book a Demo — myWDMS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
     <style>
@@ -34,19 +34,16 @@
         .logo em { color: var(--teal); font-style: normal; }
         .nav-links { display: flex; gap: 2px; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--text-mid); font-weight: 600; font-size: 0.93rem; padding: 6px 14px; border-radius: 6px; transition: background 0.15s, color 0.15s; }
-        .nav-links a:hover, .nav-links a.active { background: var(--gray); color: var(--text); }
+        .nav-links a:hover { background: var(--gray); color: var(--text); }
         .nav-right { display: flex; gap: 10px; align-items: center; }
         .btn-text { background: none; border: none; font-weight: 600; font-size: 0.93rem; cursor: pointer; padding: 8px 12px; border-radius: 6px; color: var(--text-mid); font-family: inherit; }
-        .btn-demo { background: var(--teal); color: #fff; border: none; padding: 9px 22px; border-radius: 7px; font-weight: 800; font-size: 0.93rem; cursor: pointer; font-family: inherit; white-space: nowrap; }
+        .btn-nav-demo { background: var(--teal); color: #fff; border: none; padding: 9px 22px; border-radius: 7px; font-weight: 800; font-size: 0.93rem; cursor: pointer; font-family: inherit; white-space: nowrap; }
 
         /* ── HERO ── */
         .page-hero {
             background: var(--navy-dark);
-            padding: 72px 48px;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .hero-inner {
-            max-width: 860px; width: 100%;
+            padding: 72px 48px 60px;
+            text-align: center;
         }
         .hero-eyebrow {
             display: inline-block; font-size: 0.72rem; font-weight: 800;
@@ -56,18 +53,60 @@
             padding: 5px 12px; border-radius: 20px; margin-bottom: 20px;
         }
         .page-hero h1 {
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; color: #fff;
-            letter-spacing: -0.02em; line-height: 1.15;
+            font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: #fff;
+            letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px;
+        }
+        .page-hero h1 em { color: var(--teal); font-style: normal; }
+        .page-hero p {
+            font-size: 1.08rem; color: rgba(255,255,255,0.6);
+            line-height: 1.75; max-width: 520px; margin: 0 auto;
         }
 
-        /* ── CONTENT ── */
-        .content-section { max-width: 860px; margin: 0 auto; padding: 72px 48px; }
-
-        .content-section p {
-            font-size: 1.05rem; color: var(--text-mid); line-height: 1.85;
-            margin-bottom: 28px;
+        /* ── FORM SECTION ── */
+        .form-section {
+            max-width: 680px; margin: 0 auto;
+            padding: 64px 48px 80px;
         }
-        .content-section p:last-child { margin-bottom: 0; }
+
+        .form-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+            margin-bottom: 20px;
+        }
+        .form-group { display: flex; flex-direction: column; gap: 7px; }
+        .form-group.full { grid-column: 1 / -1; }
+
+        label {
+            font-size: 0.85rem; font-weight: 700; color: var(--text);
+            letter-spacing: 0.01em;
+        }
+        input, select, textarea {
+            font-family: 'Barlow', sans-serif;
+            font-size: 0.97rem; color: var(--text);
+            background: var(--gray); border: 1.5px solid var(--gray-mid);
+            border-radius: 8px; padding: 12px 14px;
+            transition: border-color 0.15s, background 0.15s;
+            outline: none; width: 100%;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--teal); background: #fff;
+        }
+        textarea { resize: vertical; min-height: 120px; }
+        select { appearance: none; cursor: pointer; }
+
+        .btn-submit {
+            width: 100%; margin-top: 8px;
+            background: var(--teal); color: #fff;
+            border: none; border-radius: 9px;
+            padding: 16px 32px; font-family: 'Barlow', sans-serif;
+            font-size: 1.05rem; font-weight: 800; cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-submit:hover { background: #245f3f; }
+
+        .form-note {
+            text-align: center; margin-top: 16px;
+            font-size: 0.85rem; color: var(--text-mid);
+        }
 
         /* ── FOOTER ── */
         footer { background: var(--navy); padding: 44px 48px 24px; }
@@ -84,11 +123,12 @@
         .footer-col a:hover { color: var(--teal); }
         .footer-bottom { padding-top: 18px; font-size: 0.75rem; color: rgba(255,255,255,0.2); display: flex; justify-content: space-between; }
 
-        @media (max-width: 900px) {
+        @media (max-width: 700px) {
             nav { padding: 0 24px; }
             .nav-links, .nav-right { display: none; }
-            .page-hero { padding: 56px 24px; }
-            .content-section { padding: 48px 24px; }
+            .page-hero { padding: 56px 24px 48px; }
+            .form-section { padding: 48px 24px 64px; }
+            .form-grid { grid-template-columns: 1fr; }
             footer { padding: 36px 24px 20px; }
             .footer-inner { flex-direction: column; gap: 32px; }
         }
@@ -105,31 +145,71 @@
     <ul class="nav-links">
         <li><a href="features.html">Features</a></li>
         <li><a href="who-we-serve.html">Who We Serve</a></li>
-        <li><a href="company.html" class="active">About Us</a></li>
+        <li><a href="company.html">About Us</a></li>
     </ul>
     <div class="nav-right">
         <button class="btn-text">Sign In</button>
-        <a href="demo.html" class="btn-demo" style="text-decoration:none">Book a Demo</a>
+        <button class="btn-nav-demo">Book a Demo</button>
     </div>
 </nav>
 
 <!-- HERO -->
 <section class="page-hero">
-    <div class="hero-inner">
-        <span class="hero-eyebrow">About Us</span>
-        <h1>Company</h1>
-    </div>
+    <span class="hero-eyebrow">Get Started</span>
+    <h1>See <em>myWDMS</em> in Action</h1>
+    <p>Tell us a little about your operation and we'll set up a personalized walkthrough — no pressure, no generic pitch.</p>
 </section>
 
-<!-- CONTENT -->
-<div class="content-section">
-    <p>myWDMS is headquartered in Irvine, California and was built to provide comprehensive waste management software solutions to private and public organizations throughout the United States.</p>
+<!-- FORM -->
+<!-- Formspree: replace YOUR_FORM_ID below with your ID from formspree.io -->
+<div class="form-section">
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 
-    <p>We efficiently and securely process billing and payment transactions nationwide on behalf of our valued customers. Our team has decades of combined experience within billing, accounting, information technology, and payment processing.</p>
+        <!-- Required by Formspree to route to your inbox -->
+        <input type="hidden" name="_replyto" value="tyler.lenning@myonlinebill.com">
+        <input type="hidden" name="_subject" value="New Demo Request — myWDMS">
 
-    <p>The myWDMS platform is powerful and robust, while offering the flexibility needed to make it your own. With a team focused on seamless integration and superior customer service, myWDMS makes waste management simple, integrating route management, billing, and accounts receivable with banking, finance, and accounting.</p>
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" id="first_name" name="first_name" placeholder="John" required>
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" id="last_name" name="last_name" placeholder="Smith" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Work Email</label>
+                <input type="email" id="email" name="email" placeholder="john@company.com" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(800) 000-0000">
+            </div>
+            <div class="form-group">
+                <label for="company">Company Name</label>
+                <input type="text" id="company" name="company" placeholder="Acme Waste Solutions" required>
+            </div>
+            <div class="form-group">
+                <label for="segment">Type of Operation</label>
+                <select id="segment" name="segment">
+                    <option value="" disabled selected>Select one</option>
+                    <option value="commercial">Commercial Hauler</option>
+                    <option value="residential">Residential Services</option>
+                    <option value="rolloff">Roll-Off / Dumpster Rental</option>
+                    <option value="municipal">Municipality / Public Works</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group full">
+                <label for="message">Anything you'd like us to know?</label>
+                <textarea id="message" name="message" placeholder="Tell us about your current setup, pain points, or what you're hoping to get out of myWDMS."></textarea>
+            </div>
+        </div>
 
-    <p>We build partnerships with our customers, from municipalities to commercial haulers to roll-off operators and everything in between, to deliver a better experience for their teams and the customers they serve.</p>
+        <button type="submit" class="btn-submit">Request a Demo</button>
+        <p class="form-note">We'll follow up within one business day.</p>
+    </form>
 </div>
 
 <!-- FOOTER -->
@@ -160,7 +240,6 @@
                 <h4>About Us</h4>
                 <ul>
                     <li><a href="company.html">About Us</a></li>
-                    <li><a href="about-company.html">Company</a></li>
                     <li><a href="compliance.html">Security &amp; Compliance</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                 </ul>
