@@ -56,6 +56,9 @@
         .page-hero-brand {
             position: relative; z-index: 1;
             display: flex; flex-direction: column; align-items: center; gap: 16px;
+            background: rgba(0,0,0,0.45);
+            padding: 28px 48px; border-radius: 14px;
+            backdrop-filter: blur(4px);
         }
         .page-hero-logo {
             display: flex; align-items: center; gap: 12px;
@@ -84,7 +87,7 @@
             margin-bottom: 40px;
         }
         .cards-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
         }
         .about-card {
             background: var(--gray); border-radius: 10px; padding: 36px 28px;
@@ -179,18 +182,11 @@
     <div class="cards-grid">
         <a href="about-company.html" class="about-card" style="text-decoration:none;color:inherit;">
             <div class="about-card-icon">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-            </div>
-            <h3>Company</h3>
-            <p>Headquartered in Irvine, California. Learn about who we are and what drives us to build better software for the waste industry.</p>
-        </a>
-        <div class="about-card">
-            <div class="about-card-icon">
                 <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
             </div>
             <h3>Our Office</h3>
-            <p>230 Commerce, Suite 185<br>Irvine, CA 92602<br><br>Modern waste disposal management software built for haulers and municipalities across the United States.</p>
-        </div>
+            <p>230 Commerce, Suite 185<br>Irvine, CA 92602<br><br>Waste management software built for haulers and municipalities across the United States.</p>
+        </a>
         <div class="about-card">
             <div class="about-card-icon">
                 <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
