@@ -158,6 +158,7 @@
         my<em style="color:var(--teal);font-style:normal">WDMS</em>
     </a>
     <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
         <li><a href="features.html" class="active">Features</a></li>
         <li><a href="who-we-serve.html">Who We Serve</a></li>
         <li><a href="company.html">About Us</a></li>
@@ -178,31 +179,31 @@
 
 <!-- FEATURE OVERVIEW BANNER -->
 <div class="overview-banner">
-    <div class="overview-item">
+    <a href="#accounts" class="overview-item" style="text-decoration:none">
         <div class="ov-icon">🏢</div>
         <h3>Account Management</h3>
         <p>Customer records, search & service setup</p>
-    </div>
-    <div class="overview-item">
+    </a>
+    <a href="#billing" class="overview-item" style="text-decoration:none">
         <div class="ov-icon">💳</div>
         <h3>Lockbox & Billing</h3>
         <p>Payments, invoicing & reconciliation</p>
-    </div>
-    <div class="overview-item">
+    </a>
+    <a href="#reporting" class="overview-item" style="text-decoration:none">
         <div class="ov-icon">📊</div>
         <h3>Logs & Reporting</h3>
         <p>Audit history & real-time dashboards</p>
-    </div>
-    <div class="overview-item">
+    </a>
+    <a href="#access" class="overview-item" style="text-decoration:none">
         <div class="ov-icon">🔐</div>
         <h3>Access Management</h3>
         <p>Roles, permissions & multi-location control</p>
-    </div>
-    <div class="overview-item">
+    </a>
+    <a href="#routes" class="overview-item" style="text-decoration:none">
         <div class="ov-icon">🗺️</div>
         <h3>Route Management</h3>
         <p>Assign, track & manage service routes</p>
-    </div>
+    </a>
 </div>
 
 <!-- FEATURE NAV -->
@@ -351,11 +352,11 @@
         <div class="footer-col">
             <h4>Features</h4>
             <ul>
-                <li><a href="#">Access Management</a></li>
-                <li><a href="#">Route Management</a></li>
-                <li><a href="#">Lockbox & Billing</a></li>
-                <li><a href="#">Logs & Reporting</a></li>
-                <li><a href="#">System Settings</a></li>
+                <li><a href="features.html#accounts">Account Management</a></li>
+                <li><a href="features.html#billing">Lockbox &amp; Billing</a></li>
+                <li><a href="features.html#reporting">Logs &amp; Reporting</a></li>
+                <li><a href="features.html#access">Access Management</a></li>
+                <li><a href="features.html#routes">Route Management</a></li>
             </ul>
         </div>
         <div class="footer-col">
@@ -381,5 +382,27 @@
     </div>
 </footer>
 
+<script>
+(function() {
+    var sections = ['accounts','billing','reporting','access','routes'];
+    var navLinks = document.querySelectorAll('.feature-nav a');
+    function setActive(id) {
+        navLinks.forEach(function(a) {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+        });
+    }
+    function onScroll() {
+        var scrollY = window.scrollY + 120;
+        var current = sections[0];
+        sections.forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el && el.offsetTop <= scrollY) current = id;
+        });
+        setActive(current);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+})();
+</script>
 </body>
 </html>

@@ -69,13 +69,20 @@
         }
         .content-section p:last-child { margin-bottom: 0; }
 
+        /* ── CTA BAND ── */
+        .cta-band { background: var(--teal); padding: 52px 48px; text-align: center; }
+        .cta-band h2 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 900; color: #fff; letter-spacing: -0.02em; margin-bottom: 8px; }
+        .cta-band p { font-size: 1rem; color: rgba(255,255,255,0.72); margin-bottom: 28px; }
+        .btn-cta { display: inline-block; background: #fff; color: var(--teal); padding: 14px 36px; border-radius: 8px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: background 0.2s, color 0.2s; }
+        .btn-cta:hover { background: var(--navy-dark); color: #fff; }
+
         /* ── FOOTER ── */
         footer { background: var(--navy); padding: 44px 48px 24px; }
         .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.07); gap: 48px; }
         .footer-brand .logo { color: #fff; margin-bottom: 10px; }
         .footer-brand .logo em { color: var(--teal); }
         .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.35); line-height: 1.7; max-width: 230px; margin-bottom: 14px; }
-        .footer-contact { font-size: 0.83rem; color: rgba(255,255,255,0.28); line-height: 2.1; }
+        .footer-contact { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 2.1; }
         .footer-cols { display: flex; gap: 48px; }
         .footer-col h4 { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 12px; }
         .footer-col ul { list-style: none; }
@@ -103,6 +110,7 @@
         my<em>WDMS</em>
     </a>
     <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
         <li><a href="features.html">Features</a></li>
         <li><a href="who-we-serve.html">Who We Serve</a></li>
         <li><a href="company.html" class="active">About Us</a></li>
@@ -130,7 +138,22 @@
     <p>The myWDMS platform is powerful and robust, while offering the flexibility needed to make it your own. With a team focused on seamless integration and superior customer service, myWDMS makes waste management simple, integrating route management, billing, and accounts receivable with banking, finance, and accounting.</p>
 
     <p>We build partnerships with our customers, from municipalities to commercial haulers to roll-off operators and everything in between, to deliver a better experience for their teams and the customers they serve.</p>
+
+    <h2 style="font-size:1.3rem;font-weight:800;color:var(--text);padding-bottom:16px;border-bottom:1px solid var(--gray-mid);margin-bottom:28px;margin-top:56px;">Getting Started with myWDMS</h2>
+
+    <p>Switching software is a big decision, and we take the transition seriously. Our onboarding process is hands-on from day one. A dedicated team member works directly with your operation to configure the system, migrate your existing data, and train your staff — so no one is left figuring it out on their own.</p>
+
+    <p>Most customers are up and running within a few weeks. The timeline depends on the size of your operation and how much historical data needs to be migrated, but we scope that out with you upfront so there are no surprises. We do not hand you a manual and walk away.</p>
+
+    <p>After go-live, our support team remains accessible. You will work with people who know the platform and understand waste management operations — not a generic help desk. Updates and improvements are rolled out regularly, and your feedback directly shapes what we build next.</p>
 </div>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+    <h2>Ready to see myWDMS in action?</h2>
+    <p>No commitment required — just a personalized walkthrough of the platform.</p>
+    <a href="demo.html" class="btn-cta">Book a Demo</a>
+</section>
 
 <!-- FOOTER -->
 <footer>
@@ -160,7 +183,6 @@
                 <h4>About Us</h4>
                 <ul>
                     <li><a href="company.html">About Us</a></li>
-                    <li><a href="about-company.html">Company</a></li>
                     <li><a href="compliance.html">Security &amp; Compliance</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                 </ul>
