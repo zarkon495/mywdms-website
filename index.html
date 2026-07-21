@@ -122,7 +122,7 @@
         .market-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; }
 
         /* ── FEATURE SHOWCASE (Curbwaste style) ── */
-        .features-section { padding: 60px 48px; background: var(--gray); }
+        .features-section { padding: 60px 48px; background: var(--navy-dark); }
         .features-inner {
             max-width: 1100px; margin: 0 auto;
             display: grid; grid-template-columns: 1fr 420px; gap: 56px; align-items: start;
@@ -146,28 +146,14 @@
         .mockup-dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.15); }
         .mockup-label { font-size: 0.72rem; color: rgba(255,255,255,0.30); font-weight: 700; letter-spacing: 0.04em; flex: 1; }
         .mockup-badge { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(46,125,82,0.25); color: var(--teal); padding: 2px 8px; border-radius: 10px; border: 1px solid rgba(46,125,82,0.3); }
-        .mockup-body { flex: 1; display: flex; padding: 18px; gap: 14px; overflow: hidden; }
-        .mockup-sidebar { width: 110px; flex-shrink: 0; display: flex; flex-direction: column; gap: 4px; }
-        .mockup-nav-item { height: 28px; border-radius: 6px; background: rgba(255,255,255,0.05); display: flex; align-items: center; padding: 0 10px; gap: 7px; }
-        .mockup-nav-item.active { background: rgba(46,125,82,0.20); }
-        .mockup-nav-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.15); flex-shrink: 0; }
-        .mockup-nav-item.active .mockup-nav-dot { background: var(--teal); }
-        .mockup-nav-line { flex: 1; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.08); }
-        .mockup-nav-item.active .mockup-nav-line { background: rgba(46,125,82,0.45); }
-        .mockup-main { flex: 1; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
-        .mockup-row { display: flex; gap: 8px; }
-        .mockup-stat { flex: 1; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 10px 12px; border: 1px solid rgba(255,255,255,0.05); }
-        .mockup-stat-val { height: 14px; border-radius: 3px; background: rgba(255,255,255,0.20); width: 55%; margin-bottom: 6px; }
-        .mockup-stat-label { height: 7px; border-radius: 3px; background: rgba(255,255,255,0.07); width: 80%; }
-        .mockup-stat.accent .mockup-stat-val { background: rgba(46,125,82,0.55); }
-        .mockup-table { flex: 1; background: rgba(255,255,255,0.03); border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
-        .mockup-thead { background: rgba(255,255,255,0.05); padding: 7px 12px; display: flex; gap: 8px; }
-        .mockup-thead span { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.12); }
-        .mockup-trow { padding: 7px 12px; display: flex; gap: 8px; border-top: 1px solid rgba(255,255,255,0.04); align-items: center; }
-        .mockup-trow:nth-child(even) { background: rgba(255,255,255,0.02); }
-        .mockup-trow span { height: 6px; border-radius: 3px; background: rgba(255,255,255,0.08); }
-        .mockup-trow .pill { height: 14px; border-radius: 10px; background: rgba(46,125,82,0.25); border: 1px solid rgba(46,125,82,0.3); flex-shrink: 0; }
-        .mockup-trow .pill.gray { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.08); }
+        #featureImg { flex: 1; width: 100%; min-height: 0; object-fit: cover; object-position: top left; display: block; }
+        .features-section .section-header h2 { color: #fff; }
+        .features-section .feature-item h3 { color: rgba(255,255,255,0.80); }
+        .features-section .feature-item p { color: rgba(255,255,255,0.45); }
+        .features-section .feature-item.active h3,
+        .features-section .feature-item:hover h3 { color: var(--text); }
+        .features-section .feature-item.active p,
+        .features-section .feature-item:hover p { color: var(--text-mid); }
 
         /* Right: feature list */
         .feature-list { display: flex; flex-direction: column; gap: 4px; padding-top: 8px; }
@@ -380,33 +366,10 @@
                 <div class="mockup-label" id="mockupLabel">Route Management</div>
                 <div class="mockup-badge">Live</div>
             </div>
-            <div class="mockup-body">
-                <div class="mockup-sidebar">
-                    <div class="mockup-nav-item active"><div class="mockup-nav-dot"></div><div class="mockup-nav-line"></div></div>
-                    <div class="mockup-nav-item"><div class="mockup-nav-dot"></div><div class="mockup-nav-line"></div></div>
-                    <div class="mockup-nav-item"><div class="mockup-nav-dot"></div><div class="mockup-nav-line"></div></div>
-                    <div class="mockup-nav-item"><div class="mockup-nav-dot"></div><div class="mockup-nav-line"></div></div>
-                    <div class="mockup-nav-item"><div class="mockup-nav-dot"></div><div class="mockup-nav-line"></div></div>
-                </div>
-                <div class="mockup-main">
-                    <div class="mockup-row">
-                        <div class="mockup-stat accent"><div class="mockup-stat-val"></div><div class="mockup-stat-label"></div></div>
-                        <div class="mockup-stat"><div class="mockup-stat-val"></div><div class="mockup-stat-label"></div></div>
-                        <div class="mockup-stat"><div class="mockup-stat-val"></div><div class="mockup-stat-label"></div></div>
-                    </div>
-                    <div class="mockup-table">
-                        <div class="mockup-thead"><span style="width:18%"></span><span style="width:30%"></span><span style="width:20%"></span><span style="width:14%"></span></div>
-                        <div class="mockup-trow"><span style="width:18%"></span><span style="width:32%"></span><span style="width:18%"></span><div class="pill" style="width:42px"></div></div>
-                        <div class="mockup-trow"><span style="width:15%"></span><span style="width:28%"></span><span style="width:22%"></span><div class="pill" style="width:38px"></div></div>
-                        <div class="mockup-trow"><span style="width:20%"></span><span style="width:35%"></span><span style="width:16%"></span><div class="pill gray" style="width:48px"></div></div>
-                        <div class="mockup-trow"><span style="width:16%"></span><span style="width:30%"></span><span style="width:20%"></span><div class="pill" style="width:42px"></div></div>
-                        <div class="mockup-trow"><span style="width:19%"></span><span style="width:26%"></span><span style="width:24%"></span><div class="pill gray" style="width:44px"></div></div>
-                    </div>
-                </div>
-            </div>
+            <img id="featureImg" src="ss-accounts.png" alt="Account Management">
         </div>
         <div class="feature-list" id="featureList">
-            <div class="feature-item active" data-img="feature-access.jpg">
+            <div class="feature-item active" data-img="ss-accounts.png">
                 <div class="feature-item-top">
                     <div class="feature-item-icon">🏢</div>
                     <h3>Account Management</h3>
@@ -414,7 +377,7 @@
                 <p>Customer accounts, service agreements, and contact history, organized and accessible for your whole team.</p>
                 <div class="feature-timer"><div class="feature-timer-fill"></div></div>
             </div>
-            <div class="feature-item" data-img="feature-billing.jpg">
+            <div class="feature-item" data-img="ss-billing.png">
                 <div class="feature-item-top">
                     <div class="feature-item-icon">💳</div>
                     <h3>Billing & Payments</h3>
@@ -422,7 +385,7 @@
                 <p>Generate invoices, accept payments, and reconcile accounts, including lockbox integration for check processing.</p>
                 <div class="feature-timer"><div class="feature-timer-fill"></div></div>
             </div>
-            <div class="feature-item" data-img="feature-reporting.jpg">
+            <div class="feature-item" data-img="ss-reporting.png">
                 <div class="feature-item-top">
                     <div class="feature-item-icon">📋</div>
                     <h3>Reporting & Logs</h3>
@@ -430,7 +393,7 @@
                 <p>Real-time visibility into collections, service history, and audit logs across your whole operation.</p>
                 <div class="feature-timer"><div class="feature-timer-fill"></div></div>
             </div>
-            <div class="feature-item" data-img="feature-access.jpg">
+            <div class="feature-item" data-img="ss-access.png">
                 <div class="feature-item-top">
                     <div class="feature-item-icon">🔐</div>
                     <h3>Access Management</h3>
@@ -438,7 +401,7 @@
                 <p>Role-based permissions so each person on your team sees exactly what they need, and nothing more.</p>
                 <div class="feature-timer"><div class="feature-timer-fill"></div></div>
             </div>
-            <div class="feature-item" data-img="feature-reporting.jpg">
+            <div class="feature-item" data-img="ss-compliance.png">
                 <div class="feature-item-top">
                     <div class="feature-item-icon">📄</div>
                     <h3>Compliance</h3>
@@ -446,7 +409,7 @@
                 <p>Stay on top of regulatory requirements with built-in compliance tracking and documentation tools.</p>
                 <div class="feature-timer"><div class="feature-timer-fill"></div></div>
             </div>
-            <div class="feature-item" data-img="feature-routes.jpg">
+            <div class="feature-item" data-img="ss-routes.png">
                 <div class="feature-item-top">
                     <div class="feature-item-icon">🚛</div>
                     <h3>Route Management</h3>
@@ -543,8 +506,9 @@
         const item = items[currentIndex];
         item.classList.add('active');
 
-        // Update mockup label
         if (mockupLabel) mockupLabel.textContent = item.querySelector('h3').textContent;
+        const featureImg = document.getElementById('featureImg');
+        if (featureImg && item.dataset.img) featureImg.src = item.dataset.img;
 
         // Animate timer bar
         const fill = item.querySelector('.feature-timer-fill');
