@@ -168,12 +168,12 @@ nav {
 }
 
 /* ── SECTION COMMON ── */
-.section { padding: 90px 48px; }
+.section { padding: 60px 48px; }
 .section.gray { background: var(--gray); }
 .section.dark { background: var(--hero-bg); }
 .section.navy { background: var(--navy); }
 
-.section-header { text-align: center; max-width: 680px; margin: 0 auto 56px; }
+.section-header { text-align: center; max-width: 680px; margin: 0 auto 36px; }
 
 .section-header h2 {
     font-family: 'Barlow', sans-serif;
@@ -191,7 +191,7 @@ nav {
 .section-header.white p { color: rgba(255,255,255,0.65); }
 
 /* ── FOOTER ── */
-footer { background: var(--navy); padding: 64px 48px 28px; }
+footer { background: var(--navy); padding: 44px 48px 24px; }
 
 .footer-top {
     display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
@@ -288,7 +288,7 @@ footer { background: var(--navy); padding: 64px 48px 28px; }
 .card p { color: var(--text-mid); line-height: 1.7; font-size: 0.97rem; }
 
 /* ── FEATURE ROW ── */
-.feature-row { display: flex; align-items: center; gap: 80px; padding: 90px 48px; }
+.feature-row { display: flex; align-items: center; gap: 80px; padding: 60px 48px; }
 .feature-row.alt { flex-direction: row-reverse; background: var(--gray); }
 .feature-row-content { flex: 1; }
 .feature-row-image { flex: 1; }
@@ -317,7 +317,7 @@ footer { background: var(--navy); padding: 64px 48px 28px; }
 .stat-item p { color: rgba(255,255,255,0.65); font-size: 1rem; font-weight: 500; line-height: 1.4; }
 
 /* ── TESTIMONIAL ── */
-.testimonial-block { background: var(--hero-bg); padding: 100px 48px; text-align: center; }
+.testimonial-block { background: var(--hero-bg); padding: 64px 48px; text-align: center; }
 .testimonial-block blockquote {
     font-family: 'Barlow', sans-serif;
     font-size: 1.8rem; font-weight: 700; color: white;
@@ -328,7 +328,7 @@ footer { background: var(--navy); padding: 64px 48px 28px; }
 .testimonial-author strong { color: var(--teal); }
 
 /* ── FINAL CTA BAND ── */
-.cta-band { padding: 100px 48px; text-align: center; background: var(--gray); }
+.cta-band { padding: 64px 48px; text-align: center; background: var(--gray); }
 .cta-band h2 {
     font-family: 'Barlow', sans-serif;
     font-size: 2.8rem; font-weight: 900; color: var(--text-dark);
