@@ -44,7 +44,7 @@
         .nav-right { display: flex; gap: 10px; align-items: center; }
         .btn-text { background: none; border: none; font-weight: 600; font-size: 0.93rem; cursor: pointer; padding: 8px 12px; border-radius: 6px; color: var(--text-mid); font-family: inherit; transition: background 0.15s; }
         .btn-text:hover { background: var(--gray); }
-        .btn-demo { background: var(--teal); color: #06201d; border: none; padding: 9px 22px; border-radius: 7px; font-weight: 800; font-size: 0.93rem; cursor: pointer; font-family: inherit; transition: background 0.2s; white-space: nowrap; }
+        .btn-demo { background: var(--teal); color: #fff; border: none; padding: 9px 22px; border-radius: 7px; font-weight: 800; font-size: 0.93rem; cursor: pointer; font-family: inherit; transition: background 0.2s; white-space: nowrap; }
         .btn-demo:hover { background: #00b09b; }
 
         /* ── HERO ── */
@@ -146,7 +146,7 @@
         .mockup-dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.15); }
         .mockup-label { font-size: 0.72rem; color: rgba(255,255,255,0.30); font-weight: 700; letter-spacing: 0.04em; flex: 1; }
         .mockup-badge { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(46,125,82,0.25); color: var(--teal); padding: 2px 8px; border-radius: 10px; border: 1px solid rgba(46,125,82,0.3); }
-        #featureImg { flex: 1; width: 100%; min-height: 0; object-fit: cover; object-position: top left; display: block; }
+        #featureImg { flex: 1; width: 100%; min-height: 0; object-fit: contain; object-position: top left; display: block; background: #fff; }
         .features-section .section-header h2 { color: #fff; }
         .features-section .feature-item h3 { color: rgba(255,255,255,0.80); }
         .features-section .feature-item p { color: rgba(255,255,255,0.45); }
@@ -209,16 +209,15 @@
         .demo-section p { font-size: 1.05rem; color: rgba(255,255,255,0.60); line-height: 1.75; max-width: 420px; margin: 0 auto 36px; position: relative; }
         .btn-demo-lg { display: inline-block; background: var(--teal); color: white; border: none; padding: 16px 42px; border-radius: 8px; font-weight: 800; font-size: 1rem; cursor: pointer; font-family: inherit; transition: background 0.2s; position: relative; }
         .btn-demo-lg:hover { background: #236040; }
-        .demo-note { margin-top: 16px; font-size: 0.84rem; color: rgba(255,255,255,0.30); position: relative; }
+        .demo-note { margin-top: 28px; font-size: 0.84rem; color: rgba(255,255,255,0.30); position: relative; }
 
         /* ── FOOTER ── */
         footer { background: var(--navy); padding: 44px 48px 24px; }
-        .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.07); gap: 48px; }
+        .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.07); }
         .footer-brand .logo { color: #fff; margin-bottom: 10px; }
         .footer-brand .logo em { color: var(--teal); }
         .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.35); line-height: 1.7; max-width: 230px; margin-bottom: 14px; }
         .footer-contact { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 2.1; }
-        .footer-cols { display: flex; gap: 48px; }
         .footer-col h4 { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 12px; }
         .footer-col ul { list-style: none; }
         .footer-col li { margin-bottom: 8px; }
@@ -255,7 +254,7 @@
             .integrations { padding: 48px 24px; }
             .demo-section { padding: 72px 24px; }
             footer { padding: 36px 24px 20px; }
-            .footer-inner { flex-direction: column; gap: 32px; }
+            .footer-top { grid-template-columns: 1fr; gap: 32px; }
             .footer-bottom { flex-direction: column; gap: 6px; text-align: center; }
         }
         @media (max-width: 560px) {
@@ -270,8 +269,7 @@
 <!-- NAV -->
 <nav>
     <a href="index.html" class="logo">
-        <div class="logo-icon">♻️</div>
-        my<em>WDMS</em>
+        <div class="logo-icon">♻️</div><span>my<em>WDMS</em></span>
     </a>
     <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
@@ -425,8 +423,7 @@
 <section class="integrations">
     <span class="integrations-label">Integrations</span>
     <div class="integrations-list">
-        <div class="integration-chip">💳 MyOnlineBill</div>
-        <div class="integration-chip">📊 QuickBooks</div>
+        <a href="https://www.myonlinebill.com" target="_blank" rel="noopener" class="integration-chip" style="text-decoration:none;">💳 MyOnlineBill</a>
     </div>
 </section>
 
@@ -435,44 +432,52 @@
     <h2>See it with your operation in mind</h2>
     <p>We'll walk you through the platform. No generic pitch, no pressure.</p>
     <a href="demo.html" class="btn-demo-lg" style="text-decoration:none">Book a Demo</a>
-    <p class="demo-note">Or reach us at hello@mywdms.com &nbsp;·&nbsp; (800) 000-0000</p>
+    <p class="demo-note">Or reach us at info@myWDMSportal.com &nbsp;·&nbsp; (949) 323-2188</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <div class="footer-inner">
+    <div class="footer-top">
         <div class="footer-brand">
-            <div class="logo" style="color:#fff">
-                <div class="logo-icon">♻️</div>
-                my<em>WDMS</em>
-            </div>
+            <a href="index.html" class="logo" style="color:#fff;text-decoration:none;">
+                <div class="logo-icon">♻️</div><span>my<em>WDMS</em></span>
+            </a>
             <p>Waste management software built by people who know the industry.</p>
             <div class="footer-contact">
-                <div>hello@mywdms.com</div>
-                <div>(800) 000-0000</div>
+                <div>info@myWDMSportal.com</div>
+                <div>(949) 323-2188</div>
             </div>
         </div>
-        <div class="footer-cols">
-            <div class="footer-col">
-                <h4>Product</h4>
-                <ul>
-                    <li><a href="features.html">Features</a></li>
-                    <li><a href="who-we-serve.html">Who We Serve</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>About Us</h4>
-                <ul>
-                    <li><a href="company.html">About Us</a></li>
-                    <li><a href="compliance.html">Security &amp; Compliance</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
+        <div class="footer-col">
+            <h4>Features</h4>
+            <ul>
+                <li><a href="features.html#accounts">Account Management</a></li>
+                <li><a href="features.html#billing">Lockbox &amp; Billing</a></li>
+                <li><a href="features.html#reporting">Logs &amp; Reporting</a></li>
+                <li><a href="features.html#access">Access Management</a></li>
+                <li><a href="features.html#routes">Route Management</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Who We Serve</h4>
+            <ul>
+                <li><a href="who-we-serve.html">Commercial</a></li>
+                <li><a href="who-we-serve.html">Residential</a></li>
+                <li><a href="who-we-serve.html">Roll-Off</a></li>
+                <li><a href="who-we-serve.html">Municipalities</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>About Us</h4>
+            <ul>
+                <li><a href="company.html">About Us</a></li>
+                <li><a href="compliance.html">Security &amp; Compliance</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
         </div>
     </div>
     <div class="footer-bottom">
         <span>© 2026 myWDMS</span>
-        <span>A myonlinebill product</span>
     </div>
 </footer>
 
