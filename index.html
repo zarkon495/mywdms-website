@@ -202,6 +202,19 @@
         .integration-chip { display: flex; align-items: center; gap: 8px; border: 1px solid var(--gray-mid); border-radius: 8px; padding: 10px 18px; font-size: 0.9rem; font-weight: 700; color: var(--text); background: var(--gray); }
         .chip-badge { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; background: #fef9c3; color: #854d0e; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
 
+        /* ── WHY SWITCH ── */
+        .why-switch { padding: 60px 48px; background: var(--gray); }
+        .why-switch .section-header { margin-bottom: 36px; }
+        .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+        .comparison-table th { padding: 12px 16px; text-align: left; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); border-bottom: 2px solid var(--gray-mid); }
+        .comparison-table td { padding: 14px 16px; border-bottom: 1px solid var(--gray); vertical-align: middle; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table .feature-name { font-weight: 700; color: var(--text); }
+        .comparison-table .check { color: var(--teal); font-weight: 900; font-size: 1.1rem; }
+        .comparison-table .cross { color: #dc2626; }
+        .col-highlight { background: rgba(46,125,82,0.07); }
+        .col-highlight th { color: var(--teal); }
+
         /* ── DEMO CTA ── */
         .demo-section { padding: 60px 48px; text-align: center; background: var(--navy-dark); position: relative; overflow: hidden; }
         .demo-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(46,125,82,0.22) 0%, transparent 70%); pointer-events: none; }
@@ -378,15 +391,15 @@
             <div class="feature-item" data-img="ss-billing.png">
                 <div class="feature-item-top">
                     <div class="feature-item-icon">💳</div>
-                    <h3>Billing & Payments</h3>
+                    <h3>Lockbox & Billing</h3>
                 </div>
                 <p>Generate invoices, accept payments, and reconcile accounts, including lockbox integration for check processing.</p>
                 <div class="feature-timer"><div class="feature-timer-fill"></div></div>
             </div>
             <div class="feature-item" data-img="ss-reporting.png">
                 <div class="feature-item-top">
-                    <div class="feature-item-icon">📋</div>
-                    <h3>Reporting & Logs</h3>
+                    <div class="feature-item-icon">📊</div>
+                    <h3>Logs & Reporting</h3>
                 </div>
                 <p>Real-time visibility into collections, service history, and audit logs across your whole operation.</p>
                 <div class="feature-timer"><div class="feature-timer-fill"></div></div>
@@ -397,14 +410,6 @@
                     <h3>Access Management</h3>
                 </div>
                 <p>Role-based permissions so each person on your team sees exactly what they need, and nothing more.</p>
-                <div class="feature-timer"><div class="feature-timer-fill"></div></div>
-            </div>
-            <div class="feature-item" data-img="ss-compliance.png">
-                <div class="feature-item-top">
-                    <div class="feature-item-icon">📄</div>
-                    <h3>Compliance</h3>
-                </div>
-                <p>Stay on top of regulatory requirements with built-in compliance tracking and documentation tools.</p>
                 <div class="feature-timer"><div class="feature-timer-fill"></div></div>
             </div>
             <div class="feature-item" data-img="ss-routes.png">
@@ -424,6 +429,34 @@
     <span class="integrations-label">Integrations</span>
     <div class="integrations-list">
         <a href="https://www.myonlinebill.com" target="_blank" rel="noopener" class="integration-chip" style="text-decoration:none;">💳 MyOnlineBill</a>
+    </div>
+</section>
+
+<!-- WHY SWITCH -->
+<section class="why-switch">
+    <div class="section-header">
+        <span class="section-eyebrow">Why Switch</span>
+        <h2>myWDMS vs. Your Current Software</h2>
+        <p>See exactly what you get when you move off outdated legacy systems onto a modern platform.</p>
+    </div>
+    <div style="max-width:860px;margin:0 auto;background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.07)">
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th style="width:40%">Capability</th>
+                    <th style="text-align:center">Legacy Software</th>
+                    <th style="text-align:center" class="col-highlight">myWDMS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="feature-name">No software installation required</td><td style="text-align:center" class="cross">✗</td><td style="text-align:center" class="col-highlight check">✓</td></tr>
+                <tr><td class="feature-name">Role-based access control</td><td style="text-align:center" class="cross">✗</td><td style="text-align:center" class="col-highlight check">✓</td></tr>
+                <tr><td class="feature-name">Integrated lockbox & billing</td><td style="text-align:center" class="cross">✗</td><td style="text-align:center" class="col-highlight check">✓</td></tr>
+                <tr><td class="feature-name">Full audit log & compliance reports</td><td style="text-align:center" class="cross">✗</td><td style="text-align:center" class="col-highlight check">✓</td></tr>
+                <tr><td class="feature-name">Mobile-friendly for drivers</td><td style="text-align:center" class="cross">✗</td><td style="text-align:center" class="col-highlight check">✓</td></tr>
+                <tr><td class="feature-name">Modern support & regular updates</td><td style="text-align:center" class="cross">✗</td><td style="text-align:center" class="col-highlight check">✓</td></tr>
+            </tbody>
+        </table>
     </div>
 </section>
 
@@ -472,7 +505,6 @@
             <ul>
                 <li><a href="company.html">About Us</a></li>
                 <li><a href="compliance.html">Security &amp; Compliance</a></li>
-                <li><a href="#">Privacy Policy</a></li>
             </ul>
         </div>
     </div>

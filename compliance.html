@@ -165,12 +165,11 @@
         .btn-cta:hover { background: var(--navy-dark); color: #fff; }
 
         footer { background: var(--navy); padding: 44px 48px 24px; }
-        .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.07); gap: 48px; }
+        .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.07); }
         .footer-brand .logo { color: #fff; margin-bottom: 10px; }
         .footer-brand .logo em { color: var(--teal); }
         .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.35); line-height: 1.7; max-width: 230px; margin-bottom: 14px; }
         .footer-contact { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 2.1; }
-        .footer-cols { display: flex; gap: 48px; }
         .footer-col h4 { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 12px; }
         .footer-col ul { list-style: none; }
         .footer-col li { margin-bottom: 8px; }
@@ -188,7 +187,7 @@
             .assurance-band { padding: 48px 24px; }
             .assurance-inner { grid-template-columns: 1fr; }
             footer { padding: 36px 24px 20px; }
-            .footer-inner { flex-direction: column; gap: 32px; }
+            .footer-top { grid-template-columns: 1fr; gap: 32px; }
         }
     </style>
 </head>
@@ -197,8 +196,7 @@
 <!-- NAV -->
 <nav>
     <a href="index.html" class="logo">
-        <div class="logo-icon">♻️</div>
-        my<em>WDMS</em>
+        <div class="logo-icon">♻️</div><span>my<em>WDMS</em></span>
     </a>
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -335,36 +333,42 @@
 
 <!-- FOOTER -->
 <footer>
-    <div class="footer-inner">
+    <div class="footer-top">
         <div class="footer-brand">
-            <div class="logo" style="color:#fff">
-                <div class="logo-icon">♻️</div>
-                my<em>WDMS</em>
-            </div>
+            <a href="index.html" class="logo" style="color:#fff;text-decoration:none;">
+                <div class="logo-icon">♻️</div><span>my<em>WDMS</em></span>
+            </a>
             <p>Waste management software built by people who know the industry.</p>
             <div class="footer-contact">
-                <div>230 Commerce, Suite 185</div>
-                <div>Irvine, CA 92602</div>
-                <div>hello@mywdms.com</div>
-                <div>(800) 000-0000</div>
+                <div>info@myWDMSportal.com</div>
+                <div>(949) 323-2188</div>
             </div>
         </div>
-        <div class="footer-cols">
-            <div class="footer-col">
-                <h4>Product</h4>
-                <ul>
-                    <li><a href="features.html">Features</a></li>
-                    <li><a href="who-we-serve.html">Who We Serve</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>About Us</h4>
-                <ul>
-                    <li><a href="company.html">About Us</a></li>
-                    <li><a href="compliance.html">Security &amp; Compliance</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
+        <div class="footer-col">
+            <h4>Features</h4>
+            <ul>
+                <li><a href="features.html#accounts">Account Management</a></li>
+                <li><a href="features.html#billing">Lockbox &amp; Billing</a></li>
+                <li><a href="features.html#reporting">Logs &amp; Reporting</a></li>
+                <li><a href="features.html#access">Access Management</a></li>
+                <li><a href="features.html#routes">Route Management</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Who We Serve</h4>
+            <ul>
+                <li><a href="who-we-serve.html">Commercial</a></li>
+                <li><a href="who-we-serve.html">Residential</a></li>
+                <li><a href="who-we-serve.html">Roll-Off</a></li>
+                <li><a href="who-we-serve.html">Municipalities</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>About Us</h4>
+            <ul>
+                <li><a href="company.html">About Us</a></li>
+                <li><a href="compliance.html">Security &amp; Compliance</a></li>
+            </ul>
         </div>
     </div>
     <div class="footer-bottom">© 2026 myWDMS</div>
