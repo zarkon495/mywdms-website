@@ -39,7 +39,7 @@ nav {
 }
 
 .logo {
-    font-family: 'Barlow', sans-serif;
+    font-family: system-ui, sans-serif;
     font-size: 1.35rem;
     font-weight: 900;
     color: var(--text-dark);
