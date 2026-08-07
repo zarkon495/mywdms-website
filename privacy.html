@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | myWDMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #3A3F47;
+            --navy-dark: #252A30;
+            --teal: #2E7D52;
+            --teal-light: rgba(46,125,82,0.12);
+            --gray: #F4F6F9;
+            --gray-mid: #e2e8f0;
+            --text: #0f172a;
+            --text-mid: #475569;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Barlow', system-ui, sans-serif; color: var(--text); background: #fff; }
+
+        /* NAV */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(255,255,255,0.97);
+            border-bottom: 1px solid var(--gray-mid);
+            padding: 0 48px; height: 68px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo { font-family: 'Barlow', sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--text); letter-spacing: -0.02em; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { font-size: 1.1rem; }
+        .logo em { color: var(--teal); font-style: normal; }
+        .nav-links { display: flex; gap: 2px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-mid); font-weight: 600; font-size: 0.93rem; padding: 6px 14px; border-radius: 6px; transition: background 0.15s, color 0.15s; }
+        .nav-links a:hover, .nav-links a.active { background: var(--gray); color: var(--text); }
+        .nav-right { display: flex; gap: 10px; align-items: center; }
+        .btn-demo { background: var(--teal); color: #fff; border: none; padding: 9px 22px; border-radius: 7px; font-weight: 800; font-size: 0.93rem; cursor: pointer; font-family: inherit; white-space: nowrap; }
+
+        /* HERO */
+        .page-hero {
+            background: var(--navy-dark);
+            padding: 56px 48px;
+            text-align: center;
+        }
+        .hero-eyebrow {
+            display: inline-block; font-size: 0.72rem; font-weight: 800;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--teal); background: rgba(46,125,82,0.15);
+            border: 1px solid rgba(46,125,82,0.25);
+            padding: 5px 12px; border-radius: 20px; margin-bottom: 20px;
+        }
+        .page-hero h1 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; color: #fff;
+            letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 14px;
+        }
+        .page-hero p {
+            font-size: 1rem; color: rgba(255,255,255,0.5); max-width: 560px; margin: 0 auto;
+        }
+
+        /* CONTENT */
+        .content-wrap { max-width: 860px; margin: 0 auto; padding: 60px 48px 80px; }
+
+        .policy-intro {
+            font-size: 1.05rem; color: var(--text-mid); line-height: 1.85;
+            border-left: 4px solid var(--teal);
+            padding-left: 24px; margin-bottom: 56px;
+        }
+
+        .policy-section { margin-bottom: 48px; }
+        .policy-section h2 {
+            font-size: 1.15rem; font-weight: 900; color: var(--text);
+            letter-spacing: -0.01em; margin-bottom: 14px;
+            padding-bottom: 12px; border-bottom: 1px solid var(--gray-mid);
+        }
+        .policy-section p {
+            font-size: 0.97rem; color: var(--text-mid); line-height: 1.85;
+            margin-bottom: 14px;
+        }
+        .policy-section p:last-child { margin-bottom: 0; }
+
+        .policy-contact-box {
+            background: var(--gray); border-radius: 10px;
+            padding: 24px 28px; margin-top: 16px;
+            border: 1px solid var(--gray-mid);
+            font-size: 0.95rem; color: var(--text-mid); line-height: 1.9;
+        }
+        .policy-contact-box strong { color: var(--text); }
+
+        .effective-note {
+            margin-top: 56px; padding-top: 24px;
+            border-top: 1px solid var(--gray-mid);
+            font-size: 0.85rem; color: var(--text-mid);
+        }
+
+        /* FOOTER */
+        footer { background: var(--navy); padding: 44px 48px 24px; }
+        .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+        .footer-brand .logo { color: #fff; margin-bottom: 10px; }
+        .footer-brand .logo em { color: var(--teal); }
+        .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.35); line-height: 1.7; max-width: 230px; margin-bottom: 14px; }
+        .footer-contact { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 2.1; }
+        .footer-col h4 { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 12px; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 8px; }
+        .footer-col a { font-size: 0.85rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--teal); }
+        .footer-bottom { padding-top: 18px; font-size: 0.75rem; color: rgba(255,255,255,0.2); }
+
+        @media (max-width: 900px) {
+            nav { padding: 0 24px; }
+            .nav-links, .nav-right { display: none; }
+            .page-hero { padding: 40px 24px; }
+            .content-wrap { padding: 40px 24px 60px; }
+            footer { padding: 36px 24px 20px; }
+            .footer-top { grid-template-columns: 1fr; gap: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="index.html" class="logo">
+        <span class="logo-icon">♻️</span><span>my<em>WDMS</em></span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="who-we-serve.html">Who We Serve</a></li>
+        <li><a href="company.html">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+        <a href="demo.html" class="btn-demo" style="text-decoration:none">Book a Demo</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="hero-eyebrow">Legal</div>
+    <h1>Privacy Policy</h1>
+    <p>How myWDMS collects, uses, and protects your information.</p>
+</section>
+
+<!-- CONTENT -->
+<div class="content-wrap">
+
+    <p class="policy-intro">We recognize and respect the privacy and preferences of our customers and other users of this Internet website (this "Site"). Please note that this Site may contain links to other websites and/or information provided by third parties. We are not responsible for the privacy practices or the content of any website not owned or operated by us or our affiliates.</p>
+
+    <div class="policy-section">
+        <h2>Agreement to This Policy</h2>
+        <p>Please read the following Privacy Policy carefully before registering on this Site or accessing any part of this Site. Your access of this Site constitutes your agreement with and acknowledgement of this Privacy Policy. If you do not agree with our Privacy Policy, please do not access this Site.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Information We Collect</h2>
+        <p>From time to time we develop mechanisms to enhance the user experience on this Site and to provide our users with greater choice related to information use and disclosure. In general, we gather information about our customers and other users while they are visiting this Site and when our customers and other users utilize our services. The collection of this information enables us to tailor our content to our customers and other users, to improve this Site, and to help better understand our customers, which assists us in improving our business and the services we offer.</p>
+        <p>At this Site we collect and store information required to conduct business transactions requested by our customers and to properly conduct communications with our customers. Such information may include personally identifiable information. Personally identifiable information is information that tells us specifics about you, such as name, address, IP address, email address, phone number, credit card number, bank account number and other similar information. Except as described below, we will not divulge personally identifiable information about you to any third party unless you give us express consent to do so. We may share non-identifying aggregated demographic information with our affiliates, partners and advertisers. However, we will not correlate this information with specific data about individual users. We may also track user traffic patterns throughout this Site.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>How We Use Your Information</h2>
+        <p>In the event that you provide us or we otherwise collect detailed personally identifiable information, we will act in a responsible manner with respect to that information and in accordance with applicable laws. We will use the personally identifiable information to respond to your requests and to provide you with requested information.</p>
+        <p>Subject to applicable law, we may share information with our affiliates and with third parties when they perform services for us, including marketing services, or with whom we have marketing agreements, or if you ask for information about products and services offered by a third party. These third parties are either bound to comply with our privacy policy or have privacy policies that protect your information and are also subject to applicable laws in regard to the use and disclosure of such personally identifiable information. We and/or our affiliates may maintain information that you chose to provide to contact you, from time to time, regarding our or their products and/or services and/or for use in our or their aggregate statistics.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Payment Information</h2>
+        <p>If you are using this Site to access our electronic payment system, we may need for you to provide us with certain financial information so that we may effect the payment transaction. As part of our payment system, we will collect, store and use non-public personally identifiable information, such as your name, address, credit card number, bank routing number and bank account number, your account number with us and your email address. In addition, the payment system will also collect information regarding the actual bill payment transaction, including the date and amount paid. We will store and protect this information in the same manner we store and protect other personal information.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Disclosure of Information</h2>
+        <p>We may also store and disclose personal information as allowed or required by applicable law, including making disclosures that are necessary or advisable in good faith to: (i) protect our or others' rights (including without limitation, intellectual property rights), safety or property; (ii) comply with legal or regulatory requirements; (iii) complete transactions you authorize (for example, to an outside service provider that operates the electronic payment system for us); (iv) verify the existence and condition of your account for a third party, such as a credit bureau; and (v) maintain and operate this Site.</p>
+        <p>Without your express approval, however, we will not trade, sell or rent your personal information. However, as we develop our business, we may buy or sell assets or stock and, depending upon the transaction, your personal information may be one of the transferred assets. In the event that we are acquired by another company, your personal information may be part of the assets transferred to the acquiring party.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Your Profile</h2>
+        <p>Any personally identifiable information we may collect about you is saved in a profile that is kept on our server. The profile includes your contact information and billing information. You can help us maintain the accuracy of your profile by updating the information in your profile when you change your address, phone number or email address. If you wish to update your contact or billing information, you can do so when you log in to your myWDMS account. Otherwise, you can let us know of any changes to your information by contacting us at the information listed at the bottom of this page.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Children</h2>
+        <p>We have no intention of collecting any personal data from individuals that we actually know are under 18 years of age. This Site is not directed to children under the age of 18 and no part of this Site is intentionally structured to attract anyone under age 18.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Cookies</h2>
+        <p>A "cookie" is a piece of data stored on the user's hard drive that contains information about the user. When a customer or user fills out a form online, the contents of the form may be saved in a cookie on their hard drive. The next time the customer or user needs the information, it is automatically populated from the cookie. We may also use the information to contact customers and other users in connection with their requests.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>SMS Terms of Service</h2>
+        <p>Mobile phone numbers are collected to provide account authentication and security services, including multi-factor authentication (MFA) and password reset verification. By providing a user's mobile phone number, the organization confirms it has obtained the user's consent to receive SMS messages from myWDMS for these purposes. Authentication messages are sent only when the user initiates a login or password reset. No marketing or promotional SMS messages are sent. Message frequency varies based on account activity.</p>
+        <p>Message and data rates may apply. Reply HELP for assistance. Reply STOP to opt out. Opting out of SMS messages will prevent the user from receiving SMS authentication codes until SMS messaging is re-enabled by the organization's administrator.</p>
+        <p>Mobile phone numbers are not sold or shared with third parties for marketing purposes.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Security</h2>
+        <p>We use commercially reasonable physical, electronic and procedural safeguards to protect the security, integrity and privacy of information under our control. These security measures include IP address validation, SSL (secure socket layer) encryption and password protection. Although we will exercise reasonable care in providing secure transmission of information between your computer and our servers, due to the inherent insecurity of the Internet, we cannot ensure or warrant the security, integrity or privacy of any information or data transmitted to us over the Internet and we accept no liability for any breach of security or any unintentional disclosure, loss or misuse of any such information or data or for the actions of any third parties that may obtain any such information or data.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Governing Law</h2>
+        <p>The internal laws of the State of California, without reference to any choice of law provisions, shall govern any claims relating to the materials on this Site.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Severability</h2>
+        <p>If any term of this Agreement is declared unlawful, void or for any reason unenforceable by any court in any jurisdiction, then such term will be deemed severable from the remaining terms in such jurisdiction and will not affect the validity and enforceability of such remaining terms.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Revisions</h2>
+        <p>We may revise the foregoing Privacy Policy at any time, and all customers and other users will be bound by such revisions. Revisions will be posted on this Privacy Policy page and customers and other users are responsible to review the page from time to time to ensure compliance. The most current Privacy Policy will apply to all information and data collected on this Site, no matter what version of the Privacy Policy was in effect when the information or data was collected.</p>
+    </div>
+
+    <div class="policy-section">
+        <h2>Contacting Us</h2>
+        <p>If you have any questions about the foregoing Privacy Policy, please contact us:</p>
+        <div class="policy-contact-box">
+            <strong>myWDMS</strong><br>
+            Email: <a href="mailto:info@myWDMSportal.com" style="color:var(--teal);">info@myWDMSportal.com</a><br>
+            Phone: (949) 323-2188
+        </div>
+    </div>
+
+    <div class="effective-note">
+        <strong>Effective Date:</strong> August 1, 2026
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-top">
+        <div class="footer-brand">
+            <a href="index.html" class="logo" style="color:#fff;text-decoration:none;">
+                <span class="logo-icon">♻️</span><span>my<em>WDMS</em></span>
+            </a>
+            <p>Waste management software built by people who know the industry.</p>
+            <div class="footer-contact">
+                <div>info@myWDMSportal.com</div>
+                <div>(949) 323-2188</div>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Features</h4>
+            <ul>
+                <li><a href="features.html#accounts">Account Management</a></li>
+                <li><a href="features.html#billing">Lockbox &amp; Billing</a></li>
+                <li><a href="features.html#reporting">Logs &amp; Reporting</a></li>
+                <li><a href="features.html#access">Access Management</a></li>
+                <li><a href="features.html#routes">Route Management</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Who We Serve</h4>
+            <ul>
+                <li><a href="who-we-serve.html">Commercial</a></li>
+                <li><a href="who-we-serve.html">Residential</a></li>
+                <li><a href="who-we-serve.html">Roll-Off</a></li>
+                <li><a href="who-we-serve.html">Municipalities</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>About Us</h4>
+            <ul>
+                <li><a href="company.html">About Us</a></li>
+                <li><a href="compliance.html">Security &amp; Compliance</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2026 myWDMS</div>
+</footer>
+
+</body>
+</html>
