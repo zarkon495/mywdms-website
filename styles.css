@@ -51,11 +51,7 @@ nav {
 }
 
 .logo-icon {
-    width: 32px; height: 32px;
-    background: var(--navy);
-    border-radius: 7px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
 }
 
 .logo span { color: var(--teal); }
