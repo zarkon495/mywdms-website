@@ -36,6 +36,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     height: 68px;
+    font-family: system-ui, sans-serif;
 }
 
 .logo {
