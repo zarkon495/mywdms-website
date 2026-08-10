@@ -103,11 +103,28 @@
             transition: background 0.2s;
         }
         .btn-submit:hover { background: #245f3f; }
+        .btn-submit:disabled { background: #6aab88; cursor: not-allowed; }
 
         .form-note {
             text-align: center; margin-top: 16px;
             font-size: 0.85rem; color: var(--text-mid);
         }
+        .field-error { font-size: 0.8rem; color: #c0392b; margin-top: 4px; display: block; }
+        .form-success {
+            display: none; text-align: center;
+            padding: 40px 24px; background: rgba(46,125,82,0.07);
+            border: 1px solid rgba(46,125,82,0.2); border-radius: 12px;
+            margin-bottom: 24px;
+        }
+        .form-success.visible { display: block; }
+        .form-success h3 { font-size: 1.2rem; font-weight: 800; color: var(--teal); margin-bottom: 8px; }
+        .form-success p { font-size: 0.95rem; color: var(--text-mid); }
+        .form-error-banner {
+            display: none; padding: 12px 16px; background: #fdf0ef;
+            border: 1px solid #e8b4b0; border-radius: 8px;
+            font-size: 0.88rem; color: #922; margin-bottom: 16px;
+        }
+        .form-error-banner.visible { display: block; }
 
         /* ── FOOTER ── */
         footer { background: var(--navy); padding: 44px 48px 24px; }
@@ -161,38 +178,50 @@
 </section>
 
 <!-- FORM -->
-<!-- Formspree: replace YOUR_FORM_ID below with your ID from formspree.io -->
 <div class="form-section">
-    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 
-        <!-- Required by Formspree to route to your inbox -->
+    <div class="form-success" id="formSuccess">
+        <h3>Request received!</h3>
+        <p>We'll be in touch within one business day to schedule your walkthrough.</p>
+    </div>
+
+    <div class="form-error-banner" id="formErrorBanner">
+        Something went wrong. Please try again or email us at info@myWDMSportal.com.
+    </div>
+
+    <form id="demo-form" action="https://formspree.io/f/mrpzpvnp" method="POST">
+
         <input type="hidden" name="_replyto" value="tyler.lenning@myonlinebill.com">
         <input type="hidden" name="_subject" value="New Demo Request | myWDMS">
 
         <div class="form-grid">
             <div class="form-group">
                 <label for="first_name">First Name</label>
-                <input type="text" id="first_name" name="first_name" placeholder="John" required>
+                <input type="text" id="first_name" name="first_name" placeholder="John" required data-fs-field>
+                <span class="field-error" data-fs-error="first_name"></span>
             </div>
             <div class="form-group">
                 <label for="last_name">Last Name</label>
-                <input type="text" id="last_name" name="last_name" placeholder="Smith" required>
+                <input type="text" id="last_name" name="last_name" placeholder="Smith" required data-fs-field>
+                <span class="field-error" data-fs-error="last_name"></span>
             </div>
             <div class="form-group">
                 <label for="email">Work Email</label>
-                <input type="email" id="email" name="email" placeholder="john@company.com" required>
+                <input type="email" id="email" name="email" placeholder="john@company.com" required data-fs-field>
+                <span class="field-error" data-fs-error="email"></span>
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="(800) 000-0000">
+                <input type="tel" id="phone" name="phone" placeholder="(800) 000-0000" data-fs-field>
             </div>
             <div class="form-group">
                 <label for="company">Company Name</label>
-                <input type="text" id="company" name="company" placeholder="Acme Waste Solutions" required>
+                <input type="text" id="company" name="company" placeholder="Acme Waste Solutions" required data-fs-field>
+                <span class="field-error" data-fs-error="company"></span>
             </div>
             <div class="form-group">
                 <label for="segment">Type of Operation</label>
-                <select id="segment" name="segment" required>
+                <select id="segment" name="segment" required data-fs-field>
                     <option value="" disabled selected>Select one</option>
                     <option value="commercial">Commercial Hauler</option>
                     <option value="residential">Residential Services</option>
@@ -200,42 +229,57 @@
                     <option value="municipal">Municipality / Public Works</option>
                     <option value="other">Other</option>
                 </select>
+                <span class="field-error" data-fs-error="segment"></span>
             </div>
             <div class="form-group">
                 <label for="trucks">Number of Trucks</label>
-                <select id="trucks" name="trucks" required>
+                <select id="trucks" name="trucks" required data-fs-field>
                     <option value="" disabled selected>Select one</option>
                     <option value="1-5">1 to 5</option>
                     <option value="6-20">6 to 20</option>
                     <option value="21-50">21 to 50</option>
                     <option value="51+">51+</option>
                 </select>
+                <span class="field-error" data-fs-error="trucks"></span>
             </div>
             <div class="form-group full">
                 <label for="message">Anything you'd like us to know?</label>
-                <textarea id="message" name="message" placeholder="Tell us about your current setup, pain points, or what you're hoping to get out of myWDMS."></textarea>
+                <textarea id="message" name="message" placeholder="Tell us about your current setup, pain points, or what you're hoping to get out of myWDMS." data-fs-field></textarea>
             </div>
         </div>
 
-        <button type="submit" class="btn-submit">Request a Demo</button>
+        <button type="submit" class="btn-submit" data-fs-submit-btn>Request a Demo</button>
         <p class="form-note">We'll follow up within one business day.</p>
     </form>
 </div>
+
+<script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', {
+        formElement: '#demo-form',
+        formId: 'mrpzpvnp',
+        onSuccess: function () {
+            document.getElementById('demo-form').style.display = 'none';
+            document.getElementById('formSuccess').classList.add('visible');
+        },
+        onError: function () {
+            document.getElementById('formErrorBanner').classList.add('visible');
+        }
+    });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 <!-- FOOTER -->
 <footer>
     <div class="footer-inner">
         <div class="footer-brand">
-            <div class="logo" style="color:#fff">
-                <div class="logo-icon">♻️</div>
-                my<em>WDMS</em>
-            </div>
+            <a href="index.html" class="logo" style="color:#fff;text-decoration:none;">
+                <span class="logo-icon">♻️</span><span>my<em>WDMS</em></span>
+            </a>
             <p>Waste management software built by people who know the industry.</p>
             <div class="footer-contact">
-                <div>230 Commerce, Suite 185</div>
-                <div>Irvine, CA 92602</div>
-                <div>hello@mywdms.com</div>
-                <div>(800) 000-0000</div>
+                <div>info@myWDMSportal.com</div>
+                <div>(949) 323-2188</div>
             </div>
         </div>
         <div class="footer-cols">
