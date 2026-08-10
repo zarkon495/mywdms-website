@@ -31,14 +31,7 @@
             display: flex; align-items: center; justify-content: space-between;
             font-family: system-ui, sans-serif;
         }
-        .logo {
-            font-family: system-ui, sans-serif;
-            font-size: 1.35rem; font-weight: 900; color: var(--text);
-            text-decoration: none;
-            display: flex; align-items: center; gap: 8px;
-        }
-        .logo-icon { font-size: 1.1rem; }
-        .logo em { color: var(--teal); font-style: normal; }
+        .logo { text-decoration: none; display: inline-flex; align-items: center; }
         .nav-links { display: flex; gap: 2px; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--text-mid); font-weight: 600; font-size: 0.93rem; padding: 6px 14px; border-radius: 6px; transition: background 0.15s, color 0.15s; }
         .nav-links a:hover { background: var(--gray); color: var(--text); }
@@ -228,8 +221,7 @@
         /* ── FOOTER ── */
         footer { background: var(--navy); padding: 44px 48px 24px; }
         .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.07); }
-        .footer-brand .logo { color: #fff; margin-bottom: 10px; }
-        .footer-brand .logo em { color: var(--teal); }
+        .footer-brand .logo { margin-bottom: 10px; }
         .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.35); line-height: 1.7; max-width: 230px; margin-bottom: 14px; }
         .footer-contact { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 2.1; }
         .footer-col h4 { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 12px; }
@@ -283,7 +275,7 @@
 <!-- NAV -->
 <nav>
     <a href="index.html" class="logo">
-        <span class="logo-icon">♻️</span><span>my<em>WDMS</em></span>
+        <img src="logo-clean.svg" alt="myWDMS" height="28">
     </a>
     <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
@@ -435,7 +427,7 @@
                 <tr>
                     <th style="width:40%">Capability</th>
                     <th style="text-align:center">Legacy Software</th>
-                    <th style="text-align:center;text-transform:none;" class="col-highlight"><span style="display:inline-flex;align-items:center;gap:8px;font-family:system-ui,sans-serif;font-size:1.35rem;font-weight:900;color:var(--text);"><span style="font-size:1.1rem;">♻️</span><span>my<em style="color:var(--teal);font-style:normal;">WDMS</em></span></span></th>
+                    <th style="text-align:center;text-transform:none;" class="col-highlight"><img src="logo-clean.svg" alt="myWDMS" height="22"></th>
                 </tr>
             </thead>
             <tbody>
@@ -462,8 +454,8 @@
 <footer>
     <div class="footer-top">
         <div class="footer-brand">
-            <a href="index.html" class="logo" style="color:#fff;text-decoration:none;">
-                <span class="logo-icon">♻️</span><span>my<em>WDMS</em></span>
+            <a href="index.html" class="logo" style="text-decoration:none;">
+                <img src="logo-dark.svg" alt="myWDMS" height="28">
             </a>
             <p>Waste management software built by people who know the industry.</p>
             <div class="footer-contact">
