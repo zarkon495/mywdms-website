@@ -23,6 +23,7 @@
 
         .feature-section {
             display: flex; align-items: center; gap: 80px; padding: 60px 48px;
+            scroll-margin-top: 115px;
         }
         .feature-section.alt { flex-direction: row-reverse; background: var(--gray); }
         .feature-content { flex: 1; }
@@ -411,7 +412,7 @@
         });
     }
     function onScroll() {
-        var scrollY = window.scrollY + 120;
+        var scrollY = window.scrollY + 115;
         var current = sections[0];
         sections.forEach(function(id) {
             var el = document.getElementById(id);

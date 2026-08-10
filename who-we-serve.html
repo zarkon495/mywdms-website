@@ -25,6 +25,7 @@
         .segment-hero {
             padding: 90px 48px;
             display: flex; align-items: center; gap: 80px;
+            scroll-margin-top: 135px;
         }
         .segment-hero.alt { flex-direction: row-reverse; background: var(--gray); }
         .segment-hero-content { flex: 1; }
@@ -281,5 +282,28 @@
     <div class="footer-bottom"><span>© 2026 myWDMS</span></div>
 </footer>
 
+
+<script>
+(function() {
+    var sections = ['commercial','residential','rolloff','municipal'];
+    var tabLinks = document.querySelectorAll('.segment-tabs a');
+    function setActive(id) {
+        tabLinks.forEach(function(a) {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+        });
+    }
+    function onScroll() {
+        var scrollY = window.scrollY + 135;
+        var current = sections[0];
+        sections.forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el && el.offsetTop <= scrollY) current = id;
+        });
+        setActive(current);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+})();
+</script>
 </body>
 </html>
