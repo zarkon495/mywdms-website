@@ -82,30 +82,9 @@
             border-bottom: 1px solid var(--gray-mid);
             margin-bottom: 40px;
         }
-        .cards-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-        }
-        .about-card {
-            background: var(--gray); border-radius: 10px; padding: 36px 28px;
-            border: 1px solid var(--gray-mid); text-align: center;
-            display: flex; flex-direction: column; align-items: center; gap: 16px;
-            transition: background 0.22s, border-color 0.22s, box-shadow 0.22s;
-            cursor: default;
-        }
-        .about-card:hover {
-            background: var(--teal); border-color: var(--teal);
-            box-shadow: 0 8px 32px rgba(46,125,82,0.25);
-        }
-        .about-card-icon {
-            width: 48px; height: 48px; color: var(--teal);
-            display: flex; align-items: center; justify-content: center;
-            transition: color 0.22s;
-        }
-        .about-card:hover .about-card-icon { color: #fff; }
-        .about-card h3 { font-size: 1rem; font-weight: 800; color: var(--text); transition: color 0.22s; }
-        .about-card:hover h3 { color: #fff; }
-        .about-card p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; transition: color 0.22s; }
-        .about-card:hover p { color: rgba(255,255,255,0.82); }
+        .about-text p { font-size: 1.05rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 28px; }
+        .about-text p:last-child { margin-bottom: 0; }
+        .about-subheading { font-size: 1.3rem; font-weight: 800; color: var(--text); padding-bottom: 16px; border-bottom: 1px solid var(--gray-mid); margin: 56px 0 40px; }
 
         /* ── GET STARTED ── */
         .get-started { background: var(--teal); padding: 52px 48px; }
@@ -133,7 +112,6 @@
             nav { padding: 0 24px; }
             .nav-links, .nav-right { display: none; }
             .about-section { padding: 48px 24px; }
-            .cards-grid { grid-template-columns: 1fr; }
             footer { padding: 36px 24px 20px; }
             .footer-top { grid-template-columns: 1fr; gap: 32px; }
         }
@@ -171,28 +149,18 @@
 <!-- ABOUT -->
 <div class="about-section">
     <h2 class="section-heading">About Us</h2>
-    <div class="cards-grid">
-        <a href="demo.html" class="about-card" style="text-decoration:none;color:inherit;">
-            <div class="about-card-icon">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3>Who We Are</h3>
-            <p>Waste management software built by people who know the industry, designed for haulers and municipalities across the United States.</p>
-        </a>
-        <a href="demo.html" class="about-card" style="text-decoration:none;color:inherit;">
-            <div class="about-card-icon">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <h3>Contact Us</h3>
-            <p>Our team works directly with every customer during onboarding and beyond. We respond promptly and bring real knowledge of both the platform and the industry.</p>
-        </a>
-        <a href="compliance.html" class="about-card" style="text-decoration:none;color:inherit;">
-            <div class="about-card-icon">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-            </div>
-            <h3>Security & Compliance</h3>
-            <p>myWDMS is PCI DSS Level 1 Compliant, the highest level of certification available. Learn more about how we keep your data secure.</p>
-        </a>
+    <div class="about-text">
+        <p>myWDMS is headquartered in Irvine, California and was built to provide comprehensive waste management software solutions to private and public organizations throughout the United States.</p>
+        <p>We efficiently and securely process billing and payment transactions nationwide on behalf of our valued customers. Our team has decades of combined experience within billing, accounting, information technology, and payment processing.</p>
+        <p>The myWDMS platform is powerful and robust, while offering the flexibility needed to make it your own. With a team focused on seamless integration and superior customer service, myWDMS makes waste management simple, integrating route management, billing, and accounts receivable with banking, finance, and accounting.</p>
+        <p>We build partnerships with our customers, from municipalities to commercial haulers to roll-off operators and everything in between, to deliver a better experience for their teams and the customers they serve.</p>
+    </div>
+
+    <h3 class="about-subheading">Getting Started with myWDMS</h3>
+    <div class="about-text">
+        <p>Switching software is a big decision, and we take the transition seriously. Our onboarding process is hands-on from day one. A dedicated team member works directly with your operation to configure the system, migrate your existing data, and train your staff, so no one is left figuring it out on their own.</p>
+        <p>Most customers are up and running within a few weeks. The timeline depends on the size of your operation and how much historical data needs to be migrated, but we scope that out with you upfront so there are no surprises. We do not hand you a manual and walk away.</p>
+        <p>After go-live, our support team remains accessible. You will work with people who know the platform and understand waste management operations, not a generic help desk. Updates and improvements are rolled out regularly, and your feedback directly shapes what we build next.</p>
     </div>
 </div>
 
