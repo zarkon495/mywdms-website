@@ -28,16 +28,17 @@
             border-bottom: 1px solid var(--gray-mid);
             padding: 0 48px; height: 68px;
             display: flex; align-items: center; justify-content: space-between;
+            font-family: system-ui, sans-serif;
         }
-        .logo { font-family: 'Barlow', sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--text); letter-spacing: -0.02em; text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .logo-icon { width: 32px; height: 32px; background: var(--navy); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+        .logo { font-family: system-ui, sans-serif; font-size: 1.35rem; font-weight: 900; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { font-size: 1.1rem; }
         .logo em { color: var(--teal); font-style: normal; }
         .nav-links { display: flex; gap: 2px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-mid); font-weight: 600; font-size: 0.93rem; padding: 6px 14px; border-radius: 6px; transition: background 0.15s, color 0.15s; }
-        .nav-links a:hover { background: var(--gray); color: var(--text); }
+        .nav-links a { text-decoration: none; color: var(--text-mid); font-weight: 600; font-size: 0.93rem; padding: 6px 14px; border-radius: 6px; transition: background 0.15s, color 0.15s; font-family: system-ui, sans-serif; }
+        .nav-links a:hover, .nav-links a.active { background: var(--gray); color: var(--text); }
         .nav-right { display: flex; gap: 10px; align-items: center; }
-        .btn-text { background: none; border: none; font-weight: 600; font-size: 0.93rem; cursor: pointer; padding: 8px 12px; border-radius: 6px; color: var(--text-mid); font-family: inherit; }
-        .btn-nav-demo { background: var(--teal); color: #fff; border: none; padding: 9px 22px; border-radius: 7px; font-weight: 800; font-size: 0.93rem; cursor: pointer; font-family: inherit; white-space: nowrap; }
+        .btn-demo { background: var(--teal); color: #fff; border: none; padding: 9px 22px; border-radius: 7px; font-weight: 800; font-size: 0.93rem; cursor: pointer; font-family: system-ui, sans-serif; white-space: nowrap; transition: background 0.2s; text-decoration: none; display: inline-block; }
+        .btn-demo:hover { background: #1A5436; }
 
         /* ── HERO ── */
         .page-hero {
@@ -139,8 +140,7 @@
 <!-- NAV -->
 <nav>
     <a href="index.html" class="logo">
-        <div class="logo-icon">♻️</div>
-        my<em>WDMS</em>
+        <span class="logo-icon">♻️</span><span>my<em>WDMS</em></span>
     </a>
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -149,8 +149,7 @@
         <li><a href="company.html">About Us</a></li>
     </ul>
     <div class="nav-right">
-        <button class="btn-text">Sign In</button>
-        <button class="btn-nav-demo">Book a Demo</button>
+        <a href="demo.html" class="btn-demo">Book a Demo</a>
     </div>
 </nav>
 
