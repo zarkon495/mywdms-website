@@ -233,6 +233,16 @@
         .footer-col a:hover { color: var(--teal); }
         .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; font-size: 0.75rem; color: rgba(255,255,255,0.2); }
 
+        /* ── SKIP LINK ── */
+        .skip-link {
+            position: absolute; left: 8px; top: -48px;
+            background: var(--teal); color: white; text-decoration: none;
+            font-family: system-ui, sans-serif; font-weight: 700; font-size: 0.9rem;
+            padding: 10px 18px; border-radius: 6px; z-index: 1000;
+            transition: top 0.15s;
+        }
+        .skip-link:focus { top: 8px; }
+
         /* ── MOBILE ── */
         .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
         .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.25s; }
@@ -274,6 +284,8 @@
 </head>
 <body>
 
+<a href="#main" class="skip-link">Skip to content</a>
+
 <!-- NAV -->
 <nav>
     <a href="index.html" class="logo">
@@ -301,6 +313,7 @@
     <a href="demo.html" class="btn-demo" style="text-decoration:none">Book a Demo</a>
 </div>
 
+<main id="main">
 <!-- HERO -->
 <section class="hero">
     <div class="hero-bg"></div>
@@ -363,8 +376,8 @@
             </div>
             <img id="featureImg" src="ss-accounts.png" alt="Account Management">
         </div>
-        <div class="feature-list" id="featureList">
-            <div class="feature-item active" data-img="ss-accounts.png">
+        <div class="feature-list" id="featureList" role="tablist">
+            <div class="feature-item active" data-img="ss-accounts.png" role="tab" tabindex="0" aria-selected="true">
                 <div class="feature-item-top">
                     <div class="feature-item-icon">🏢</div>
                     <h3>Account Management</h3>
@@ -372,7 +385,7 @@
                 <p>Customer accounts, service agreements, and contact history, organized and accessible for your whole team.</p>
                 <div class="feature-timer"><div class="feature-timer-fill"></div></div>
             </div>
-            <div class="feature-item" data-img="ss-billing.png">
+            <div class="feature-item" data-img="ss-billing.png" role="tab" tabindex="-1" aria-selected="false">
                 <div class="feature-item-top">
                     <div class="feature-item-icon">💳</div>
                     <h3>Lockbox & Billing</h3>
@@ -380,7 +393,7 @@
                 <p>Generate invoices, accept payments, and reconcile accounts, including lockbox integration for check processing.</p>
                 <div class="feature-timer"><div class="feature-timer-fill"></div></div>
             </div>
-            <div class="feature-item" data-img="ss-reporting.png">
+            <div class="feature-item" data-img="ss-reporting.png" role="tab" tabindex="-1" aria-selected="false">
                 <div class="feature-item-top">
                     <div class="feature-item-icon">📊</div>
                     <h3>Logs & Reporting</h3>
@@ -388,7 +401,7 @@
                 <p>Real-time visibility into collections, service history, and audit logs across your whole operation.</p>
                 <div class="feature-timer"><div class="feature-timer-fill"></div></div>
             </div>
-            <div class="feature-item" data-img="ss-access.png">
+            <div class="feature-item" data-img="ss-access.png" role="tab" tabindex="-1" aria-selected="false">
                 <div class="feature-item-top">
                     <div class="feature-item-icon">🔐</div>
                     <h3>Access Management</h3>
@@ -396,7 +409,7 @@
                 <p>Role-based permissions so each person on your team sees exactly what they need, and nothing more.</p>
                 <div class="feature-timer"><div class="feature-timer-fill"></div></div>
             </div>
-            <div class="feature-item" data-img="ss-routes.png">
+            <div class="feature-item" data-img="ss-routes.png" role="tab" tabindex="-1" aria-selected="false">
                 <div class="feature-item-top">
                     <div class="feature-item-icon">🚛</div>
                     <h3>Route Management</h3>
@@ -451,6 +464,7 @@
     <a href="demo.html" class="btn-demo-lg" style="text-decoration:none">Book a Demo</a>
     <p class="demo-note">Or reach us at info@myWDMSportal.com &nbsp;·&nbsp; (949) 323-2188</p>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -520,6 +534,8 @@
 
     function activate(index, fromClick) {
         items[currentIndex].classList.remove('active');
+        items[currentIndex].setAttribute('aria-selected', 'false');
+        items[currentIndex].setAttribute('tabindex', '-1');
         const prevFill = items[currentIndex].querySelector('.feature-timer-fill');
         prevFill.style.transition = 'none';
         prevFill.style.width = '0%';
@@ -528,6 +544,9 @@
         currentIndex = index;
         const item = items[currentIndex];
         item.classList.add('active');
+        item.setAttribute('aria-selected', 'true');
+        item.setAttribute('tabindex', '0');
+        if (fromClick) item.focus();
 
         if (mockupLabel) mockupLabel.textContent = item.querySelector('h3').textContent;
         const featureImg = document.getElementById('featureImg');
@@ -559,6 +578,18 @@
 
     items.forEach((item, i) => {
         item.addEventListener('click', () => activate(i, true));
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                activate(i, true);
+            } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                activate((i + 1) % items.length, true);
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                activate((i - 1 + items.length) % items.length, true);
+            }
+        });
     });
 
     // Start on first item

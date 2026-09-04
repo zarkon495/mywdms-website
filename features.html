@@ -156,9 +156,17 @@
             color: white; margin-bottom: 6px;
         }
         .overview-item p { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+        @media (max-width: 900px) {
+            .overview-banner { grid-template-columns: repeat(2, 1fr); padding: 24px; gap: 1px; }
+            .feature-nav { padding: 0 16px; overflow-x: auto; justify-content: flex-start; top: 68px; }
+            .feature-section, .feature-section.alt { flex-direction: column; gap: 32px; padding: 48px 24px; }
+        }
     </style>
 </head>
 <body>
+
+<a href="#main" class="skip-link">Skip to content</a>
 
 <!-- NAV -->
 <nav>
@@ -174,9 +182,21 @@
     <div class="nav-right">
         <a href="demo.html" class="btn-demo" style="text-decoration:none">Book a Demo</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
 </nav>
 
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="who-we-serve.html">Who We Serve</a>
+    <a href="company.html">About Us</a>
+    <a href="demo.html" class="btn-demo" style="text-decoration:none">Book a Demo</a>
+</div>
+
 <!-- PAGE HERO -->
+<main id="main">
 <section class="page-hero">
     <span class="eyebrow">Platform Features</span>
     <h1>Everything You Need to Run Your <span>Waste Operation</span></h1>
@@ -354,6 +374,7 @@
     <p>Book a personalized demo and we'll walk you through every feature, live.</p>
     <a href="demo.html" class="btn-primary">Book a Demo</a>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -402,6 +423,15 @@
     </div>
 </footer>
 
+<script>
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', function () {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+</script>
 <script>
 (function() {
     var sections = ['accounts','billing','reporting','access','routes'];

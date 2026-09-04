@@ -320,3 +320,46 @@ footer { background: var(--navy); padding: 44px 48px 24px; }
 .cta-band.dark { background: var(--navy); }
 .cta-band.dark h2 { color: white; }
 .cta-band.dark p { color: rgba(255,255,255,0.6); }
+
+/* ── SKIP LINK ── */
+.skip-link {
+    position: absolute; left: 8px; top: -48px;
+    background: var(--blue-cta); color: white; text-decoration: none;
+    font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 0.9rem;
+    padding: 10px 18px; border-radius: 6px; z-index: 1000;
+    transition: top 0.15s;
+}
+.skip-link:focus { top: 8px; }
+
+/* ── MOBILE NAV ── */
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--text-dark); border-radius: 2px; transition: all 0.25s; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: #fff; z-index: 99; padding: 20px 24px 40px; flex-direction: column; gap: 2px; overflow-y: auto; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { text-decoration: none; font-weight: 700; font-size: 1.1rem; color: var(--text-dark); padding: 13px 14px; border-radius: 8px; transition: background 0.15s; }
+.mobile-menu a:hover { background: var(--gray); }
+.mobile-menu hr { border: none; border-top: 1px solid var(--gray-mid); margin: 10px 0; }
+.mobile-menu .btn-demo { margin-top: 6px; padding: 15px; border-radius: 10px; font-size: 1rem; display: block; text-align: center; width: 100%; }
+
+@media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links, .nav-right, .nav-ctas { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu .btn-demo { width: auto; }
+
+    .page-hero { padding: 56px 24px 48px; }
+    .page-hero h1 { font-size: clamp(1.8rem, 6vw, 2.6rem); }
+
+    .section, .cta-band, .feature-row, .feature-row.alt, .testimonial-block, .stats-bar { padding: 48px 24px; }
+    .feature-row, .feature-row.alt { flex-direction: column; gap: 32px; }
+
+    .card-grid-2, .card-grid-3, .card-grid-4 { grid-template-columns: 1fr; }
+
+    .stats-bar { flex-direction: column; gap: 24px; }
+
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    footer { padding: 36px 24px 20px; }
+}

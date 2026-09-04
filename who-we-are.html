@@ -105,9 +105,32 @@
         .footer-col a:hover { color: var(--teal); }
         .footer-bottom { padding-top: 18px; font-size: 0.75rem; color: rgba(255,255,255,0.2); }
 
+        /* ── SKIP LINK ── */
+        .skip-link {
+            position: absolute; left: 8px; top: -48px;
+            background: var(--teal); color: white; text-decoration: none;
+            font-family: system-ui, sans-serif; font-weight: 700; font-size: 0.9rem;
+            padding: 10px 18px; border-radius: 6px; z-index: 1000;
+            transition: top 0.15s;
+        }
+        .skip-link:focus { top: 8px; }
+
+        /* ── MOBILE NAV ── */
+        .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+        .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.25s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .mobile-menu { display: none; position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: #fff; z-index: 99; padding: 20px 24px 40px; flex-direction: column; gap: 2px; overflow-y: auto; }
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a { text-decoration: none; font-weight: 700; font-size: 1.1rem; color: var(--text); padding: 13px 14px; border-radius: 8px; transition: background 0.15s; }
+        .mobile-menu a:hover { background: var(--gray); }
+        .mobile-menu .btn-demo { margin-top: 6px; padding: 15px; border-radius: 10px; font-size: 1rem; display: block; text-align: center; width: 100%; }
+
         @media (max-width: 900px) {
             nav { padding: 0 24px; }
             .nav-links, .nav-right { display: none; }
+            .hamburger { display: flex; }
             .page-hero { padding: 48px 24px; }
             .content-section { padding: 48px 24px 60px; }
             .cta-band { padding: 44px 24px; }
@@ -117,6 +140,8 @@
     </style>
 </head>
 <body>
+
+<a href="#main" class="skip-link">Skip to content</a>
 
 <!-- NAV -->
 <nav>
@@ -132,7 +157,18 @@
     <div class="nav-right">
         <a href="demo.html" class="btn-demo">Book a Demo</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="who-we-serve.html">Who We Serve</a>
+    <a href="company.html">About Us</a>
+    <a href="demo.html" class="btn-demo" style="text-decoration:none">Book a Demo</a>
+</div>
 
 <!-- HERO -->
 <section class="page-hero">
@@ -142,6 +178,7 @@
     </div>
 </section>
 
+<main id="main">
 <!-- CONTENT -->
 <div class="content-section">
 
@@ -158,6 +195,7 @@
     <p>We build real partnerships with every customer we work with, from municipalities to commercial haulers to roll-off operators. Because our team has spent decades in this industry, we understand the challenges your dispatchers, billing staff, and drivers face every day. That experience shapes everything we build and every conversation we have.</p>
 
 </div>
+</main>
 
 <!-- CTA -->
 <section class="cta-band">
@@ -209,6 +247,16 @@
     </div>
     <div class="footer-bottom">© 2026 myWDMS</div>
 </footer>
+
+<script>
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', function () {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+</script>
 
 </body>
 </html>

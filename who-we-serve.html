@@ -135,9 +135,20 @@
         }
         .quote-card .quote-author { font-size: 0.88rem; color: var(--text-mid); font-weight: 600; }
         .quote-card .quote-author strong { color: var(--text-dark); }
+
+        @media (max-width: 900px) {
+            .segment-tabs { overflow-x: auto; justify-content: flex-start; }
+            .segment-tabs a { padding: 16px 20px; white-space: nowrap; }
+            .segment-hero, .segment-hero.alt { flex-direction: column; gap: 32px; padding: 56px 24px; }
+            .segment-hero-content, .segment-hero-content[style] { flex: none !important; }
+            .divider-band { padding: 40px 24px; }
+            .mini-stat { padding: 0 16px; }
+        }
     </style>
 </head>
 <body>
+
+<a href="#main" class="skip-link">Skip to content</a>
 
 <!-- NAV -->
 <nav>
@@ -153,9 +164,21 @@
     <div class="nav-right">
         <a href="demo.html" class="btn-demo" style="text-decoration:none">Book a Demo</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
 </nav>
 
+<div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="who-we-serve.html">Who We Serve</a>
+    <a href="company.html">About Us</a>
+    <a href="demo.html" class="btn-demo" style="text-decoration:none">Book a Demo</a>
+</div>
+
 <!-- PAGE HERO -->
+<main id="main">
 <section class="page-hero">
     <span class="eyebrow">Who We Serve</span>
     <h1>Built for the <span>Entire Waste Industry</span></h1>
@@ -263,6 +286,7 @@
     <p>Book a demo tailored to your specific segment: commercial, residential, roll-off, or municipal.</p>
     <a href="demo.html" class="btn-primary">Book a Demo</a>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -283,6 +307,15 @@
 </footer>
 
 
+<script>
+    var hamburger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', function () {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+</script>
 <script>
 (function() {
     var sections = ['commercial','residential','rolloff','municipal'];
