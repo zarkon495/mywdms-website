@@ -83,11 +83,12 @@
             font-size: 0.97rem; color: var(--text);
             background: var(--gray); border: 1.5px solid var(--gray-mid);
             border-radius: 8px; padding: 12px 14px;
-            transition: border-color 0.15s, background 0.15s;
+            transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
             outline: none; width: 100%;
         }
         input:focus, select:focus, textarea:focus {
             border-color: var(--teal); background: #fff;
+            box-shadow: 0 0 0 3px rgba(46,125,82,0.25);
         }
         textarea { resize: vertical; min-height: 120px; }
         select { appearance: none; cursor: pointer; }
