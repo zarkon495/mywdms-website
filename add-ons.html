@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | myWDMS</title>
+    <title>Add-Ons | myWDMS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
     <style>
@@ -41,79 +41,69 @@
 
         /* ── HERO ── */
         .page-hero {
-            position: relative; min-height: 420px;
-            display: flex; align-items: center; justify-content: center;
-            overflow: hidden;
+            background: var(--navy-dark);
+            padding: 64px 48px 56px;
+            text-align: center;
         }
-        .page-hero-bg {
-            position: absolute; inset: 0;
-            background: url('company-hero.jpg') center / cover no-repeat;
+        .hero-eyebrow {
+            display: inline-block; font-size: 0.72rem; font-weight: 800;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--teal); background: rgba(46,125,82,0.15);
+            border: 1px solid rgba(46,125,82,0.25);
+            padding: 5px 12px; border-radius: 20px; margin-bottom: 20px;
         }
-        .page-hero-bg::after {
-            content: ''; position: absolute; inset: 0;
-            background: rgba(10,16,30,0.55);
+        .page-hero h1 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900; color: #fff;
+            letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 14px;
         }
-        .page-hero-brand {
-            position: relative; z-index: 1;
-            display: flex; flex-direction: column; align-items: center; gap: 16px;
-            background: rgba(0,0,0,0.45);
-            padding: 28px 48px; border-radius: 14px;
-            backdrop-filter: blur(4px);
-        }
-        .page-hero-logo {
-            display: flex; align-items: center; gap: 12px;
-            font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 900; color: #fff;
-            letter-spacing: -0.03em;
-        }
-        .page-hero-logo em { color: var(--teal); font-style: normal; }
-        .page-hero-tagline {
-            position: relative; z-index: 1;
-            font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em;
-            text-transform: uppercase; color: rgba(255,255,255,0.55);
+        .page-hero p {
+            font-size: 1.05rem; color: rgba(255,255,255,0.6); max-width: 620px; margin: 0 auto;
+            line-height: 1.75;
         }
 
-        /* ── ABOUT SECTION ── */
-        .about-section { padding: 72px 48px; max-width: 1100px; margin: 0 auto; }
-        .section-heading {
-            font-size: 1.3rem; font-weight: 800; color: var(--text);
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--gray-mid);
-            margin-bottom: 40px;
-        }
-        .cards-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-        }
-        .about-card {
-            background: var(--gray); border-radius: 10px; padding: 36px 28px;
-            border: 1px solid var(--gray-mid); text-align: center;
-            display: flex; flex-direction: column; align-items: center; gap: 16px;
-        }
-        .about-card.linkable {
-            transition: background 0.22s, border-color 0.22s, box-shadow 0.22s;
-            cursor: pointer;
-        }
-        .about-card.linkable:hover {
-            background: var(--teal); border-color: var(--teal);
-            box-shadow: 0 8px 32px rgba(46,125,82,0.25);
-        }
-        .about-card-icon {
-            width: 48px; height: 48px; color: var(--teal);
-            display: flex; align-items: center; justify-content: center;
-            transition: color 0.22s;
-        }
-        .about-card.linkable:hover .about-card-icon { color: #fff; }
-        .about-card h3 { font-size: 1rem; font-weight: 800; color: var(--text); transition: color 0.22s; }
-        .about-card.linkable:hover h3 { color: #fff; }
-        .about-card p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; transition: color 0.22s; }
-        .about-card.linkable:hover p { color: rgba(255,255,255,0.82); }
+        /* ── CONTENT ── */
+        .content-section { max-width: 1100px; margin: 0 auto; padding: 56px 48px 24px; }
 
-        /* ── GET STARTED ── */
-        .get-started { background: var(--teal); padding: 52px 48px; }
-        .get-started-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
-        .get-started h2 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 900; color: #fff; letter-spacing: -0.02em; margin-bottom: 6px; }
-        .get-started p { font-size: 1rem; color: rgba(255,255,255,0.72); }
-        .btn-get-started { background: #fff; color: var(--teal); border: none; padding: 14px 36px; border-radius: 8px; font-weight: 800; font-size: 1rem; cursor: pointer; font-family: inherit; white-space: nowrap; transition: background 0.2s, color 0.2s; flex-shrink: 0; }
-        .btn-get-started:hover { background: var(--navy-dark); color: #fff; }
+        .addons-intro {
+            font-size: 1.05rem; color: var(--text-mid); line-height: 1.8;
+            border-left: 4px solid var(--teal);
+            padding-left: 24px; margin-bottom: 48px; max-width: 780px;
+        }
+
+        .addon-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+            padding-bottom: 56px;
+        }
+        .addon-card {
+            background: var(--gray); border: 1px solid var(--gray-mid);
+            border-radius: 12px; padding: 28px 24px;
+            transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .addon-card:hover {
+            background: #fff; border-color: var(--teal); transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(46,125,82,0.12);
+        }
+        .addon-icon {
+            width: 44px; height: 44px; border-radius: 10px;
+            background: var(--teal-light); border: 1px solid rgba(46,125,82,0.2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; margin-bottom: 16px;
+        }
+        .addon-card h3 { font-size: 1.02rem; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+        .addon-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.65; }
+        .addon-badge {
+            display: inline-block; margin-top: 14px;
+            font-size: 0.65rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--teal); background: rgba(46,125,82,0.12);
+            padding: 3px 10px; border-radius: 20px;
+        }
+
+        /* ── CTA BAND ── */
+        .cta-band { background: var(--teal); padding: 52px 48px; text-align: center; }
+        .cta-band h2 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 900; color: #fff; letter-spacing: -0.02em; margin-bottom: 8px; }
+        .cta-band p { font-size: 1rem; color: rgba(255,255,255,0.72); margin-bottom: 28px; }
+        .btn-cta { display: inline-block; background: #fff; color: var(--teal); padding: 14px 36px; border-radius: 8px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: background 0.2s, color 0.2s; }
+        .btn-cta:hover { background: var(--navy-dark); color: #fff; }
 
         /* ── FOOTER ── */
         footer { background: var(--navy); padding: 44px 48px 24px; }
@@ -156,10 +146,14 @@
             nav { padding: 0 24px; }
             .nav-links, .nav-right { display: none; }
             .hamburger { display: flex; }
-            .about-section { padding: 48px 24px; }
-            .cards-grid { grid-template-columns: 1fr; }
+            .page-hero { padding: 48px 24px; }
+            .content-section { padding: 48px 24px 24px; }
+            .addon-grid { grid-template-columns: repeat(2, 1fr); }
             footer { padding: 36px 24px 20px; }
             .footer-top { grid-template-columns: 1fr; gap: 32px; }
+        }
+        @media (max-width: 560px) {
+            .addon-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -175,9 +169,9 @@
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="features.html">Features</a></li>
-        <li><a href="add-ons.html">Add-Ons</a></li>
+        <li><a href="add-ons.html" class="active">Add-Ons</a></li>
         <li><a href="who-we-serve.html">Who We Serve</a></li>
-        <li><a href="company.html" class="active">About Us</a></li>
+        <li><a href="company.html">About Us</a></li>
     </ul>
     <div class="nav-right">
         <a href="demo.html" class="btn-demo" style="text-decoration:none">Book a Demo</a>
@@ -198,55 +192,77 @@
 
 <!-- HERO -->
 <section class="page-hero">
-    <div class="page-hero-bg"></div>
-    <div class="page-hero-brand">
-        <div class="page-hero-logo">
-            <img src="logo-dark.svg" alt="myWDMS" height="44">
-        </div>
-        <div class="page-hero-tagline">About Us</div>
-    </div>
+    <span class="hero-eyebrow">Add-Ons</span>
+    <h1>Extend myWDMS with the Add-Ons You Need</h1>
+    <p>The core platform covers account access, billing, rates, and reporting out of the box. These optional add-ons go further, so you only pay for what your operation actually uses.</p>
 </section>
 
 <main id="main">
-<!-- ABOUT -->
-<div class="about-section">
-    <h2 class="section-heading">About Us</h2>
-    <div class="cards-grid">
-        <a href="who-we-are.html" class="about-card linkable" style="text-decoration:none;color:inherit;">
-            <div class="about-card-icon">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3>Who We Are</h3>
-            <p>myWDMS is headquartered in Irvine, California. Built by people who know the waste industry, we serve haulers, municipalities, and roll-off operators across the United States.</p>
-        </a>
-        <a href="demo.html" class="about-card linkable" style="text-decoration:none;color:inherit;">
-            <div class="about-card-icon">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <h3>Contact Us</h3>
-            <p>Our team works directly with every customer during onboarding and beyond. We respond promptly and bring real knowledge of both the platform and the industry.</p>
-        </a>
-        <a href="compliance.html" class="about-card linkable" style="text-decoration:none;color:inherit;">
-            <div class="about-card-icon">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-            </div>
-            <h3>Security &amp; Compliance</h3>
-            <p>myWDMS is PCI DSS Level 1 Compliant, the highest level of certification available. Learn more about how we keep your data secure.</p>
-        </a>
-    </div>
-</div>
+<!-- CONTENT -->
+<div class="content-section">
 
-<!-- GET STARTED BANNER -->
-<section class="get-started">
-    <div class="get-started-inner">
-        <div>
-            <h2>Ready to modernize your operation?</h2>
-            <p>See how myWDMS fits your workflow. No commitment required.</p>
+    <p class="addons-intro">Every add-on below plugs directly into your myWDMS account. Start with the core platform and add what you need, when you need it, no separate systems to manage.</p>
+
+    <div class="addon-grid">
+        <div class="addon-card">
+            <div class="addon-icon">🏦</div>
+            <h3>Lockbox</h3>
+            <p>Automated processing of mailed-in check payments. Checks are captured, deposited, and reconciled directly to the right customer account, no manual data entry required.</p>
+            <span class="addon-badge">Add-On</span>
         </div>
-        <a href="demo.html" class="btn-get-started" style="text-decoration:none">Book a Demo</a>
+        <div class="addon-card">
+            <div class="addon-icon">📧</div>
+            <h3>eBilling</h3>
+            <p>Paperless invoicing and statements delivered straight to your customers' email. Faster delivery, lower printing costs, and a full digital record of every bill sent.</p>
+            <span class="addon-badge">Add-On</span>
+        </div>
+        <div class="addon-card">
+            <div class="addon-icon">⚡</div>
+            <h3>Quick Pay</h3>
+            <p>A guest checkout link customers can use to pay a bill in seconds, no account or login required. Great for one-time payments and fewer calls to your billing team.</p>
+            <span class="addon-badge">Add-On</span>
+        </div>
+        <div class="addon-card">
+            <div class="addon-icon">💬</div>
+            <h3>Pay by Text</h3>
+            <p>Send payment reminders and secure pay links straight to your customers' phones. Customers can view their balance and pay in a few taps.</p>
+            <span class="addon-badge">Add-On</span>
+        </div>
+        <div class="addon-card">
+            <div class="addon-icon">📞</div>
+            <h3>IVR Payments</h3>
+            <p>An automated phone payment line so customers can pay their balance anytime, day or night, without tying up your staff.</p>
+            <span class="addon-badge">Add-On</span>
+        </div>
+        <div class="addon-card">
+            <div class="addon-icon">📅</div>
+            <h3>Payment Plans</h3>
+            <p>Let customers split a balance into scheduled installments instead of one lump sum, automatically tracked and billed through the platform.</p>
+            <span class="addon-badge">Add-On</span>
+        </div>
+        <div class="addon-card">
+            <div class="addon-icon">✉️</div>
+            <h3>Print &amp; Mail</h3>
+            <p>We print and mail physical invoices, statements, and written notices to your customers on your behalf, so your team never has to run to the post office.</p>
+            <span class="addon-badge">Add-On</span>
+        </div>
+        <div class="addon-card">
+            <div class="addon-icon">🗺️</div>
+            <h3>Routing</h3>
+            <p>Assign, optimize, and track service routes for every truck in your fleet, with real-time visibility into stops, drivers, and progress.</p>
+            <span class="addon-badge">Add-On</span>
+        </div>
     </div>
-</section>
+
+</div>
 </main>
+
+<!-- CTA -->
+<section class="cta-band">
+    <h2>Not sure which add-ons fit your operation?</h2>
+    <p>Book a demo and we'll walk through what makes sense for your team.</p>
+    <a href="demo.html" class="btn-cta">Book a Demo</a>
+</section>
 
 <!-- FOOTER -->
 <footer>
