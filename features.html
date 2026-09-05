@@ -126,7 +126,8 @@
         .ss-dots { display: flex; gap: 5px; }
         .ss-dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.18); }
         .ss-label { font-size: 0.7rem; color: rgba(255,255,255,0.28); font-weight: 600; letter-spacing: 0.04em; }
-        .ss-frame img { width: 100%; display: block; }
+        .ss-frame { aspect-ratio: 16 / 9; display: flex; flex-direction: column; }
+        .ss-frame img { flex: 1; min-height: 0; width: 100%; display: block; object-fit: cover; object-position: left top; }
 
         .integrations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
         .integration-card {
