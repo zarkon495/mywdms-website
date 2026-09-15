@@ -115,6 +115,16 @@
         .market-card h3 { font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 8px; }
         .market-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; }
 
+        /* ── PLATFORM DIAGRAM ── */
+        .platform-section { padding: 60px 48px 70px; background: var(--navy-dark); }
+        .platform-section .section-header h2 { color: #fff; }
+        .platform-section .section-header p { color: rgba(255,255,255,0.55); }
+        .platform-diagram-wrap { max-width: 736px; margin: 40px auto 0; }
+        .platform-diagram-wrap svg { width: 100%; height: auto; max-width: 736px; display: block; margin: 0 auto; }
+        .platform-diagram-wrap a { cursor: pointer; }
+        .platform-diagram-wrap a:hover path[fill="#2E7D52"] { fill: #35935f; }
+        .platform-diagram-wrap a:hover circle { stroke-width: 3.5; }
+
         /* ── FEATURE SHOWCASE (Curbwaste style) ── */
         .features-section { padding: 60px 48px; background: var(--navy-dark); }
         .features-inner {
@@ -360,6 +370,66 @@
             <h3>Municipalities</h3>
             <p>Give public works teams a modern system built for compliance and accountability.</p>
         </div>
+    </div>
+</section>
+
+<!-- PLATFORM DIAGRAM -->
+<section class="platform-section">
+    <div class="section-header">
+        <span class="section-eyebrow">Platform Overview</span>
+        <h2>myWDMS: A Billing, Customer, and Service Management Platform</h2>
+        <p>At its core, myWDMS handles account access, billing, rates, and reporting, all in the same portal. Every piece below is an optional add-on, priced separately, so you only pay for what you need.</p>
+    </div>
+    <div class="platform-diagram-wrap">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 736 360" width="736" height="360" role="img" aria-label="myWDMS platform diagram: a core platform surrounded by eight optional add-ons">
+        <g transform="translate(10 10)">
+        <a xlink:href="add-ons.html#lockbox" href="add-ons.html#lockbox" aria-label="Lockbox">
+        <path d="M 356.0 112.0 L 356.0 88.0 A 8 8 0 0 1 356.0 72.0 L 356.0 48.0 A 122 122 0 0 1 442.3 83.7 L 425.3 100.7 A 8 8 0 0 0 414.0 112.0 L 397.0 129.0 A 58 58 0 0 0 356.0 112.0 Z" fill="#2E7D52" stroke="#8FE3B8" stroke-width="1.4"/>
+        <g transform="translate(382.4 72.2) scale(0.8333)" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="12" rx="1.5"/><path d="M4 9.5h16"/></g>
+        <text x="415.7" y="21.2" text-anchor="start" font-family="Barlow, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Lockbox</text><text x="415.7" y="36.8" text-anchor="start" font-family="Barlow, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#8FE3B8">Add-on</text>
+        </a>
+        <a xlink:href="add-ons.html#ebilling" href="add-ons.html#ebilling" aria-label="eBilling">
+        <path d="M 397.0 129.0 L 414.0 112.0 A 8 8 0 0 1 425.3 100.7 L 442.3 83.7 A 122 122 0 0 1 478.0 170.0 L 454.0 170.0 A 8 8 0 0 0 438.0 170.0 L 414.0 170.0 A 58 58 0 0 0 397.0 129.0 Z" fill="#2E7D52" stroke="#8FE3B8" stroke-width="1.4"/>
+        <g transform="translate(433.8 123.6) scale(0.8333)" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 19h6M12 16v3"/></g>
+        <text x="500.1" y="105.6" text-anchor="start" font-family="Barlow, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff">eBilling</text><text x="500.1" y="121.2" text-anchor="start" font-family="Barlow, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#8FE3B8">Add-on</text>
+        </a>
+        <a xlink:href="add-ons.html#quick-pay" href="add-ons.html#quick-pay" aria-label="Quick Pay">
+        <path d="M 414.0 170.0 L 438.0 170.0 A 8 8 0 0 1 454.0 170.0 L 478.0 170.0 A 122 122 0 0 1 442.3 256.3 L 425.3 239.3 A 8 8 0 0 0 414.0 228.0 L 397.0 211.0 A 58 58 0 0 0 414.0 170.0 Z" fill="#2E7D52" stroke="#8FE3B8" stroke-width="1.4"/>
+        <g transform="translate(433.8 196.4) scale(0.8333)" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4.5 13h5.8L9.5 22 19 9.5h-6L12 2z"/></g>
+        <text x="500.1" y="225.0" text-anchor="start" font-family="Barlow, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Quick Pay</text><text x="500.1" y="240.6" text-anchor="start" font-family="Barlow, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#8FE3B8">Add-on</text>
+        </a>
+        <a xlink:href="add-ons.html#pay-by-text" href="add-ons.html#pay-by-text" aria-label="Pay by Text">
+        <path d="M 397.0 211.0 L 414.0 228.0 A 8 8 0 0 1 425.3 239.3 L 442.3 256.3 A 122 122 0 0 1 356.0 292.0 L 356.0 268.0 A 8 8 0 0 0 356.0 252.0 L 356.0 228.0 A 58 58 0 0 0 397.0 211.0 Z" fill="#2E7D52" stroke="#8FE3B8" stroke-width="1.4"/>
+        <g transform="translate(382.4 247.8) scale(0.8333)" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M8 9.5h8M8 13h5"/></g>
+        <text x="415.7" y="309.4" text-anchor="start" font-family="Barlow, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Pay by Text</text><text x="415.7" y="325.0" text-anchor="start" font-family="Barlow, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#8FE3B8">Add-on</text>
+        </a>
+        <a xlink:href="add-ons.html#ivr-payments" href="add-ons.html#ivr-payments" aria-label="IVR Payments">
+        <path d="M 356.0 228.0 L 356.0 252.0 A 8 8 0 0 1 356.0 268.0 L 356.0 292.0 A 122 122 0 0 1 269.7 256.3 L 286.7 239.3 A 8 8 0 0 0 298.0 228.0 L 315.0 211.0 A 58 58 0 0 0 356.0 228.0 Z" fill="#2E7D52" stroke="#8FE3B8" stroke-width="1.4"/>
+        <g transform="translate(309.6 247.8) scale(0.8333)" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 16.7v2.6a1.7 1.7 0 0 1-1.9 1.7 16.6 16.6 0 0 1-7.2-2.6 16.3 16.3 0 0 1-5-5 16.6 16.6 0 0 1-2.6-7.3A1.7 1.7 0 0 1 5.5 3.7h2.6a1.7 1.7 0 0 1 1.7 1.5c.1.8.3 1.6.6 2.4a1.7 1.7 0 0 1-.4 1.8L8.6 10.8a13.4 13.4 0 0 0 5 5l1.4-1.4a1.7 1.7 0 0 1 1.8-.4c.8.3 1.6.5 2.4.6a1.7 1.7 0 0 1 1.5 1.8z"/></g>
+        <text x="296.3" y="309.4" text-anchor="end" font-family="Barlow, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff">IVR Payments</text><text x="296.3" y="325.0" text-anchor="end" font-family="Barlow, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#8FE3B8">Add-on</text>
+        </a>
+        <a xlink:href="add-ons.html#payment-plans" href="add-ons.html#payment-plans" aria-label="Payment Plans">
+        <path d="M 315.0 211.0 L 298.0 228.0 A 8 8 0 0 1 286.7 239.3 L 269.7 256.3 A 122 122 0 0 1 234.0 170.0 L 258.0 170.0 A 8 8 0 0 0 274.0 170.0 L 298.0 170.0 A 58 58 0 0 0 315.0 211.0 Z" fill="#2E7D52" stroke="#8FE3B8" stroke-width="1.4"/>
+        <g transform="translate(258.2 196.4) scale(0.8333)" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="1.5"/><path d="M8 3v4M16 3v4M4 10h16"/></g>
+        <text x="211.9" y="225.0" text-anchor="end" font-family="Barlow, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Payment Plans</text><text x="211.9" y="240.6" text-anchor="end" font-family="Barlow, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#8FE3B8">Add-on</text>
+        </a>
+        <a xlink:href="add-ons.html#print-mail" href="add-ons.html#print-mail" aria-label="Print &amp; Mail">
+        <path d="M 298.0 170.0 L 274.0 170.0 A 8 8 0 0 1 258.0 170.0 L 234.0 170.0 A 122 122 0 0 1 269.7 83.7 L 286.7 100.7 A 8 8 0 0 0 298.0 112.0 L 315.0 129.0 A 58 58 0 0 0 298.0 170.0 Z" fill="#2E7D52" stroke="#8FE3B8" stroke-width="1.4"/>
+        <g transform="translate(258.2 123.6) scale(0.8333)" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="12" rx="1.5"/><path d="M4 7.5l8 5.5 8-5.5"/></g>
+        <text x="211.9" y="105.6" text-anchor="end" font-family="Barlow, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Print &amp; Mail</text><text x="211.9" y="121.2" text-anchor="end" font-family="Barlow, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#8FE3B8">Add-on</text>
+        </a>
+        <a xlink:href="add-ons.html#routing" href="add-ons.html#routing" aria-label="Routing">
+        <path d="M 315.0 129.0 L 298.0 112.0 A 8 8 0 0 1 286.7 100.7 L 269.7 83.7 A 122 122 0 0 1 356.0 48.0 L 356.0 72.0 A 8 8 0 0 0 356.0 88.0 L 356.0 112.0 A 58 58 0 0 0 315.0 129.0 Z" fill="#2E7D52" stroke="#8FE3B8" stroke-width="1.4"/>
+        <g transform="translate(309.6 72.2) scale(0.8333)" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6.5-6.5 6.5-11A6.5 6.5 0 105.5 10c0 4.5 6.5 11 6.5 11z"/><circle cx="12" cy="9.3" r="2.3"/></g>
+        <text x="296.3" y="21.2" text-anchor="end" font-family="Barlow, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff">Routing</text><text x="296.3" y="36.8" text-anchor="end" font-family="Barlow, Arial, sans-serif" font-size="12.5" font-weight="500" fill="#8FE3B8">Add-on</text>
+        </a>
+        <a xlink:href="features.html" href="features.html" aria-label="myWDMS Core Platform">
+        <circle cx="356" cy="170" r="59" fill="#12161B" stroke="#8FE3B8" stroke-width="2.5"/>
+        <text x="356" y="161.2" text-anchor="middle" font-family="Barlow, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="0.2" fill="#8FE3B8">myWDMS</text>
+        <text x="356" y="186.4" text-anchor="middle" font-family="Barlow, Arial, sans-serif" font-size="13" font-weight="500" fill="#ffffff">Core Platform</text>
+        </a>
+        </g>
+        </svg>
     </div>
 </section>
 
